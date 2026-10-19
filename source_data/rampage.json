@@ -1,0 +1,919 @@
+{
+  "skills": [
+    {
+      "id": "rampage_brutal_strike",
+      "shortId": 259,
+      "name": "Brutal Strike",
+      "description": "Has a chance to increase damage with a negative affinity attack.",
+      "icon": "rampage_skill/color7.png"
+    },
+    {
+      "id": "rampage_element_exploit",
+      "shortId": 260,
+      "name": "Element Exploit",
+      "description": "Slightly increases damage when exploiting a foe's elemental weakness.",
+      "icon": "rampage_skill/color10.png"
+    },
+    {
+      "id": "rampage_defense_grinder_i",
+      "shortId": 261,
+      "name": "Defense Grinder I",
+      "description": "Sharpness is unaffected when guarding.",
+      "icon": "rampage_skill/color2.png"
+    },
+    {
+      "id": "rampage_defense_grinder_ii",
+      "shortId": 262,
+      "name": "Defense Grinder II",
+      "description": "Sharpness is slightly restored when guarding.",
+      "icon": "rampage_skill/color2.png"
+    },
+    {
+      "id": "rampage_hellion_mode",
+      "shortId": 263,
+      "name": "Hellion Mode",
+      "description": "Attacking in Demon Mode increases affinity but also doubles sharpness degradation.",
+      "icon": "rampage_skill/color9.png"
+    },
+    {
+      "id": "rampage_maximum_volume",
+      "shortId": 264,
+      "name": "Maximum Volume",
+      "description": "Increases a performance's range of effect once it is activated.",
+      "icon": "rampage_skill/color5.png"
+    },
+    {
+      "id": "rampage_phial_switch_boost",
+      "shortId": 265,
+      "name": "Phial Switch Boost",
+      "description": "Grants special effects to phials when executing morph attacks.",
+      "icon": "rampage_skill/color11.png"
+    },
+    {
+      "id": "rampage_lasting_arc_shot",
+      "shortId": 266,
+      "name": "Lasting Arc Shot",
+      "description": "Prolongs the bow's arc shot effect.",
+      "icon": "rampage_skill/color8.png"
+    },
+    {
+      "id": "rampage_wyvern_exploit",
+      "shortId": 268,
+      "name": "Wyvern Exploit",
+      "description": "Increases damage to Bird, Flying, Brute, Piscine, and Fanged Wyverns, as well as Leviathans.",
+      "icon": "rampage_skill/color9.png"
+    },
+    {
+      "id": "rampage_anti_aerial_species",
+      "shortId": 269,
+      "name": "Anti-Aerial Species",
+      "description": "Increases damage to flying monsters.",
+      "icon": "rampage_skill/color1.png"
+    },
+    {
+      "id": "rampage_anti_aquatic_species",
+      "shortId": 270,
+      "name": "Anti-Aquatic Species",
+      "description": "Increases damage to aquatic monsters.",
+      "icon": "rampage_skill/color11.png"
+    },
+    {
+      "id": "rampage_small_monster_exploit",
+      "shortId": 271,
+      "name": "Small Monster Exploit",
+      "description": "Increases damage to small monsters.",
+      "icon": "rampage_skill/color8.png"
+    },
+    {
+      "id": "rampage_fireblight_exploit",
+      "shortId": 272,
+      "name": "Fireblight Exploit",
+      "description": "Increases damage to monsters afflicted with fireblight.",
+      "icon": "rampage_skill/color7.png"
+    },
+    {
+      "id": "rampage_waterblight_exploit",
+      "shortId": 273,
+      "name": "Waterblight Exploit",
+      "description": "Increases damage to monsters afflicted with waterblight.",
+      "icon": "rampage_skill/color11.png"
+    },
+    {
+      "id": "rampage_thunderblight_exploit",
+      "shortId": 274,
+      "name": "Thunderblight Exploit",
+      "description": "Increases damage to monsters afflicted with thunderblight.",
+      "icon": "rampage_skill/color4.png"
+    },
+    {
+      "id": "rampage_iceblight_exploit",
+      "shortId": 275,
+      "name": "Iceblight Exploit",
+      "description": "Increases damage to monsters afflicted with iceblight.",
+      "icon": "rampage_skill/color12.png"
+    },
+    {
+      "id": "rampage_magnamalo_soul",
+      "shortId": 276,
+      "name": "Magnamalo Soul",
+      "description": "Increases attack when afflicted by Hellfireblight.",
+      "icon": "rampage_skill/color9.png"
+    },
+    {
+      "id": "rampage_valstrax_soul",
+      "shortId": 277,
+      "name": "Valstrax Soul",
+      "description": "Increases dragon element attack by 20% when afflicted with dragonblight.",
+      "icon": "rampage_skill/color7.png"
+    },
+    {
+      "id": "rampage_chameleos_soul",
+      "shortId": 278,
+      "name": "Chameleos Soul",
+      "description": "Each hit has a small chance to boost health, stamina, attack, or defense. Triggers more easily subsequent times.",
+      "icon": "rampage_skill/color9.png"
+    },
+    {
+      "id": "rampage_kushala_daora_soul",
+      "shortId": 279,
+      "name": "Kushala Daora Soul",
+      "description": "Gradually increases affinity by continuously landing hits on foes in a short space of time.",
+      "icon": "rampage_skill/color2.png"
+    },
+    {
+      "id": "rampage_teostra_soul",
+      "shortId": 280,
+      "name": "Teostra Soul",
+      "description": "Slightly increases damage dealt by blast explosions.",
+      "icon": "rampage_skill/color7.png"
+    },
+    {
+      "id": "rampage_ibushi_soul",
+      "shortId": 281,
+      "name": "Ibushi Soul",
+      "description": "Greatly increases weapon's defense bonus with each piece of Narwa armor equipped.",
+      "icon": "rampage_skill/color11.png"
+    },
+    {
+      "id": "rampage_narwa_soul",
+      "shortId": 282,
+      "name": "Narwa Soul",
+      "description": "Slightly increases weapon's affinity with each piece of Ibushi armor equipped.",
+      "icon": "rampage_skill/color4.png"
+    },
+    {
+      "id": "rampage_buddy_rally",
+      "shortId": 283,
+      "name": "Buddy Rally",
+      "description": "Increases Palico and Palamute attack power and defense.",
+      "icon": "rampage_skill/color8.png"
+    },
+    {
+      "id": "rampage_spiribird_doubled",
+      "shortId": 284,
+      "name": "Spiribird Doubled",
+      "description": "Occasionally increases the effect of Spiribirds.",
+      "icon": "rampage_skill/color9.png"
+    },
+    {
+      "id": "rampage_wyrmstake_boost",
+      "shortId": 285,
+      "name": "Wyrmstake Boost",
+      "description": "Raises the Wyrmstake Cannon's damage level by 1 and extends the duration of Eruption Cannon boosts.",
+      "icon": "rampage_skill/color13.png"
+    },
+    {
+      "id": "rampage_fanged_exploit",
+      "shortId": 286,
+      "name": "Fanged Exploit",
+      "description": "Increases damage to Fanged Beasts.",
+      "icon": "rampage_skill/color5.png"
+    },
+    {
+      "id": "rampage_bloody_heart",
+      "shortId": 287,
+      "name": "Bloody Heart",
+      "description": "During Bloodblight, attack will increase in accordance with vitality recovered by attacking. Effect ends when Bloodblight ends.",
+      "icon": "rampage_skill/color7.png"
+    },
+    {
+      "id": "rampage_wirebug_wrangler",
+      "shortId": 288,
+      "name": "Wirebug Wrangler",
+      "description": "Extends the duration you can keep a Wirebug by 30 seconds.",
+      "icon": "rampage_skill/color8.png"
+    },
+    {
+      "id": "rampage_self_improvement",
+      "shortId": 289,
+      "name": "Self-Improvement",
+      "description": "Attack and defense increase as time passes while on a quest. (The maximum is reached after 20 minutes.)",
+      "icon": "rampage_skill/color9.png"
+    },
+    {
+      "id": "rampage_charge_up",
+      "shortId": 290,
+      "name": "Charge Up",
+      "description": "Increases your power to induce stun when you hit a monster with a charged attack.",
+      "icon": "rampage_skill/color4.png"
+    },
+    {
+      "id": "rampage_demon_rage",
+      "shortId": 291,
+      "name": "Demon Rage",
+      "description": "When hitting monsters in Demon Mode, stamina consumption caused by Demon Mode will be nullified for a very short while.",
+      "icon": "rampage_skill/color5.png"
+    },
+    {
+      "id": "rampage_kinsect_supercharge",
+      "shortId": 292,
+      "name": "Kinsect Supercharge",
+      "description": "Increases Kinsect damage at the expense of extra stamina consumption.",
+      "icon": "rampage_skill/color13.png"
+    },
+    {
+      "id": "rampage_guard_bash",
+      "shortId": 293,
+      "name": "Guard Bash",
+      "description": "Deals blunt damage to a monster when blocking an attack with the Guard Switch Skill without taking too much knockback.",
+      "icon": "rampage_skill/color9.png"
+    }
+  ],
+  "decos": [
+    {
+      "id": 0,
+      "name": "Brutal Jewel 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skill": "rampage_brutal_strike",
+      "icon": "rampage_skill/color7.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Elembane Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skill": "rampage_element_exploit",
+      "icon": "rampage_skill/color10.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Defense Edge Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_defense_grinder_i",
+      "icon": "rampage_skill/color2.png",
+      "weaponFlags": [
+        0,
+        11
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Defense Master Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skill": "rampage_defense_grinder_ii",
+      "icon": "rampage_skill/color2.png",
+      "weaponFlags": [
+        0,
+        11
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Raging Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skill": "rampage_hellion_mode",
+      "icon": "rampage_skill/color9.png",
+      "weaponFlags": [
+        9
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Doot Range Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_maximum_volume",
+      "icon": "rampage_skill/color5.png",
+      "weaponFlags": [
+        10
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Switcher Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skill": "rampage_phial_switch_boost",
+      "icon": "rampage_skill/color11.png",
+      "weaponFlags": [
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Arc Jewel 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skill": "rampage_lasting_arc_shot",
+      "icon": "rampage_skill/color8.png",
+      "weaponFlags": [
+        13
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Anti-Wyvern Jewel 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skill": "rampage_wyvern_exploit",
+      "icon": "rampage_skill/color9.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Anti-Aerial Jewel 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skill": "rampage_anti_aerial_species",
+      "icon": "rampage_skill/color1.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Anti-Aquatic Jewel 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skill": "rampage_anti_aquatic_species",
+      "icon": "rampage_skill/color11.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Small Monster Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_small_monster_exploit",
+      "icon": "rampage_skill/color8.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Fireblight Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_fireblight_exploit",
+      "icon": "rampage_skill/color7.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Waterblight Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_waterblight_exploit",
+      "icon": "rampage_skill/color11.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Thunderblight Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_thunderblight_exploit",
+      "icon": "rampage_skill/color4.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Iceblight Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_iceblight_exploit",
+      "icon": "rampage_skill/color12.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Magna Soul Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_magnamalo_soul",
+      "icon": "rampage_skill/color9.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Valstrax Soul Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_valstrax_soul",
+      "icon": "rampage_skill/color7.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Chameleos Soul Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_chameleos_soul",
+      "icon": "rampage_skill/color9.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Daora Soul Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skill": "rampage_kushala_daora_soul",
+      "icon": "rampage_skill/color2.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Teostra Soul Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_teostra_soul",
+      "icon": "rampage_skill/color7.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Ibushi Soul Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_ibushi_soul",
+      "icon": "rampage_skill/color11.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Narwa Soul Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_narwa_soul",
+      "icon": "rampage_skill/color4.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Rally Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_buddy_rally",
+      "icon": "rampage_skill/color8.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Spiribird Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skill": "rampage_spiribird_doubled",
+      "icon": "rampage_skill/color9.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Wyrmstake Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skill": "rampage_wyrmstake_boost",
+      "icon": "rampage_skill/color13.png",
+      "weaponFlags": [
+        6
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Fanged Exploit Jewel 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skill": "rampage_fanged_exploit",
+      "icon": "rampage_skill/color5.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Bloody Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skill": "rampage_bloody_heart",
+      "icon": "rampage_skill/color7.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Wirebug Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skill": "rampage_wirebug_wrangler",
+      "icon": "rampage_skill/color8.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Growth Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skill": "rampage_self_improvement",
+      "icon": "rampage_skill/color9.png",
+      "weaponFlags": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Stun Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skill": "rampage_charge_up",
+      "icon": "rampage_skill/color4.png",
+      "weaponFlags": [
+        5
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Demon Rage Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skill": "rampage_demon_rage",
+      "icon": "rampage_skill/color5.png",
+      "weaponFlags": [
+        9
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Supercharge Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skill": "rampage_kinsect_supercharge",
+      "icon": "rampage_skill/color13.png",
+      "weaponFlags": [
+        12
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Guardbash Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skill": "rampage_guard_bash",
+      "icon": "rampage_skill/color9.png",
+      "weaponFlags": [
+        7
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1931 @@
+[
+  {
+    "id": "attack_boost",
+    "shortId": 1,
+    "name": "Attack Boost",
+    "maxLevels": 7,
+    "icon": "skill/color7.png",
+    "description": "Increases attack power.",
+    "levels": [
+      "Attack +3",
+      "Attack +6",
+      "Attack +9",
+      "Attack +5% Bonus: +7",
+      "Attack +6% Bonus: +8",
+      "Attack +8% Bonus: +9",
+      "Attack +10% Bonus: +10"
+    ]
+  },
+  {
+    "id": "agitator",
+    "shortId": 2,
+    "name": "Agitator",
+    "maxLevels": 5,
+    "icon": "skill/color7.png",
+    "description": "Increases attack power and affinity when large monsters become enraged.",
+    "levels": [
+      "Attack +4 and affinity +3% while active.",
+      "Attack +8 and affinity +5% while active.",
+      "Attack +12 and affinity +7% while active.",
+      "Attack +16 and affinity +10% while active.",
+      "Attack +20 and affinity +15% while active."
+    ]
+  },
+  {
+    "id": "peak_performance",
+    "shortId": 3,
+    "name": "Peak Performance",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Increases attack when your health is full.",
+    "levels": [
+      "Attack +5 while active.",
+      "Attack +10 while active.",
+      "Attack +20 while active."
+    ]
+  },
+  {
+    "id": "resentment",
+    "shortId": 4,
+    "name": "Resentment",
+    "maxLevels": 5,
+    "icon": "skill/color6.png",
+    "description": "Increases attack when you have recoverable damage (the red portion of your health gauge).",
+    "levels": [
+      "Attack +5 while active.",
+      "Attack +10 while active.",
+      "Attack +15 while active.",
+      "Attack +20 while active.",
+      "Attack +25 while active."
+    ]
+  },
+  {
+    "id": "resuscitate",
+    "shortId": 5,
+    "name": "Resuscitate",
+    "maxLevels": 3,
+    "icon": "skill/color6.png",
+    "description": "Increases attack power when you are suffering from an abnormal status.",
+    "levels": [
+      "Attack +5 while active.",
+      "Attack +10 while active.",
+      "Attack +20 while active."
+    ]
+  },
+  {
+    "id": "critical_eye",
+    "shortId": 6,
+    "name": "Critical Eye",
+    "maxLevels": 7,
+    "icon": "skill/color3.png",
+    "description": "Increases affinity.",
+    "levels": [
+      "Affinity +5%",
+      "Affinity +10%",
+      "Affinity +15%",
+      "Affinity +20%",
+      "Affinity +25%",
+      "Affinity +30%",
+      "Affinity +40%"
+    ]
+  },
+  {
+    "id": "critical_boost",
+    "shortId": 7,
+    "name": "Critical Boost",
+    "maxLevels": 3,
+    "icon": "skill/color3.png",
+    "description": "Increases the damage of critical hits.",
+    "levels": [
+      "Increases damage dealt by critical hits to 30%.",
+      "Increases damage dealt by critical hits to 35%.",
+      "Increases damage dealt by critical hits to 40%."
+    ]
+  },
+  {
+    "id": "weakness_exploit",
+    "shortId": 8,
+    "name": "Weakness Exploit",
+    "maxLevels": 3,
+    "icon": "skill/color3.png",
+    "description": "Increases the affinity of attacks that exploit a monster weak spot.",
+    "levels": [
+      "Attacks that hit weak spots have 15% increased affinity.",
+      "Attacks that hit weak spots have 30% increased affinity.",
+      "Attacks that hit weak spots have 50% increased affinity."
+    ]
+  },
+  {
+    "id": "latent_power",
+    "shortId": 9,
+    "name": "Latent Power",
+    "maxLevels": 5,
+    "icon": "skill/color3.png",
+    "description": "Temporarily increases affinity and reduces stamina depletion when certain conditions are met.",
+    "levels": [
+      "While active, increases affinity by 10% and reduces stamina depletion by 30%.",
+      "While active, increases affinity by 20% and reduces stamina depletion by 30%.",
+      "While active, increases affinity by 30% and reduces stamina depletion by 50%.",
+      "While active, increases affinity by 40% and reduces stamina depletion by 50%.",
+      "While active, increases affinity by 50% and reduces stamina depletion by 50%."
+    ]
+  },
+  {
+    "id": "maximum_might",
+    "shortId": 10,
+    "name": "Maximum Might",
+    "maxLevels": 3,
+    "icon": "skill/color3.png",
+    "description": "Increases affinity if stamina is kept full for a period of time.",
+    "levels": [
+      "While active, increases affinity by 10%.",
+      "While active, increases affinity by 20%.",
+      "While active, increases affinity by 30%."
+    ]
+  },
+  {
+    "id": "critical_element",
+    "shortId": 11,
+    "name": "Critical Element",
+    "maxLevels": 3,
+    "icon": "skill/color10.png",
+    "description": "Increases elemental damage (fire, water, thunder, ice, dragon) when landing critical hits.",
+    "levels": [
+      "Grants elemental damage +5% while active.",
+      "Grants elemental damage +10% while active.",
+      "Grants elemental damage +15% while active."
+    ]
+  },
+  {
+    "id": "masters_touch",
+    "shortId": 12,
+    "name": "Master's Touch",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Prevents your weapon from losing sharpness during critical hits.",
+    "levels": [
+      "Grants a 20% chance of no sharpness loss while active.",
+      "Grants a 40% chance of no sharpness loss while active.",
+      "Grants an 80% chance of no sharpness loss while active."
+    ]
+  },
+  {
+    "id": "fire_attack",
+    "shortId": 13,
+    "name": "Fire Attack",
+    "maxLevels": 5,
+    "icon": "skill/color7.png",
+    "description": "Increases fire element attack power. (Elemental attack power has a maximum limit.)",
+    "levels": [
+      "Fire attack +2",
+      "Fire attack +3",
+      "Fire attack +5% Bonus: +4",
+      "Fire attack +10% Bonus: +4",
+      "Fire attack +20% Bonus: +4"
+    ]
+  },
+  {
+    "id": "water_attack",
+    "shortId": 14,
+    "name": "Water Attack",
+    "maxLevels": 5,
+    "icon": "skill/color11.png",
+    "description": "Increases water element attack power. (Elemental attack power has a maximum limit.)",
+    "levels": [
+      "Water attack +2",
+      "Water attack +3",
+      "Water attack +5% Bonus: +4",
+      "Water attack +10% Bonus: +4",
+      "Water attack +20% Bonus: +4"
+    ]
+  },
+  {
+    "id": "ice_attack",
+    "shortId": 15,
+    "name": "Ice Attack",
+    "maxLevels": 5,
+    "icon": "skill/color12.png",
+    "description": "Increases ice element attack power. (Elemental attack power has a maximum limit.)",
+    "levels": [
+      "Ice attack +2",
+      "Ice attack +3",
+      "Ice attack +5% Bonus: +4",
+      "Ice attack +10% Bonus: +4",
+      "Ice attack +20% Bonus: +4"
+    ]
+  },
+  {
+    "id": "thunder_attack",
+    "shortId": 16,
+    "name": "Thunder Attack",
+    "maxLevels": 5,
+    "icon": "skill/color4.png",
+    "description": "Increases thunder element attack power. (Elemental attack power has a maximum limit.)",
+    "levels": [
+      "Thunder attack +2",
+      "Thunder attack +3",
+      "Thunder attack +5% Bonus: +4",
+      "Thunder attack +10% Bonus: +4",
+      "Thunder attack +20% Bonus: +4"
+    ]
+  },
+  {
+    "id": "dragon_attack",
+    "shortId": 17,
+    "name": "Dragon Attack",
+    "maxLevels": 5,
+    "icon": "skill/color6.png",
+    "description": "Increases dragon element attack power. (Elemental attack power has a maximum limit.)",
+    "levels": [
+      "Dragon attack +2",
+      "Dragon attack +3",
+      "Dragon attack +5% Bonus: +4",
+      "Dragon attack +10% Bonus: +4",
+      "Dragon attack +20% Bonus: +4"
+    ]
+  },
+  {
+    "id": "poison_attack",
+    "shortId": 18,
+    "name": "Poison Attack",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "Increases the rate of poison buildup. (Poison buildup has a maximum limit.)",
+    "levels": [
+      "Poison buildup +5% Bonus: +1",
+      "Poison buildup +10% Bonus: +2",
+      "Poison buildup +20% Bonus: +5"
+    ]
+  },
+  {
+    "id": "paralysis_attack",
+    "shortId": 19,
+    "name": "Paralysis Attack",
+    "maxLevels": 3,
+    "icon": "skill/color5.png",
+    "description": "Increases the rate of paralysis buildup. (Paralysis buildup has a maximum limit.)",
+    "levels": [
+      "Paralysis buildup +5% Bonus: +1",
+      "Paralysis buildup +10% Bonus: +2",
+      "Paralysis buildup +20% Bonus: +5"
+    ]
+  },
+  {
+    "id": "sleep_attack",
+    "shortId": 20,
+    "name": "Sleep Attack",
+    "maxLevels": 3,
+    "icon": "skill/color12.png",
+    "description": "Increases the rate of sleep buildup. (Sleep buildup has a maximum limit.)",
+    "levels": [
+      "Sleep buildup +5% Bonus: +1",
+      "Sleep buildup +10% Bonus: +2",
+      "Sleep buildup +20% Bonus: +5"
+    ]
+  },
+  {
+    "id": "blast_attack",
+    "shortId": 21,
+    "name": "Blast Attack",
+    "maxLevels": 3,
+    "icon": "skill/color6.png",
+    "description": "Increases the rate of blast buildup. (Blast buildup has a maximum limit.)",
+    "levels": [
+      "Blast buildup +5% Bonus: +1",
+      "Blast buildup +10% Bonus: +2",
+      "Blast buildup +20% Bonus: +5"
+    ]
+  },
+  {
+    "id": "handicraft",
+    "shortId": 22,
+    "name": "Handicraft",
+    "maxLevels": 5,
+    "icon": "skill/color10.png",
+    "description": "Extends the weapon sharpness gauge. However, it will not increase the gauge past its maximum.",
+    "levels": [
+      "Weapon sharpness +10",
+      "Weapon sharpness +20",
+      "Weapon sharpness +30",
+      "Weapon sharpness +40",
+      "Weapon sharpness +50"
+    ]
+  },
+  {
+    "id": "razor_sharp",
+    "shortId": 23,
+    "name": "Razor Sharp",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Prevents your weapon from losing sharpness.",
+    "levels": [
+      "Activates 10% of the time.",
+      "Activates 25% of the time.",
+      "Activates 50% of the time."
+    ]
+  },
+  {
+    "id": "spare_shot",
+    "shortId": 24,
+    "name": "Spare Shot",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Bow and bowgun shots have a chance not to expend coatings or ammo.",
+    "levels": [
+      "Activates 3% of the time.",
+      "Activates 10% of the time.",
+      "Activates 25% of the time."
+    ]
+  },
+  {
+    "id": "protective_polish",
+    "shortId": 25,
+    "name": "Protective Polish",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Weapon sharpness does not decrease for a set time after sharpening.",
+    "levels": [
+      "Effect lasts 30 seconds.",
+      "Effect lasts 60 seconds.",
+      "Effect lasts 90 seconds."
+    ]
+  },
+  {
+    "id": "minds_eye",
+    "shortId": 26,
+    "name": "Mind's Eye",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Your attacks are deflected less and deal more damage to hard targets.",
+    "levels": [
+      "50% chance of your attacks not being deflected. (+10% damage to hard targets when activated).",
+      "100% chance of your attacks not being deflected. (+15% damage to hard targets when activated).",
+      "100% chance of your attacks not being deflected. (+30% damage to hard targets when activated)."
+    ]
+  },
+  {
+    "id": "ballistics",
+    "shortId": 27,
+    "name": "Ballistics",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Extends the range in which ammo and arrows have maximum power.",
+    "levels": [
+      "Slightly extends range.",
+      "Extends range.",
+      "Greatly extends range."
+    ]
+  },
+  {
+    "id": "bludgeoner",
+    "shortId": 28,
+    "name": "Bludgeoner",
+    "maxLevels": 3,
+    "icon": "skill/color2.png",
+    "description": "Increases attack power when your weapon sharpness is low.",
+    "levels": [
+      "+5% attack power when your weapon sharpness gauge is yellow or lower.",
+      "+10% attack power when your sharpness gauge is yellow or lower.",
+      "+10% attack power when your sharpness gauge is green or lower."
+    ]
+  },
+  {
+    "id": "bow_charge_plus",
+    "shortId": 29,
+    "name": "Bow Charge Plus",
+    "maxLevels": 1,
+    "icon": "skill/color8.png",
+    "description": "Increases max bow charge level by one.",
+    "levels": [
+      "Activates skill effect."
+    ]
+  },
+  {
+    "id": "focus",
+    "shortId": 30,
+    "name": "Focus",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Increases the fill rate for weapons with gauges and the charge rate for weapons with charge attacks.",
+    "levels": [
+      "5% faster gauge fill rate and 5% faster charge times.",
+      "10% faster gauge fill rate and 10% faster charge times.",
+      "20% faster gauge fill rate and 15% faster charge times."
+    ]
+  },
+  {
+    "id": "power_prolonger",
+    "shortId": 31,
+    "name": "Power Prolonger",
+    "maxLevels": 3,
+    "icon": "skill/color13.png",
+    "description": "Long swords, dual blades, insect glaives, switch axes, and charge blades stay powered up longer.",
+    "levels": [
+      "Slightly boosts the duration weapons are powered up.",
+      "Boosts the duration weapons are powered up.",
+      "Greatly boosts the duration weapons are powered up."
+    ]
+  },
+  {
+    "id": "marathon_runner",
+    "shortId": 32,
+    "name": "Marathon Runner",
+    "maxLevels": 3,
+    "icon": "skill/color5.png",
+    "description": "Slows down stamina depletion for actions which continuously drain stamina (such as dashing).",
+    "levels": [
+      "Reduces continuous stamina depletion by 15%.",
+      "Reduces continuous stamina depletion by 30%.",
+      "Reduces continuous stamina depletion by 50%."
+    ]
+  },
+  {
+    "id": "constitution",
+    "shortId": 33,
+    "name": "Constitution",
+    "maxLevels": 5,
+    "icon": "skill/color5.png",
+    "description": "Reduces stamina depletion when evading, blocking, or doing certain other actions.",
+    "levels": [
+      "Reduces fixed stamina depletion by 10%.",
+      "Reduces fixed stamina depletion by 20%.",
+      "Reduces fixed stamina depletion by 30%.",
+      "Reduces fixed stamina depletion by 40%.",
+      "Reduces fixed stamina depletion by 50%."
+    ]
+  },
+  {
+    "id": "stamina_surge",
+    "shortId": 34,
+    "name": "Stamina Surge",
+    "maxLevels": 3,
+    "icon": "skill/color5.png",
+    "description": "Speeds up stamina recovery.",
+    "levels": [
+      "Stamina recovery speed +10%",
+      "Stamina recovery speed +20%",
+      "Stamina recovery speed +40%"
+    ]
+  },
+  {
+    "id": "guard",
+    "shortId": 35,
+    "name": "Guard",
+    "maxLevels": 5,
+    "icon": "skill/color2.png",
+    "description": "Reduces knockbacks and stamina depletion when guarding.",
+    "levels": [
+      "Very slightly decreases the impact of attacks.",
+      "Slightly decreases the impact of attacks and reduces stamina depletion by 30%.",
+      "Decreases the impact of attacks and reduces stamina depletion by 30%.",
+      "Decreases the impact of attacks and reduces stamina depletion by 50%.",
+      "Greatly decreases the impact of attacks and reduces stamina depletion by 50%."
+    ]
+  },
+  {
+    "id": "guard_up",
+    "shortId": 36,
+    "name": "Guard Up",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Allows you to guard against ordinarily unblockable attacks.",
+    "levels": [
+      "Reduces damage taken by 30%.",
+      "Reduces damage taken by 50%.",
+      "Reduces damage taken by 80%."
+    ]
+  },
+  {
+    "id": "offensive_guard",
+    "shortId": 37,
+    "name": "Offensive Guard",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "Temporarily increases attack power after executing a perfectly-timed guard.",
+    "levels": [
+      "Attack +5% while active.",
+      "Attack +10% while active.",
+      "Attack +15% while active."
+    ]
+  },
+  {
+    "id": "critical_draw",
+    "shortId": 38,
+    "name": "Critical Draw",
+    "maxLevels": 3,
+    "icon": "skill/color3.png",
+    "description": "Increases affinity for a short time after performing a draw attack. (Does not include Silkbind attacks.)",
+    "levels": [
+      "Affinity +15%",
+      "Affinity +30%",
+      "Affinity +60%"
+    ]
+  },
+  {
+    "id": "punishing_draw",
+    "shortId": 39,
+    "name": "Punishing Draw",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Adds a stun effect to draw attacks and slightly increases attack power. (Does not include Silkbind attacks.)",
+    "levels": [
+      "Draw attacks deal a small amount of stun damage and get attack +3.",
+      "Draw attacks deal a small amount of stun damage and get attack +5.",
+      "Draw attacks deal a small amount of stun damage and get attack +7."
+    ]
+  },
+  {
+    "id": "quick_sheathe",
+    "shortId": 40,
+    "name": "Quick Sheathe",
+    "maxLevels": 3,
+    "icon": "skill/color13.png",
+    "description": "Speeds up weapon sheathing.",
+    "levels": [
+      "Slightly increases sheathing speed.",
+      "Moderately increases sheathing speed.",
+      "Greatly increases sheathing speed."
+    ]
+  },
+  {
+    "id": "slugger",
+    "shortId": 41,
+    "name": "Slugger",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Makes it easier to stun monsters.",
+    "levels": [
+      "Stun power +20%",
+      "Stun power +30%",
+      "Stun power +40%"
+    ]
+  },
+  {
+    "id": "stamina_thief",
+    "shortId": 42,
+    "name": "Stamina Thief",
+    "maxLevels": 3,
+    "icon": "skill/color10.png",
+    "description": "Increases certain attacks' ability to exhaust monsters.",
+    "levels": [
+      "Exhaust power +20%",
+      "Exhaust power +30%",
+      "Exhaust power +40%"
+    ]
+  },
+  {
+    "id": "affinity_sliding",
+    "shortId": 43,
+    "name": "Affinity Sliding",
+    "maxLevels": 1,
+    "icon": "skill/color3.png",
+    "description": "Sliding increases your affinity for a short time.",
+    "levels": [
+      "Enables skill use."
+    ]
+  },
+  {
+    "id": "horn_maestro",
+    "shortId": 44,
+    "name": "Horn Maestro",
+    "maxLevels": 1,
+    "icon": "skill/color8.png",
+    "description": "Increases overall performance speed and shockwave damage.",
+    "levels": [
+      "Activates skill effect."
+    ]
+  },
+  {
+    "id": "artillery",
+    "shortId": 45,
+    "name": "Artillery",
+    "maxLevels": 3,
+    "icon": "skill/color2.png",
+    "description": "Strengthens explosive attacks like shells, Wyvern's Fire, charge blade phial attacks, and Sticky Ammo.",
+    "levels": [
+      "Increases power of each attack by 10% and reduces Wyvern's Fire cooldown by 15%.",
+      "Increases power of each attack by 20% and reduces Wyvern's Fire cooldown by 30%.",
+      "Increases power of each attack by 30% and reduces Wyvern's Fire cooldown by 50%."
+    ]
+  },
+  {
+    "id": "load_shells",
+    "shortId": 46,
+    "name": "Load Shells",
+    "maxLevels": 2,
+    "icon": "skill/color2.png",
+    "description": "Improves reloading, and increases the gunlance's shell capacity and charge blade's phial capacity.",
+    "levels": [
+      "Increases ammo and coating reloading speed.",
+      "Gunlance loading capacity +1 Increases charge blade phials"
+    ]
+  },
+  {
+    "id": "special_ammo_boost",
+    "shortId": 47,
+    "name": "Special Ammo Boost",
+    "maxLevels": 2,
+    "icon": "skill/color2.png",
+    "description": "Increases the power of bowgun special ammo and Dragon Piercer.",
+    "levels": [
+      "Increases power of bowgun special ammo and Dragon Piercer by 10%.",
+      "Increases power of bowgun special ammo and Dragon Piercer by 20%."
+    ]
+  },
+  {
+    "id": "normal_rapid_up",
+    "shortId": 48,
+    "name": "Normal/Rapid Up",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Increases the attack power of Normal Ammo and Rapid-type arrows.",
+    "levels": [
+      "Slightly increases the power of Normal Ammo and Rapid-type arrows.",
+      "Increases the power of Normal Ammo and Rapid-type arrows.",
+      "Greatly increases the power of Normal Ammo and Rapid-type arrows."
+    ]
+  },
+  {
+    "id": "pierce_up",
+    "shortId": 49,
+    "name": "Pierce Up",
+    "maxLevels": 3,
+    "icon": "skill/color11.png",
+    "description": "Increases the attack power of Piercing Ammo and Piercing-type arrows.",
+    "levels": [
+      "Slightly increases the power of Piercing Ammo and Piercing-type arrows.",
+      "Increases the power of Piercing Ammo and Piercing-type arrows.",
+      "Greatly increases the power of Piercing Ammo and Piercing-type arrows."
+    ]
+  },
+  {
+    "id": "spread_up",
+    "shortId": 50,
+    "name": "Spread Up",
+    "maxLevels": 3,
+    "icon": "skill/color2.png",
+    "description": "Increases the attack power of Spread Ammo and Spread- type arrows",
+    "levels": [
+      "Slightly increases the power of Spread Ammo, Shrapnel Ammo, and Spread-type arrows.",
+      "Increases the power of Spread Ammo, Shrapnel Ammo, and Spread-type arrows.",
+      "Greatly increases the power of Spread Ammo, Shrapnel Ammo, and Spread-type arrows."
+    ]
+  },
+  {
+    "id": "ammo_up",
+    "shortId": 51,
+    "name": "Ammo Up",
+    "maxLevels": 3,
+    "icon": "skill/color8.png",
+    "description": "Increases bowgun loading capacity. (There is a cap to loading capacity.)",
+    "levels": [
+      "Expands clip size for some ammo types.",
+      "Expands clip size for many ammo types.",
+      "Expands clip size for most ammo types."
+    ]
+  },
+  {
+    "id": "reload_speed",
+    "shortId": 52,
+    "name": "Reload Speed",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Increases bowgun reloading and bow coating loading speed.",
+    "levels": [
+      "Bowgun speed +1. Improves bow handling.",
+      "Bowgun speed +2. Loads bow coating automatically.",
+      "Bowgun speed +3."
+    ]
+  },
+  {
+    "id": "recoil_down",
+    "shortId": 53,
+    "name": "Recoil Down",
+    "maxLevels": 3,
+    "icon": "skill/color13.png",
+    "description": "Reduces recoil when firing bowgun ammo.",
+    "levels": [
+      "Recoil -1",
+      "Recoil -2",
+      "Recoil -3"
+    ]
+  },
+  {
+    "id": "steadiness",
+    "shortId": 54,
+    "name": "Steadiness",
+    "maxLevels": 3,
+    "icon": "skill/color2.png",
+    "description": "Suppresses the deviation of bowgun shots.",
+    "levels": [
+      "Deviation -1",
+      "Deviation -2",
+      "Reduces deviation by 2 and slightly extends range."
+    ]
+  },
+  {
+    "id": "rapid_fire_up",
+    "shortId": 55,
+    "name": "Rapid Fire Up",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Improves light bowgun rapid fire.",
+    "levels": [
+      "Rapid fire damage +5%",
+      "Rapid fire damage +10%",
+      "Rapid fire damage +20%"
+    ]
+  },
+  {
+    "id": "defense_boost",
+    "shortId": 56,
+    "name": "Defense Boost",
+    "maxLevels": 7,
+    "icon": "skill/color5.png",
+    "description": "Increases defense. Resistances will also improve as the level increases.",
+    "levels": [
+      "Defense +5",
+      "Defense +10",
+      "Defense +5% Bonus: +10",
+      "Defense +5% Bonus: +20 All elemental resistances +3",
+      "Defense +8% Bonus: +20 All elemental resistances +3",
+      "Defense +8% Bonus: +35 All elemental resistances +5",
+      "Defense +10% Bonus: +35 All elemental resistances +5"
+    ]
+  },
+  {
+    "id": "divine_blessing",
+    "shortId": 57,
+    "name": "Divine Blessing",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Has a predetermined chance of reducing the damage you take.",
+    "levels": [
+      "While active, reduces damage taken by 15%.",
+      "While active, reduces damage taken by 30%.",
+      "While active, reduces damage taken by 50%."
+    ]
+  },
+  {
+    "id": "recovery_up",
+    "shortId": 58,
+    "name": "Recovery Up",
+    "maxLevels": 3,
+    "icon": "skill/color8.png",
+    "description": "Increases the amount recovered when restoring health.",
+    "levels": [
+      "Slightly increases recovery.",
+      "Increases recovery.",
+      "Greatly increases recovery."
+    ]
+  },
+  {
+    "id": "recovery_speed",
+    "shortId": 59,
+    "name": "Recovery Speed",
+    "maxLevels": 3,
+    "icon": "skill/color8.png",
+    "description": "Speeds healing of recoverable damage (the red portion of the health gauge).",
+    "levels": [
+      "Doubles the speed at which you heal recoverable damage.",
+      "Triples the speed at which you heal recoverable damage.",
+      "Quadruples the speed at which you heal recoverable damage."
+    ]
+  },
+  {
+    "id": "speed_eating",
+    "shortId": 60,
+    "name": "Speed Eating",
+    "maxLevels": 3,
+    "icon": "skill/color5.png",
+    "description": "Increases meat-eating and item-consumption speed.",
+    "levels": [
+      "Slightly increases eating speed.",
+      "Increases eating speed.",
+      "Greatly increases eating speed."
+    ]
+  },
+  {
+    "id": "earplugs",
+    "shortId": 61,
+    "name": "Earplugs",
+    "maxLevels": 5,
+    "icon": "skill/color1.png",
+    "description": "Grants protection from large monsters' roars.",
+    "levels": [
+      "Reduces the effects of weak monster roars.",
+      "Nullifies weak monster roars.",
+      "Nullifies weak monster roars and reduces the effects of strong monster roars.",
+      "Nullifies weak and strong monster roars.",
+      "Nullifies weak and strong monster roars. Reduces the effects of powerful monster roars."
+    ]
+  },
+  {
+    "id": "windproof",
+    "shortId": 62,
+    "name": "Windproof",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Grants protection against wind pressure.",
+    "levels": [
+      "Negates minor wind pressure.",
+      "Negates minor and major wind pressure.",
+      "Negates minor and major wind pressure and reduces the effects of dragon wind pressure."
+    ]
+  },
+  {
+    "id": "tremor_resistance",
+    "shortId": 63,
+    "name": "Tremor Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color2.png",
+    "description": "Grants protection against ground tremors.",
+    "levels": [
+      "Nullifies minor ground tremors.",
+      "Nullifies minor ground tremors and reduces the effects of major ground tremors.",
+      "Nullifies minor and major ground tremors."
+    ]
+  },
+  {
+    "id": "bubbly_dance",
+    "shortId": 64,
+    "name": "Bubbly Dance",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Reduces bubbleblight and grants increased evasion when afflicted.",
+    "levels": [
+      "Reduces the effects of major bubbleblight.",
+      "Reduces major bubbleblight to minor bubbleblight and increases evasiveness while afflicted.",
+      "Also inflicts bubbleblight when performing consecutive evasive movement."
+    ]
+  },
+  {
+    "id": "evade_window",
+    "shortId": 65,
+    "name": "Evade Window",
+    "maxLevels": 5,
+    "icon": "skill/color12.png",
+    "description": "Extends the invulnerability period when evading.",
+    "levels": [
+      "Very slightly increases invulnerability window.",
+      "Slightly increases invulnerability window.",
+      "Increases invulnerability window.",
+      "Greatly increases invulnerability window.",
+      "Massively increases invulnerability window."
+    ]
+  },
+  {
+    "id": "evade_extender",
+    "shortId": 66,
+    "name": "Evade Extender",
+    "maxLevels": 3,
+    "icon": "skill/color12.png",
+    "description": "Increases evade distance.",
+    "levels": [
+      "Slightly extends evasion distance.",
+      "Extends evasion distance.",
+      "Greatly extends evasion distance."
+    ]
+  },
+  {
+    "id": "fire_resistance",
+    "shortId": 67,
+    "name": "Fire Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Increases fire resistance. Also improves defense at higher levels.",
+    "levels": [
+      "Fire resistance +6",
+      "Fire resistance +12",
+      "Fire resistance +20 Defense +10"
+    ]
+  },
+  {
+    "id": "water_resistance",
+    "shortId": 68,
+    "name": "Water Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color11.png",
+    "description": "Increases water resistance. Also improves defense at higher levels.",
+    "levels": [
+      "Water resistance +6",
+      "Water resistance +12",
+      "Water resistance +20 Defense +10"
+    ]
+  },
+  {
+    "id": "ice_resistance",
+    "shortId": 69,
+    "name": "Ice Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color12.png",
+    "description": "Increases ice resistance. Also improves defense at higher levels.",
+    "levels": [
+      "Ice resistance +6",
+      "Ice resistance +12",
+      "Ice resistance +20 Defense +10"
+    ]
+  },
+  {
+    "id": "thunder_resistance",
+    "shortId": 70,
+    "name": "Thunder Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Increases thunder resistance. Also improves defense at higher levels.",
+    "levels": [
+      "Thunder resistance +6",
+      "Thunder resistance +12",
+      "Thunder resistance +20 Defense +10"
+    ]
+  },
+  {
+    "id": "dragon_resistance",
+    "shortId": 71,
+    "name": "Dragon Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color6.png",
+    "description": "Increases dragon resistance. Also improves defense at higher levels.",
+    "levels": [
+      "Dragon resistance +6",
+      "Dragon resistance +12",
+      "Dragon resistance +20 Defense +10"
+    ]
+  },
+  {
+    "id": "blight_resistance",
+    "shortId": 72,
+    "name": "Blight Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color10.png",
+    "description": "Grants protection against all elemental blights.",
+    "levels": [
+      "Reduces the duration of all elemental blights by 50%.",
+      "Reduces the duration of all elemental blights by 75%.",
+      "Nullifies all elemental blights."
+    ]
+  },
+  {
+    "id": "poison_resistance",
+    "shortId": 73,
+    "name": "Poison Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "Reduces damage while poisoned.",
+    "levels": [
+      "Reduces the number of times you take poison damage.",
+      "Greatly reduces the number of times you take poison damage.",
+      "Prevents poison and reduces venom."
+    ]
+  },
+  {
+    "id": "paralysis_resistance",
+    "shortId": 74,
+    "name": "Paralysis Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color5.png",
+    "description": "Reduces the duration of paralysis.",
+    "levels": [
+      "Reduces the duration of paralysis by 30%.",
+      "Reduces the duration of paralysis by 60%.",
+      "Prevents paralysis."
+    ]
+  },
+  {
+    "id": "sleep_resistance",
+    "shortId": 75,
+    "name": "Sleep Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color12.png",
+    "description": "Reduces the duration of sleep.",
+    "levels": [
+      "Reduces the duration of sleep by 30%.",
+      "Reduces the duration of sleep by 60%.",
+      "Prevents sleep."
+    ]
+  },
+  {
+    "id": "stun_resistance",
+    "shortId": 76,
+    "name": "Stun Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Reduces stun duration.",
+    "levels": [
+      "Reduces the duration of stun by 60%.",
+      "Reduces the duration of stun by 90%.",
+      "Prevents stun."
+    ]
+  },
+  {
+    "id": "muck_resistance",
+    "shortId": 77,
+    "name": "Muck Resistance",
+    "maxLevels": 2,
+    "icon": "skill/color2.png",
+    "description": "Reduces impairments to mobility while stuck in monster muck or deep snow.",
+    "levels": [
+      "Reduces limits on movement speed.",
+      "Negates limits to movement speed."
+    ]
+  },
+  {
+    "id": "blast_resistance",
+    "shortId": 78,
+    "name": "Blast Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color6.png",
+    "description": "Grants protection against blastblight.",
+    "levels": [
+      "Delays blastblight and reduces blast damage.",
+      "Greatly delays blastblight and greatly reduces blast damage.",
+      "Prevents blastblight."
+    ]
+  },
+  {
+    "id": "botanist",
+    "shortId": 79,
+    "name": "Botanist",
+    "maxLevels": 4,
+    "icon": "skill/color8.png",
+    "description": "Increases the quantity of herbs and other consumable items you gather.",
+    "levels": [
+      "One extra consumable herb item per gather.",
+      "One extra consumable herb, fruit, nut, or seed item per gather.",
+      "One extra consumable herb, fruit, nut, seed, or insect item per gather.",
+      "One extra consumable herb, fruit, nut, seed, insect, or mushroom item per gather."
+    ]
+  },
+  {
+    "id": "geologist",
+    "shortId": 80,
+    "name": "Geologist",
+    "maxLevels": 3,
+    "icon": "skill/color13.png",
+    "description": "Increases the number of times you can use a gathering point.",
+    "levels": [
+      "Allows you to gather one extra time from bonepiles.",
+      "Allows you to gather one extra time from gathering points.",
+      "Allows you to gather one extra time from mining outcrops."
+    ]
+  },
+  {
+    "id": "partbreaker",
+    "shortId": 81,
+    "name": "Partbreaker",
+    "maxLevels": 3,
+    "icon": "skill/color2.png",
+    "description": "Makes it easier to break or sever parts of monsters.",
+    "levels": [
+      "Part damage +10%",
+      "Part damage +20%",
+      "Part damage +30%"
+    ]
+  },
+  {
+    "id": "capture_master",
+    "shortId": 82,
+    "name": "Capture Master",
+    "maxLevels": 1,
+    "icon": "skill/color3.png",
+    "description": "High chance of increased capture rewards. (No effect when joining mid-quest.)",
+    "levels": [
+      "Activates skill effect."
+    ]
+  },
+  {
+    "id": "carving_master",
+    "shortId": 83,
+    "name": "Carving Master",
+    "maxLevels": 1,
+    "icon": "skill/color8.png",
+    "description": "Lets you carve one additional time. (No effect when joining mid-quest.)",
+    "levels": [
+      "Activates skill effect."
+    ]
+  },
+  {
+    "id": "good_luck",
+    "shortId": 84,
+    "name": "Good Luck",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Good chance of increased quest rewards. (No effect when joining mid-quest.)",
+    "levels": [
+      "Slightly increases luck.",
+      "Increases luck.",
+      "Greatly increases luck."
+    ]
+  },
+  {
+    "id": "speed_sharpening",
+    "shortId": 85,
+    "name": "Speed Sharpening",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Speeds up weapon sharpening when using a whetstone.",
+    "levels": [
+      "Removes one cycle from the sharpening process.",
+      "Removes two cycles from the sharpening process.",
+      "Removes three cycles from the sharpening process."
+    ]
+  },
+  {
+    "id": "bombardier",
+    "shortId": 86,
+    "name": "Bombardier",
+    "maxLevels": 3,
+    "icon": "skill/color6.png",
+    "description": "Increases the damage of explosive items.",
+    "levels": [
+      "Explosive power +10%",
+      "Explosive power +20%",
+      "Explosive power +30%"
+    ]
+  },
+  {
+    "id": "mushroomancer",
+    "shortId": 87,
+    "name": "Mushroomancer",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "Lets you digest mushrooms that would otherwise be inedible and gain their advantageous effects.",
+    "levels": [
+      "Lets you digest blue mushrooms and toadstools.",
+      "Additionally lets you digest nitroshrooms and parashrooms.",
+      "Additionally lets you digest mandragoras and exciteshrooms."
+    ]
+  },
+  {
+    "id": "item_prolonger",
+    "shortId": 88,
+    "name": "Item Prolonger",
+    "maxLevels": 3,
+    "icon": "skill/color13.png",
+    "description": "Extends the duration of some item effects.",
+    "levels": [
+      "Item effect duration +10%",
+      "Item effect duration +25%",
+      "Item effect duration +50%"
+    ]
+  },
+  {
+    "id": "wide_range",
+    "shortId": 89,
+    "name": "Wide-Range",
+    "maxLevels": 5,
+    "icon": "skill/color1.png",
+    "description": "Allows the effects of certain items to also affect nearby allies.",
+    "levels": [
+      "Items affect nearby allies with 33% of their efficacy.",
+      "Items affect nearby allies in a wider radius with 33% of their efficacy.",
+      "Items affect nearby allies in a wider radius with 66% of their efficacy.",
+      "Items affect nearby allies in a much wider radius with 66% of their efficacy.",
+      "Items affect nearby allies in a much wider radius with full efficacy."
+    ]
+  },
+  {
+    "id": "free_meal",
+    "shortId": 90,
+    "name": "Free Meal",
+    "maxLevels": 3,
+    "icon": "skill/color13.png",
+    "description": "Gives you a predetermined chance of consuming a food or drink item for free.",
+    "levels": [
+      "Activates 10% of the time.",
+      "Activates 25% of the time.",
+      "Activates 45% of the time."
+    ]
+  },
+  {
+    "id": "heroics",
+    "shortId": 91,
+    "name": "Heroics",
+    "maxLevels": 5,
+    "icon": "skill/color7.png",
+    "description": "Increases attack power and defense when health drops to 35% or lower.",
+    "levels": [
+      "While active, increases defense by 50 points.",
+      "Attack +5% and defense +50 while active.",
+      "Attack +5% and defense +100 while active.",
+      "Attack +10% and defense +100 while active.",
+      "While active, attack power +30% and defense-increasing effects are negated."
+    ]
+  },
+  {
+    "id": "fortify",
+    "shortId": 92,
+    "name": "Fortify",
+    "maxLevels": 1,
+    "icon": "skill/color6.png",
+    "description": "Increases your attack and defense when you fall in battle. (Disabled for some quests. Can be activated twice.)",
+    "levels": [
+      "Increases attack by 10% and defense by 15% with each use."
+    ]
+  },
+  {
+    "id": "flinch_free",
+    "shortId": 93,
+    "name": "Flinch Free",
+    "maxLevels": 3,
+    "icon": "skill/color2.png",
+    "description": "Prevents knockbacks and other reactions to small damage.",
+    "levels": [
+      "Prevents knockbacks.",
+      "Prevents knockbacks. Tripping is reduced to a knockback instead.",
+      "Prevents knockbacks and tripping."
+    ]
+  },
+  {
+    "id": "jump_master",
+    "shortId": 94,
+    "name": "Jump Master",
+    "maxLevels": 1,
+    "icon": "skill/color11.png",
+    "description": "Prevents attacks from knocking you back during a jump.",
+    "levels": [
+      "Negates knockback during jumps."
+    ]
+  },
+  {
+    "id": "carving_pro",
+    "shortId": 95,
+    "name": "Carving Pro",
+    "maxLevels": 1,
+    "icon": "skill/color2.png",
+    "description": "Prevents knockback from attacks while carving.",
+    "levels": [
+      "Activates skill effect."
+    ]
+  },
+  {
+    "id": "hunger_resistance",
+    "shortId": 96,
+    "name": "Hunger Resistance",
+    "maxLevels": 3,
+    "icon": "skill/color5.png",
+    "description": "Reduces maximum stamina depletion over time.",
+    "levels": [
+      "Extends the time until your stamina cap reduces by 50%.",
+      "Extends the time until your stamina cap reduces by 100%.",
+      "Prevents your stamina cap from decreasing."
+    ]
+  },
+  {
+    "id": "leap_of_faith",
+    "shortId": 97,
+    "name": "Leap of Faith",
+    "maxLevels": 1,
+    "icon": "skill/color12.png",
+    "description": "Allows you to do an emergency evade when facing towards large monsters, and extends the evasion distance.",
+    "levels": [
+      "Enables skill use."
+    ]
+  },
+  {
+    "id": "diversion",
+    "shortId": 98,
+    "name": "Diversion",
+    "maxLevels": 1,
+    "icon": "skill/color9.png",
+    "description": "Increases the attention drawn when attacking a monster.",
+    "levels": [
+      "Activates skill effect."
+    ]
+  },
+  {
+    "id": "master_mounter",
+    "shortId": 99,
+    "name": "Master Mounter",
+    "maxLevels": 1,
+    "icon": "skill/color11.png",
+    "description": "Improves your Wyvern Riding skills.",
+    "levels": [
+      "Makes filling the Riding Gauge easier and increases ease of parrying."
+    ]
+  },
+  {
+    "id": "chameleos_blessing",
+    "shortId": 100,
+    "name": "Chameleos Blessing",
+    "maxLevels": 4,
+    "icon": "skill/color9.png",
+    "description": "Gain the power of the elder dragon Chameleos.",
+    "levels": [
+      "Sometimes increases the effects of Spiribirds.",
+      "Also negates minor and major wind pressure.",
+      "Also extends the duration of your poison's effect on monsters.",
+      "Also negates all wind pressure."
+    ]
+  },
+  {
+    "id": "kushala_blessing",
+    "shortId": 101,
+    "name": "Kushala Blessing",
+    "maxLevels": 4,
+    "icon": "skill/color2.png",
+    "description": "Gain the power of the elder dragon Kushala Daora.",
+    "levels": [
+      "Water and ice attack +5%",
+      "Water and ice attack +10%",
+      "Also allows recovery to exceed the red portion of the health gauge.",
+      "Also nullifies heat damage."
+    ]
+  },
+  {
+    "id": "teostra_blessing",
+    "shortId": 102,
+    "name": "Teostra Blessing",
+    "maxLevels": 4,
+    "icon": "skill/color7.png",
+    "description": "Gain the power of the elder dragon Teostra.",
+    "levels": [
+      "Fire attack and blast buildup +5%",
+      "Fire attack and blast buildup +10%",
+      "Also prevents poison and venom.",
+      "Also negates theft."
+    ]
+  },
+  {
+    "id": "dragonheart",
+    "shortId": 103,
+    "name": "Dragonheart",
+    "maxLevels": 5,
+    "icon": "skill/color6.png",
+    "description": "Draconic energy fills you after losing a certain amount of health. Weapons lose all non-dragon effects.",
+    "levels": [
+      "When your health is at 50% or less, you contract dragonblight, and all elemental resistances are set to 30.",
+      "When your health is at 50% or less, you contract dragonblight, and all elemental resistances are set to 50.",
+      "When your health is at 70% or less, you contract dragonblight, and all elemental resistances are set to 50.",
+      "Contract dragonblight when at 70% health or less. Sets Elemental resistances to 50 and gain +5% attack power.",
+      "Contract dragonblight when at 80% health or less. Sets Elemental resistances to 50 and gain +10% attack power."
+    ]
+  },
+  {
+    "id": "wirebug_whisperer",
+    "shortId": 104,
+    "name": "Wirebug Whisperer",
+    "maxLevels": 3,
+    "icon": "skill/color12.png",
+    "description": "Improves your handling of Wirebugs.",
+    "levels": [
+      "Extends the duration you can keep a Wirebug by 30%.",
+      "Also increases Wirefall recovery rate.",
+      "Also increases passive recovery rate while on the ground."
+    ]
+  },
+  {
+    "id": "wall_runner",
+    "shortId": 105,
+    "name": "Wall Runner",
+    "maxLevels": 3,
+    "icon": "skill/color8.png",
+    "description": "Reduces stamina consumption when running on walls.",
+    "levels": [
+      "Reduces stamina consumption by 25% while wall running.",
+      "Reduces stamina consumption by 50% while wall running.",
+      "Also temporarily increases attack power by wall running."
+    ]
+  },
+  {
+    "id": "counterstrike",
+    "shortId": 106,
+    "name": "Counterstrike",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Temporarily increases attack power after being knocked back.",
+    "levels": [
+      "Attack +10 after activation.",
+      "Attack +15 after activation.",
+      "Attack +25 after activation."
+    ]
+  },
+  {
+    "id": "rapid_morph",
+    "shortId": 107,
+    "name": "Rapid Morph",
+    "maxLevels": 3,
+    "icon": "skill/color11.png",
+    "description": "Increases switch speed and power for switch axes and charge blades.",
+    "levels": [
+      "Speed +10%",
+      "Speed +20% Morph attack damage +10%",
+      "Speed +30% Morph attack damage +20%"
+    ]
+  },
+  {
+    "id": "hellfire_cloak",
+    "shortId": 108,
+    "name": "Hellfire Cloak",
+    "maxLevels": 4,
+    "icon": "skill/color9.png",
+    "description": "Grants hellfire resistance and confers explosive hellfire power to your attacks after fulfilling certain conditions.",
+    "levels": [
+      "Reduces damage from hellfire.",
+      "Increases damage from hellfire blasts.",
+      "Inflicts hellfireblight when monsters are enraged.",
+      "Effect persists for one minute after a monster's rage has subsided."
+    ]
+  },
+  {
+    "id": "wind_alignment",
+    "shortId": 109,
+    "name": "Wind Alignment",
+    "maxLevels": 5,
+    "icon": "skill/color12.png",
+    "description": "Gain the power of the elder dragon Wind Serpent Ibushi.",
+    "levels": [
+      "Dragon resistance +1",
+      "Dragon resistance +2",
+      "Dragon resistance +3",
+      "Dragon resistance +4",
+      "Also grants Good Luck."
+    ]
+  },
+  {
+    "id": "thunder_alignment",
+    "shortId": 110,
+    "name": "Thunder Alignment",
+    "maxLevels": 5,
+    "icon": "skill/color4.png",
+    "description": "Gain the power of the elder dragon Thunder Serpent Narwa.",
+    "levels": [
+      "Thunder resistance +1",
+      "Thunder resistance +2",
+      "Thunder resistance +3",
+      "Thunder resistance +4",
+      "Also grants Good Luck."
+    ]
+  },
+  {
+    "id": "stormsoul",
+    "shortId": 111,
+    "name": "Stormsoul",
+    "maxLevels": 5,
+    "icon": "skill/color6.png",
+    "description": "Strengthens thunder and dragon power and improves skills of the same elements.",
+    "levels": [
+      "Thunder and dragon attack +5%",
+      "Thunder and dragon attack +10%",
+      "Thunder and dragon attack +15%",
+      "Also increases level of other skills by +1.",
+      "Also increases level of other skills by +1 (stacks with previous bonus)."
+    ]
+  },
+  {
+    "id": "blood_rite",
+    "shortId": 112,
+    "name": "Blood Rite",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "A proportion of damage dealt is converted to health when striking a broken monster part.",
+    "levels": [
+      "Activate effect",
+      "Increases the amount of health you recover.",
+      "Further Increases the amount of health you recover."
+    ]
+  },
+  {
+    "id": "dereliction",
+    "shortId": 113,
+    "name": "Dereliction",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Qurio will drain health, but also bolster your attacks. Multiple Qurio further bolster attacks and let you recover health when performing a Switch Skill Swap.",
+    "levels": [
+      "Using Red Scroll: Increased elemental and status values Using Blue Scroll: Increased attack and stun potency",
+      "Bolsters your attacks depending on which Swap Scroll is used.",
+      "Further bolsters your attacks depending on which Swap Scroll is used."
+    ]
+  },
+  {
+    "id": "furious",
+    "shortId": 114,
+    "name": "Furious",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Using the Red Scroll builds your fury while fighting monsters. Swapping to the Blue Scroll when your fury is full gives you infinite stamina temporarily.",
+    "levels": [
+      "Using Red Scroll: Defense +10, all Res +5 Swap to Blue Scroll: Temporary infinite stamina",
+      "Using Red Scroll: Defense +20, all Res +10 Swap to Blue Scroll: Infinite stamina extended",
+      "Using Red Scroll: Defense +30, all Res +20 Swap to Blue Scroll: Infinite stamina extended"
+    ]
+  },
+  {
+    "id": "mail_of_hellfire",
+    "shortId": 115,
+    "name": "Mail of Hellfire",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "Decreases defense but increases attack. Exact changes to stats depends on Switch Skill Swap Scroll that is being used.",
+    "levels": [
+      "Using Red Scroll: Defense down, attack up Using Blue Scroll: Resistance down, element up",
+      "Further decreases defense and resistance, while further increasing attack and element.",
+      "Greatly decreases defense and resistance, while greatly increasing attack and element."
+    ]
+  },
+  {
+    "id": "coalescence",
+    "shortId": 116,
+    "name": "Coalescence",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "Temporarily enhances attacks after recovering from blights or abnormal status.",
+    "levels": [
+      "While active, attack +12, element attack power +2, and status buildup +5%.",
+      "While active, attack +15, element attack power +3, and status buildup +10%.",
+      "While active, attack +18, element attack power +4, and status buildup +15%."
+    ]
+  },
+  {
+    "id": "bloodlust",
+    "shortId": 117,
+    "name": "Bloodlust",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "The effects of the Frenzy virus change. Health is gradually reduced, but you gain a variety of effects. Frenzy virus occurs regularly when in combat.",
+    "levels": [
+      "While infected, attack & evasion increase & stamina use reduced. On recovery, red vitality gauge is restored, and affinity increases.",
+      "While infected, further boost to effects received. Upon recovery, further increase to affinity.",
+      "While infected, further boost to effects received. Upon recovery, further increases duration of increased affinity."
+    ]
+  },
+  {
+    "id": "defiance",
+    "shortId": 118,
+    "name": "Defiance",
+    "maxLevels": 5,
+    "icon": "skill/color5.png",
+    "description": "Increases defense when large monsters become enraged.",
+    "levels": [
+      "While active, nullifies weak roars, wind pressure, and tremors.",
+      "While active, nullifies weak roars, wind pressure, and tremors. Reduces all strong ones, def +5.",
+      "While active, nullifies weak and strong roars, wind pressure, and tremors, def +10.",
+      "While active, nullifies weak and strong roars, wind, and tremors, reduces powerful roars & d. wind, def +20.",
+      "While active, nullifies weak, strong, and powerful roars, wind & dragon wind, and tremors, def +30."
+    ]
+  },
+  {
+    "id": "sneak_attack",
+    "shortId": 119,
+    "name": "Sneak Attack",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Increases damage to large monsters when attacks hit them from behind.",
+    "levels": [
+      "While active, increases attack power by 5%.",
+      "While active, increases attack power by 10%.",
+      "While active, increases attack power by 20%."
+    ]
+  },
+  {
+    "id": "adrenaline_rush",
+    "shortId": 120,
+    "name": "Adrenaline Rush",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Perform a perfectly-timed evade just as a monster attacks for a temporary attack boost.",
+    "levels": [
+      "While active, temporary attack power +10.",
+      "While active, temporary attack power +15.",
+      "While active, temporary attack power +30."
+    ]
+  },
+  {
+    "id": "redirection",
+    "shortId": 121,
+    "name": "Redirection",
+    "maxLevels": 2,
+    "icon": "skill/color8.png",
+    "description": "Perform a perfectly-timed Switch Skill Swap just as a monster attacks to reduce the damage and negate damage reactions.",
+    "levels": [
+      "Activate effect",
+      "Nullifies incoming damage, and automatically performs a Swap Evade backwards which recovers Wirebug Gauge."
+    ]
+  },
+  {
+    "id": "spiribirds_call",
+    "shortId": 122,
+    "name": "Spiribird's Call",
+    "maxLevels": 1,
+    "icon": "skill/color1.png",
+    "description": "Receive the effects of a random Spiribird at fixed intervals. (Certain quests only)",
+    "levels": [
+      "Activate effect"
+    ]
+  },
+  {
+    "id": "charge_master",
+    "shortId": 123,
+    "name": "Charge Master",
+    "maxLevels": 3,
+    "icon": "skill/color10.png",
+    "description": "When a charged attack hits a monster, the element and status buildup of the charged attack increases.",
+    "levels": [
+      "When active, grants a slight increase to elemental damage and status buildup.",
+      "When active, grants an increase to elemental damage and status buildup.",
+      "When active, grants a large increase to elemental damage and status buildup."
+    ]
+  },
+  {
+    "id": "foray",
+    "shortId": 124,
+    "name": "Foray",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Increases attack power and affinity when attacking a large monster affected by poison, paralysis, or an elemental blight.",
+    "levels": [
+      "While active, increases attack power +10.",
+      "While active, increases attack power +10 and affinity +10%.",
+      "While active, increases attack power +15 and affinity +20%."
+    ]
+  },
+  {
+    "id": "tune_up",
+    "shortId": 125,
+    "name": "Tune-Up",
+    "maxLevels": 2,
+    "icon": "skill/color2.png",
+    "description": "Increases the stats of custom mods attached to bowguns.",
+    "levels": [
+      "Increases stats of Silencer and Shield. If neither are equipped, Reload Speed +1.",
+      "Also increases stats of Long Barrel and Power Barrel. If neither are equipped, Reload Speed +1 and Steadiness +1."
+    ]
+  },
+  {
+    "id": "grinder_s",
+    "shortId": 126,
+    "name": "Grinder (S)",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "When recovering sharpness, grants a boost to sharpness properties based on the number of levels recovered.",
+    "levels": [
+      "Effect activates for 60 seconds when sharpness recovers 3 levels.",
+      "Effect activates for 60 seconds when sharpness recovers 2 levels.",
+      "Effect activates for 90 seconds when sharpness recovers 2 levels."
+    ]
+  },
+  {
+    "id": "bladescale_hone",
+    "shortId": 127,
+    "name": "Bladescale Hone",
+    "maxLevels": 3,
+    "icon": "skill/color4.png",
+    "description": "Dodge rolling to evade an attack with your weapon drawn will recover sharpness, refill bowgun ammo, or give Close-range Coatings a temporary boost.",
+    "levels": [
+      "Activates 50% of the time.",
+      "Activates 75% of the time.",
+      "Activates 100% of the time."
+    ]
+  },
+  {
+    "id": "wall_runner_boost",
+    "shortId": 128,
+    "name": "Wall Runner (Boost)",
+    "maxLevels": 1,
+    "icon": "skill/color8.png",
+    "description": "Wirebug Gauge recovers faster while wall running.",
+    "levels": [
+      "Activate effect"
+    ]
+  },
+  {
+    "id": "quick_breath",
+    "shortId": 129,
+    "name": "Quick Breath",
+    "maxLevels": 1,
+    "icon": "skill/color8.png",
+    "description": "You can remove some statuses or slow their effects by performing a Switch Skill Swap. Health recovers when a status is removed.",
+    "levels": [
+      "Activate effect"
+    ]
+  },
+  {
+    "id": "element_exploit",
+    "shortId": 130,
+    "name": "Element Exploit",
+    "maxLevels": 3,
+    "icon": "skill/color10.png",
+    "description": "Increases elemental damage when attacking body parts upon which the element are highly effective.",
+    "levels": [
+      "Attacks that hit weak spots do +10% elemental damage.",
+      "Attacks that hit weak spots do +12.5% elemental damage.",
+      "Attacks that hit weak spots do +15% elemental damage."
+    ]
+  },
+  {
+    "id": "burst",
+    "shortId": 131,
+    "name": "Burst",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Continuously landing hits gradually increases attack and elemental attack. (The amount of increase depends on the weapon.)",
+    "levels": [
+      "Upon attack hit, temp attack +5, element +5; hit 5 successive times for an extra stat boost.",
+      "Upon attack hit, temp attack +5, element +5; hit 5 successive times for an even bigger stat boost.",
+      "Upon attack hit, temp attack +5, element +5; hit 5 successive times for a huge stat boost."
+    ]
+  },
+  {
+    "id": "guts",
+    "shortId": 132,
+    "name": "Guts",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Prevents fainting one time only when damage taken exceeds a certain amount of your remaining health.",
+    "levels": [
+      "Activate effect when vitality is 80 or higher.",
+      "Activate effect when vitality is 72 or higher.",
+      "Activate effect when vitality is 64 or higher."
+    ]
+  },
+  {
+    "id": "status_trigger",
+    "shortId": 133,
+    "name": "Status Trigger",
+    "maxLevels": 3,
+    "icon": "skill/color9.png",
+    "description": "Perform a perfectly-timed evade just as a monster attacks to trigger abnormal status buildup on hit.",
+    "levels": [
+      "While active, effect duration is 5 seconds.",
+      "While active, effect duration is 8 seconds.",
+      "While active, effect duration is 12 seconds"
+    ]
+  },
+  {
+    "id": "intrepid_heart",
+    "shortId": 134,
+    "name": "Intrepid Heart",
+    "maxLevels": 2,
+    "icon": "skill/color1.png",
+    "description": "After filling the gauge by continuously landing attacks, negates damage reactions and reduces damage taken from a single attack that would knock you back.",
+    "levels": [
+      "Activate Effect",
+      "When activated, damage received is further reduced and will detonate an explosion."
+    ]
+  },
+  {
+    "id": "buildup_boost",
+    "shortId": 135,
+    "name": "Buildup Boost",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Increases attack power when you land attacks that build poison, paralysis, sleep, blast, or exhaust. (Exhaust - ammo/phials/coatings only)",
+    "levels": [
+      "While active, increases attack power by 10%.",
+      "While active, increases attack power by 15%.",
+      "While active, increases attack power by 20%."
+    ]
+  },
+  {
+    "id": "embolden",
+    "shortId": 136,
+    "name": "Embolden",
+    "maxLevels": 3,
+    "icon": "skill/color5.png",
+    "description": "When targeted by a monster, that monster becomes more likely to become enraged but your own defense is increased.",
+    "levels": [
+      "While active, defense +10, slightly prolongs dodging invincibility and slightly lowers impact when guarding.",
+      "While active, defense +20, prolongs invincibility when dodging and lowers impact when guarding.",
+      "While active, defense +40, greatly prolongs dodging invincibility and greatly lowers impact when guarding."
+    ]
+  },
+  {
+    "id": "wind_mantle",
+    "shortId": 137,
+    "name": "Wind Mantle",
+    "maxLevels": 3,
+    "icon": "skill/color8.png",
+    "description": "Using Silkbind attacks boosts Wirebug Gauge recovery. Landing continuous attacks increases the effect. Wears off when you sheathe your weapon.",
+    "levels": [
+      "Activate Effect",
+      "Boosts recovery speed.",
+      "Further boosts recovery speed."
+    ]
+  },
+  {
+    "id": "powder_mantle",
+    "shortId": 138,
+    "name": "Powder Mantle",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Continuously attacking a large monster will cause powder to form around you. The color and effects of the powder will change over time.",
+    "levels": [
+      "Get sent flying when wreathed in red powder and you'll receive explosive damage. Attack when in blue for an explosive finish.",
+      "Reduces required hit count.",
+      "Further reduces required hit count."
+    ]
+  },
+  {
+    "id": "berserk",
+    "shortId": 139,
+    "name": "Berserk",
+    "maxLevels": 2,
+    "icon": "skill/color6.png",
+    "description": "Switch to the Blue Swap Scroll and all vitality will change to red gauge and start decreasing. As long as you have red you cannot faint.",
+    "levels": [
+      "Activate Effect",
+      "Slows the speed at which your red gauge depletes when using the Blue Swap Scroll."
+    ]
+  },
+  {
+    "id": "strife",
+    "shortId": 140,
+    "name": "Strife",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Increases elemental attack and affinity in proportion to the length of your red health gauge.",
+    "levels": [
+      "Increases attack power in accordance to gauge length.",
+      "Further increases attack power in accordance to gauge length.",
+      "Further increases attack power in accordance with gauge length. Max out attack for an infinite stamina effect."
+    ]
+  },
+  {
+    "id": "frostcraft",
+    "shortId": 141,
+    "name": "Frostcraft",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "An aura of frost builds when your weapon is sheathed, raising attack. The effect decreases with each melee hit or shot/arrow fired.",
+    "levels": [
+      "Activate effect",
+      "Extends the Frost Gauge.",
+      "Extends the Frost Gauge even further."
+    ]
+  },
+  {
+    "id": "dragon_conversion",
+    "shortId": 142,
+    "name": "Dragon Conversion",
+    "maxLevels": 3,
+    "icon": "skill/color6.png",
+    "description": "When using the Red Swap Scroll, all elemental resistance is set to 0 and converted into elemental attack. The Blue Swap Scroll raises elemental resistance.",
+    "levels": [
+      "Activate effect All elemental resistances +3",
+      "All elemental resistances +5. When using the Blue Swap Scroll, resistance buildup increases when continuously attacking.",
+      "All elemental resistances +10. When using the Red Swap Scroll, the conversion rate for elemental attacks increases."
+    ]
+  },
+  {
+    "id": "heaven_sent",
+    "shortId": 143,
+    "name": "Heaven-Sent",
+    "maxLevels": 3,
+    "icon": "skill/color1.png",
+    "description": "Activates when not taking damage for a while during combat with a large monster. The effect is lost when you are knocked back or stray too far away from the monster.",
+    "levels": [
+      "Decreases damage once and reduces stamina consumption while active. Performing a Switch Skill Swap will recover sharpness and reload ammo.",
+      "Reduces time until activation",
+      "Also nullifies stamina and sharp- ness consumption. Performing a Switch Skill Swap removes or reduces status ailments."
+    ]
+  },
+  {
+    "id": "frenzied_bloodlust",
+    "shortId": 144,
+    "name": "Frenzied Bloodlust",
+    "maxLevels": 3,
+    "icon": "skill/color8.png",
+    "description": "Temporarily gain an additional Wirebug when overcoming the Frenzy. The effect duration decreases drastically when your weapon is sheathed.",
+    "levels": [
+      "Effect duration: 30 seconds",
+      "Effect duration: 60 seconds",
+      "Effect duration: 90 seconds"
+    ]
+  },
+  {
+    "id": "blood_awakening",
+    "shortId": 145,
+    "name": "Blood Awakening",
+    "maxLevels": 3,
+    "icon": "skill/color7.png",
+    "description": "Gradually bolsters your attacks for a certain period of time, depending on how much health you regain when landing attacks.",
+    "levels": [
+      "Activate effect",
+      "Adds a bonus increase to effects that bolster your attacks.",
+      "Adds a bigger bonus increase to effects that bolster your attacks."
+    ]
+  },
+  {
+    "id": "shock_absorber",
+    "shortId": 146,
+    "name": "Shock Absorber",
+    "maxLevels": 1,
+    "icon": "skill/color2.png",
+    "description": "Disables damage reactions when you hit a friend or when a friend hits you. (Does not apply during certain status ailments.)",
+    "levels": [
+      "Activate effect"
+    ]
+  },
+  {
+    "id": "inspiration",
+    "shortId": 147,
+    "name": "Inspiration",
+    "maxLevels": 1,
+    "icon": "skill/color1.png",
+    "description": "Adds an extra attack increase bonus for a short while when activating effects that affect friends within a certain target area, like melodies, etc.",
+    "levels": [
+      "Activate effect"
+    ]
+  }
+]

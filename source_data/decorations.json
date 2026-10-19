@@ -1,0 +1,2930 @@
+[
+  [
+    11,
+    {
+      "verbatimName": "Mastery Jewel 2",
+      "slotSize": 2,
+      "rarity": 7,
+      "skills": {
+        "masters_touch": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    21,
+    {
+      "verbatimName": "Handicraft Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "handicraft": 1
+      },
+      "icon": "decoration/lv3_color10.png"
+    }
+  ],
+  [
+    83,
+    {
+      "verbatimName": "Fate Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "good_luck": 1
+      },
+      "icon": "decoration/lv3_color4.png"
+    }
+  ],
+  [
+    107,
+    {
+      "verbatimName": "Hellfire Jewel 3",
+      "slotSize": 3,
+      "rarity": 6,
+      "skills": {
+        "hellfire_cloak": 1
+      },
+      "icon": "decoration/lv3_color9.png"
+    }
+  ],
+  [
+    93,
+    {
+      "verbatimName": "Leap Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "jump_master": 1
+      },
+      "icon": "decoration/lv3_color11.png"
+    }
+  ],
+  [
+    54,
+    {
+      "verbatimName": "Salvo Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "rapid_fire_up": 1
+      },
+      "icon": "decoration/lv3_color1.png"
+    }
+  ],
+  [
+    23,
+    {
+      "verbatimName": "Thrift Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "spare_shot": 1
+      },
+      "icon": "decoration/lv2_color4.png"
+    }
+  ],
+  [
+    22,
+    {
+      "verbatimName": "Razor Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "razor_sharp": 1
+      },
+      "icon": "decoration/lv2_color4.png"
+    }
+  ],
+  [
+    49,
+    {
+      "verbatimName": "Spread Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "spread_up": 1
+      },
+      "icon": "decoration/lv3_color2.png"
+    }
+  ],
+  [
+    48,
+    {
+      "verbatimName": "Pierce Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "pierce_up": 1
+      },
+      "icon": "decoration/lv3_color11.png"
+    }
+  ],
+  [
+    47,
+    {
+      "verbatimName": "Forceshot Jewel 3",
+      "slotSize": 3,
+      "rarity": 6,
+      "skills": {
+        "normal_rapid_up": 1
+      },
+      "icon": "decoration/lv3_color1.png"
+    }
+  ],
+  [
+    24,
+    {
+      "verbatimName": "Sharp Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "protective_polish": 1
+      },
+      "icon": "decoration/lv2_color4.png"
+    }
+  ],
+  [
+    20,
+    {
+      "verbatimName": "Blast Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "blast_attack": 1
+      },
+      "icon": "decoration/lv2_color6.png"
+    }
+  ],
+  [
+    19,
+    {
+      "verbatimName": "Sleep Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "sleep_attack": 1
+      },
+      "icon": "decoration/lv2_color12.png"
+    }
+  ],
+  [
+    18,
+    {
+      "verbatimName": "Paralyzer Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "paralysis_attack": 1
+      },
+      "icon": "decoration/lv2_color5.png"
+    }
+  ],
+  [
+    8,
+    {
+      "verbatimName": "Throttle Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "latent_power": 1
+      },
+      "icon": "decoration/lv2_color3.png"
+    }
+  ],
+  [
+    4,
+    {
+      "verbatimName": "Crisis Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "resuscitate": 1
+      },
+      "icon": "decoration/lv2_color6.png"
+    }
+  ],
+  [
+    3,
+    {
+      "verbatimName": "Furor Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "resentment": 1
+      },
+      "icon": "decoration/lv2_color6.png"
+    }
+  ],
+  [
+    2,
+    {
+      "verbatimName": "Flawless Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "peak_performance": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    1,
+    {
+      "verbatimName": "Challenger Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "agitator": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    7,
+    {
+      "verbatimName": "Tenderizer Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "weakness_exploit": 1
+      },
+      "icon": "decoration/lv2_color3.png"
+    }
+  ],
+  [
+    6,
+    {
+      "verbatimName": "Critical Jewel 2",
+      "slotSize": 2,
+      "rarity": 7,
+      "skills": {
+        "critical_boost": 1
+      },
+      "icon": "decoration/lv2_color3.png"
+    }
+  ],
+  [
+    50,
+    {
+      "verbatimName": "Capacity Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "ammo_up": 1
+      },
+      "icon": "decoration/lv3_color8.png"
+    }
+  ],
+  [
+    36,
+    {
+      "verbatimName": "Guardian Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "offensive_guard": 1
+      },
+      "icon": "decoration/lv3_color9.png"
+    }
+  ],
+  [
+    86,
+    {
+      "verbatimName": "Fungiform Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "mushroomancer": 1
+      },
+      "icon": "decoration/lv3_color9.png"
+    }
+  ],
+  [
+    37,
+    {
+      "verbatimName": "Draw Jewel 3",
+      "slotSize": 3,
+      "rarity": 7,
+      "skills": {
+        "critical_draw": 1
+      },
+      "icon": "decoration/lv3_color3.png"
+    }
+  ],
+  [
+    26,
+    {
+      "verbatimName": "Precise Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "ballistics": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    10,
+    {
+      "verbatimName": "Crit Element Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "critical_element": 1
+      },
+      "icon": "decoration/lv2_color10.png"
+    }
+  ],
+  [
+    44,
+    {
+      "verbatimName": "Artillery Jewel 2",
+      "slotSize": 2,
+      "rarity": 7,
+      "skills": {
+        "artillery": 1
+      },
+      "icon": "decoration/lv2_color2.png"
+    }
+  ],
+  [
+    31,
+    {
+      "verbatimName": "Sprinter Jewel 2",
+      "slotSize": 2,
+      "rarity": 7,
+      "skills": {
+        "marathon_runner": 1
+      },
+      "icon": "decoration/lv2_color5.png"
+    }
+  ],
+  [
+    29,
+    {
+      "verbatimName": "Charger Jewel 2",
+      "slotSize": 2,
+      "rarity": 7,
+      "skills": {
+        "focus": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    25,
+    {
+      "verbatimName": "Mind's Eye Jewel 2",
+      "slotSize": 2,
+      "rarity": 7,
+      "skills": {
+        "minds_eye": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    90,
+    {
+      "verbatimName": "Potential Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "heroics": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    46,
+    {
+      "verbatimName": "Trueshot Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "special_ammo_boost": 1
+      },
+      "icon": "decoration/lv2_color2.png"
+    }
+  ],
+  [
+    45,
+    {
+      "verbatimName": "Magazine Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "load_shells": 1
+      },
+      "icon": "decoration/lv2_color2.png"
+    }
+  ],
+  [
+    35,
+    {
+      "verbatimName": "Shield Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "guard_up": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    34,
+    {
+      "verbatimName": "Ironwall Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "guard": 1
+      },
+      "icon": "decoration/lv2_color2.png"
+    }
+  ],
+  [
+    33,
+    {
+      "verbatimName": "Refresh Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "stamina_surge": 1
+      },
+      "icon": "decoration/lv2_color5.png"
+    }
+  ],
+  [
+    30,
+    {
+      "verbatimName": "Enhancer Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "power_prolonger": 1
+      },
+      "icon": "decoration/lv2_color13.png"
+    }
+  ],
+  [
+    9,
+    {
+      "verbatimName": "Mighty Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "maximum_might": 1
+      },
+      "icon": "decoration/lv2_color3.png"
+    }
+  ],
+  [
+    0,
+    {
+      "verbatimName": "Attack Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "attack_boost": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    5,
+    {
+      "verbatimName": "Expert Jewel 2",
+      "slotSize": 2,
+      "rarity": 6,
+      "skills": {
+        "critical_eye": 1
+      },
+      "icon": "decoration/lv2_color3.png"
+    }
+  ],
+  [
+    106,
+    {
+      "verbatimName": "Quickswitch Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "rapid_morph": 1
+      },
+      "icon": "decoration/lv2_color11.png"
+    }
+  ],
+  [
+    52,
+    {
+      "verbatimName": "Absorber Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "recoil_down": 1
+      },
+      "icon": "decoration/lv1_color13.png"
+    }
+  ],
+  [
+    27,
+    {
+      "verbatimName": "Blunt Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "bludgeoner": 1
+      },
+      "icon": "decoration/lv2_color2.png"
+    }
+  ],
+  [
+    51,
+    {
+      "verbatimName": "Quickload Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "reload_speed": 1
+      },
+      "icon": "decoration/lv1_color1.png"
+    }
+  ],
+  [
+    75,
+    {
+      "verbatimName": "Steadfast Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "stun_resistance": 1
+      },
+      "icon": "decoration/lv1_color4.png"
+    }
+  ],
+  [
+    62,
+    {
+      "verbatimName": "Footing Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "tremor_resistance": 1
+      },
+      "icon": "decoration/lv2_color2.png"
+    }
+  ],
+  [
+    60,
+    {
+      "verbatimName": "Earplug Jewel 3",
+      "slotSize": 3,
+      "rarity": 5,
+      "skills": {
+        "earplugs": 1
+      },
+      "icon": "decoration/lv3_color1.png"
+    }
+  ],
+  [
+    105,
+    {
+      "verbatimName": "Counter Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "counterstrike": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    63,
+    {
+      "verbatimName": "Bubble Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "bubbly_dance": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    53,
+    {
+      "verbatimName": "Sniper Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "steadiness": 1
+      },
+      "icon": "decoration/lv1_color2.png"
+    }
+  ],
+  [
+    38,
+    {
+      "verbatimName": "Gambit Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "punishing_draw": 1
+      },
+      "icon": "decoration/lv2_color4.png"
+    }
+  ],
+  [
+    65,
+    {
+      "verbatimName": "Jumping Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "evade_extender": 1
+      },
+      "icon": "decoration/lv2_color12.png"
+    }
+  ],
+  [
+    64,
+    {
+      "verbatimName": "Evasion Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "evade_window": 1
+      },
+      "icon": "decoration/lv2_color12.png"
+    }
+  ],
+  [
+    92,
+    {
+      "verbatimName": "Brace Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "flinch_free": 1
+      },
+      "icon": "decoration/lv1_color2.png"
+    }
+  ],
+  [
+    39,
+    {
+      "verbatimName": "Sheath Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "quick_sheathe": 1
+      },
+      "icon": "decoration/lv2_color13.png"
+    }
+  ],
+  [
+    61,
+    {
+      "verbatimName": "Wind Res Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "windproof": 1
+      },
+      "icon": "decoration/lv1_color1.png"
+    }
+  ],
+  [
+    40,
+    {
+      "verbatimName": "KO Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "slugger": 1
+      },
+      "icon": "decoration/lv2_color4.png"
+    }
+  ],
+  [
+    88,
+    {
+      "verbatimName": "Friendship Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "wide_range": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    80,
+    {
+      "verbatimName": "Destroyer Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "partbreaker": 1
+      },
+      "icon": "decoration/lv2_color2.png"
+    }
+  ],
+  [
+    71,
+    {
+      "verbatimName": "Resistor Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "blight_resistance": 1
+      },
+      "icon": "decoration/lv2_color10.png"
+    }
+  ],
+  [
+    59,
+    {
+      "verbatimName": "Gobbler Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "speed_eating": 1
+      },
+      "icon": "decoration/lv2_color5.png"
+    }
+  ],
+  [
+    56,
+    {
+      "verbatimName": "Protection Jewel 2",
+      "slotSize": 2,
+      "rarity": 5,
+      "skills": {
+        "divine_blessing": 1
+      },
+      "icon": "decoration/lv2_color1.png"
+    }
+  ],
+  [
+    104,
+    {
+      "verbatimName": "Wall Run Jewel 2",
+      "slotSize": 2,
+      "rarity": 4,
+      "skills": {
+        "wall_runner": 1
+      },
+      "icon": "decoration/lv2_color8.png"
+    }
+  ],
+  [
+    103,
+    {
+      "verbatimName": "Wirebug Jewel 2",
+      "slotSize": 2,
+      "rarity": 4,
+      "skills": {
+        "wirebug_whisperer": 1
+      },
+      "icon": "decoration/lv2_color12.png"
+    }
+  ],
+  [
+    84,
+    {
+      "verbatimName": "Grinder Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "speed_sharpening": 1
+      },
+      "icon": "decoration/lv1_color4.png"
+    }
+  ],
+  [
+    87,
+    {
+      "verbatimName": "Enduring Jewel 2",
+      "slotSize": 2,
+      "rarity": 4,
+      "skills": {
+        "item_prolonger": 1
+      },
+      "icon": "decoration/lv2_color13.png"
+    }
+  ],
+  [
+    58,
+    {
+      "verbatimName": "Recovery Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "recovery_speed": 1
+      },
+      "icon": "decoration/lv1_color8.png"
+    }
+  ],
+  [
+    57,
+    {
+      "verbatimName": "Medicine Jewel 2",
+      "slotSize": 2,
+      "rarity": 4,
+      "skills": {
+        "recovery_up": 1
+      },
+      "icon": "decoration/lv2_color8.png"
+    }
+  ],
+  [
+    43,
+    {
+      "verbatimName": "Sonorous Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "horn_maestro": 1
+      },
+      "icon": "decoration/lv1_color8.png"
+    }
+  ],
+  [
+    41,
+    {
+      "verbatimName": "Drain Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "stamina_thief": 1
+      },
+      "icon": "decoration/lv1_color10.png"
+    }
+  ],
+  [
+    32,
+    {
+      "verbatimName": "Physique Jewel 2",
+      "slotSize": 2,
+      "rarity": 4,
+      "skills": {
+        "constitution": 1
+      },
+      "icon": "decoration/lv2_color5.png"
+    }
+  ],
+  [
+    17,
+    {
+      "verbatimName": "Venom Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "poison_attack": 1
+      },
+      "icon": "decoration/lv1_color9.png"
+    }
+  ],
+  [
+    42,
+    {
+      "verbatimName": "Slider Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "affinity_sliding": 1
+      },
+      "icon": "decoration/lv1_color3.png"
+    }
+  ],
+  [
+    85,
+    {
+      "verbatimName": "Bomber Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "bombardier": 1
+      },
+      "icon": "decoration/lv1_color6.png"
+    }
+  ],
+  [
+    12,
+    {
+      "verbatimName": "Blaze Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "fire_attack": 1
+      },
+      "icon": "decoration/lv1_color7.png"
+    }
+  ],
+  [
+    13,
+    {
+      "verbatimName": "Stream Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "water_attack": 1
+      },
+      "icon": "decoration/lv1_color11.png"
+    }
+  ],
+  [
+    15,
+    {
+      "verbatimName": "Bolt Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "thunder_attack": 1
+      },
+      "icon": "decoration/lv1_color4.png"
+    }
+  ],
+  [
+    14,
+    {
+      "verbatimName": "Frost Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "ice_attack": 1
+      },
+      "icon": "decoration/lv1_color12.png"
+    }
+  ],
+  [
+    16,
+    {
+      "verbatimName": "Dragon Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "dragon_attack": 1
+      },
+      "icon": "decoration/lv1_color6.png"
+    }
+  ],
+  [
+    55,
+    {
+      "verbatimName": "Defense Jewel 1",
+      "slotSize": 1,
+      "rarity": 5,
+      "skills": {
+        "defense_boost": 1
+      },
+      "icon": "decoration/lv1_color5.png"
+    }
+  ],
+  [
+    94,
+    {
+      "verbatimName": "Carver Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "carving_pro": 1
+      },
+      "icon": "decoration/lv1_color2.png"
+    }
+  ],
+  [
+    98,
+    {
+      "verbatimName": "Rodeo Jewel 2",
+      "slotSize": 2,
+      "rarity": 4,
+      "skills": {
+        "master_mounter": 1
+      },
+      "icon": "decoration/lv2_color11.png"
+    }
+  ],
+  [
+    95,
+    {
+      "verbatimName": "Hungerless Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "hunger_resistance": 1
+      },
+      "icon": "decoration/lv1_color5.png"
+    }
+  ],
+  [
+    89,
+    {
+      "verbatimName": "Satiated Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "free_meal": 1
+      },
+      "icon": "decoration/lv1_color13.png"
+    }
+  ],
+  [
+    76,
+    {
+      "verbatimName": "Muck Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "muck_resistance": 1
+      },
+      "icon": "decoration/lv1_color2.png"
+    }
+  ],
+  [
+    97,
+    {
+      "verbatimName": "Diversion Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "diversion": 1
+      },
+      "icon": "decoration/lv1_color9.png"
+    }
+  ],
+  [
+    96,
+    {
+      "verbatimName": "Dive Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "leap_of_faith": 1
+      },
+      "icon": "decoration/lv1_color12.png"
+    }
+  ],
+  [
+    91,
+    {
+      "verbatimName": "Fortitude Jewel 2",
+      "slotSize": 2,
+      "rarity": 4,
+      "skills": {
+        "fortify": 1
+      },
+      "icon": "decoration/lv2_color6.png"
+    }
+  ],
+  [
+    79,
+    {
+      "verbatimName": "Geology Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "geologist": 1
+      },
+      "icon": "decoration/lv1_color13.png"
+    }
+  ],
+  [
+    78,
+    {
+      "verbatimName": "Botany Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "botanist": 1
+      },
+      "icon": "decoration/lv1_color8.png"
+    }
+  ],
+  [
+    77,
+    {
+      "verbatimName": "Antiblast Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "blast_resistance": 1
+      },
+      "icon": "decoration/lv1_color6.png"
+    }
+  ],
+  [
+    74,
+    {
+      "verbatimName": "Pep Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "sleep_resistance": 1
+      },
+      "icon": "decoration/lv1_color12.png"
+    }
+  ],
+  [
+    73,
+    {
+      "verbatimName": "Antipara Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "paralysis_resistance": 1
+      },
+      "icon": "decoration/lv1_color5.png"
+    }
+  ],
+  [
+    72,
+    {
+      "verbatimName": "Antidote Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "poison_resistance": 1
+      },
+      "icon": "decoration/lv1_color9.png"
+    }
+  ],
+  [
+    66,
+    {
+      "verbatimName": "Fire Res Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "fire_resistance": 1
+      },
+      "icon": "decoration/lv1_color7.png"
+    }
+  ],
+  [
+    67,
+    {
+      "verbatimName": "Water Res Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "water_resistance": 1
+      },
+      "icon": "decoration/lv1_color11.png"
+    }
+  ],
+  [
+    69,
+    {
+      "verbatimName": "Thunder Res Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "thunder_resistance": 1
+      },
+      "icon": "decoration/lv1_color4.png"
+    }
+  ],
+  [
+    68,
+    {
+      "verbatimName": "Ice Res Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "ice_resistance": 1
+      },
+      "icon": "decoration/lv1_color12.png"
+    }
+  ],
+  [
+    70,
+    {
+      "verbatimName": "Dragon Res Jewel 1",
+      "slotSize": 1,
+      "rarity": 4,
+      "skills": {
+        "dragon_resistance": 1
+      },
+      "icon": "decoration/lv1_color6.png"
+    }
+  ],
+  [
+    201,
+    {
+      "verbatimName": "Hard Fire Res Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "fire_resistance": 3
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    202,
+    {
+      "verbatimName": "Hard Water Res Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "water_resistance": 3
+      },
+      "icon": "decoration/lv4_color11.png"
+    }
+  ],
+  [
+    203,
+    {
+      "verbatimName": "Hard Ice Res Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "ice_resistance": 3
+      },
+      "icon": "decoration/lv4_color12.png"
+    }
+  ],
+  [
+    204,
+    {
+      "verbatimName": "Hard Thunder Res Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "thunder_resistance": 3
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    205,
+    {
+      "verbatimName": "Hard Dragon Res Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "dragon_resistance": 3
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    210,
+    {
+      "verbatimName": "Hard Botany Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "botanist": 3
+      },
+      "icon": "decoration/lv4_color8.png"
+    }
+  ],
+  [
+    211,
+    {
+      "verbatimName": "Hard Geology Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "geologist": 3
+      },
+      "icon": "decoration/lv4_color13.png"
+    }
+  ],
+  [
+    212,
+    {
+      "verbatimName": "Hard Satiated Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "free_meal": 3
+      },
+      "icon": "decoration/lv4_color13.png"
+    }
+  ],
+  [
+    213,
+    {
+      "verbatimName": "Hard Drain Jewel 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "stamina_thief": 3
+      },
+      "icon": "decoration/lv4_color10.png"
+    }
+  ],
+  [
+    214,
+    {
+      "verbatimName": "Hard Enduring Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "item_prolonger": 3
+      },
+      "icon": "decoration/lv4_color13.png"
+    }
+  ],
+  [
+    215,
+    {
+      "verbatimName": "Hard Hungerless Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "hunger_resistance": 3
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    216,
+    {
+      "verbatimName": "Blaze Jewel+ 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skills": {
+        "fire_attack": 2
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    217,
+    {
+      "verbatimName": "Hard Blaze Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skills": {
+        "fire_attack": 3
+      },
+      "icon": "decoration/lv3_color7.png"
+    }
+  ],
+  [
+    219,
+    {
+      "verbatimName": "Stream Jewel+ 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skills": {
+        "water_attack": 2
+      },
+      "icon": "decoration/lv2_color11.png"
+    }
+  ],
+  [
+    220,
+    {
+      "verbatimName": "Hard Stream Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skills": {
+        "water_attack": 3
+      },
+      "icon": "decoration/lv3_color11.png"
+    }
+  ],
+  [
+    222,
+    {
+      "verbatimName": "Frost Jewel+ 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skills": {
+        "ice_attack": 2
+      },
+      "icon": "decoration/lv2_color12.png"
+    }
+  ],
+  [
+    223,
+    {
+      "verbatimName": "Hard Frost Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skills": {
+        "ice_attack": 3
+      },
+      "icon": "decoration/lv3_color12.png"
+    }
+  ],
+  [
+    225,
+    {
+      "verbatimName": "Bolt Jewel+ 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skills": {
+        "thunder_attack": 2
+      },
+      "icon": "decoration/lv2_color4.png"
+    }
+  ],
+  [
+    226,
+    {
+      "verbatimName": "Hard Bolt Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skills": {
+        "thunder_attack": 3
+      },
+      "icon": "decoration/lv3_color4.png"
+    }
+  ],
+  [
+    228,
+    {
+      "verbatimName": "Dragon Jewel+ 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skills": {
+        "dragon_attack": 2
+      },
+      "icon": "decoration/lv2_color6.png"
+    }
+  ],
+  [
+    229,
+    {
+      "verbatimName": "Hard Dragon Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skills": {
+        "dragon_attack": 3
+      },
+      "icon": "decoration/lv3_color6.png"
+    }
+  ],
+  [
+    231,
+    {
+      "verbatimName": "Defense Jewel+ 2",
+      "slotSize": 2,
+      "rarity": 8,
+      "skills": {
+        "defense_boost": 2
+      },
+      "icon": "decoration/lv2_color5.png"
+    }
+  ],
+  [
+    232,
+    {
+      "verbatimName": "Hard Defense Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skills": {
+        "defense_boost": 3
+      },
+      "icon": "decoration/lv3_color5.png"
+    }
+  ],
+  [
+    233,
+    {
+      "verbatimName": "Hard Defense Jewel++ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "defense_boost": 5
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    234,
+    {
+      "verbatimName": "Hard Bomber Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "bombardier": 3
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    235,
+    {
+      "verbatimName": "Hard Grinder Jewel 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "speed_sharpening": 3
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    236,
+    {
+      "verbatimName": "Medicine Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "recovery_up": 2
+      },
+      "icon": "decoration/lv4_color8.png"
+    }
+  ],
+  [
+    237,
+    {
+      "verbatimName": "Physique Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "constitution": 2
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    238,
+    {
+      "verbatimName": "Wirebug Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "wirebug_whisperer": 2
+      },
+      "icon": "decoration/lv4_color12.png"
+    }
+  ],
+  [
+    239,
+    {
+      "verbatimName": "Hard Wall Run Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "wall_runner": 3
+      },
+      "icon": "decoration/lv4_color8.png"
+    }
+  ],
+  [
+    241,
+    {
+      "verbatimName": "Hard Recovery Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "recovery_speed": 3
+      },
+      "icon": "decoration/lv4_color8.png"
+    }
+  ],
+  [
+    242,
+    {
+      "verbatimName": "Protection Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "divine_blessing": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    243,
+    {
+      "verbatimName": "Gobbler Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "speed_eating": 2
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    244,
+    {
+      "verbatimName": "Resistor Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "blight_resistance": 2
+      },
+      "icon": "decoration/lv4_color10.png"
+    }
+  ],
+  [
+    246,
+    {
+      "verbatimName": "Hard Friendship Jewel 3",
+      "slotSize": 3,
+      "rarity": 8,
+      "skills": {
+        "wide_range": 3
+      },
+      "icon": "decoration/lv3_color1.png"
+    }
+  ],
+  [
+    247,
+    {
+      "verbatimName": "Hard Friendship Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "wide_range": 4
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    248,
+    {
+      "verbatimName": "Evasion Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "evade_window": 2
+      },
+      "icon": "decoration/lv4_color12.png"
+    }
+  ],
+  [
+    251,
+    {
+      "verbatimName": "Gambit Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "punishing_draw": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    252,
+    {
+      "verbatimName": "Hard Brace Jewel 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "flinch_free": 3
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    253,
+    {
+      "verbatimName": "Bubble Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "bubbly_dance": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    254,
+    {
+      "verbatimName": "KO Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "slugger": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    255,
+    {
+      "verbatimName": "Jumping Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "evade_extender": 2
+      },
+      "icon": "decoration/lv4_color12.png"
+    }
+  ],
+  [
+    256,
+    {
+      "verbatimName": "Hard Wind Res Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "windproof": 3
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    260,
+    {
+      "verbatimName": "Refresh Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "stamina_surge": 2
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    261,
+    {
+      "verbatimName": "Ironwall Jewel+ 3",
+      "slotSize": 3,
+      "rarity": 8,
+      "skills": {
+        "guard": 2
+      },
+      "icon": "decoration/lv3_color2.png"
+    }
+  ],
+  [
+    262,
+    {
+      "verbatimName": "Shield Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "guard_up": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    263,
+    {
+      "verbatimName": "Precise Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "ballistics": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    265,
+    {
+      "verbatimName": "Crit Element Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "critical_element": 2
+      },
+      "icon": "decoration/lv4_color10.png"
+    }
+  ],
+  [
+    266,
+    {
+      "verbatimName": "Charger Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "focus": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    267,
+    {
+      "verbatimName": "Sprinter Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "marathon_runner": 2
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    270,
+    {
+      "verbatimName": "Draw Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "critical_draw": 2
+      },
+      "icon": "decoration/lv4_color3.png"
+    }
+  ],
+  [
+    271,
+    {
+      "verbatimName": "Fungiform Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "mushroomancer": 2
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    272,
+    {
+      "verbatimName": "Hard Steadfast Jewel 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "stun_resistance": 3
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    276,
+    {
+      "verbatimName": "Mind's Eye Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "minds_eye": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    279,
+    {
+      "verbatimName": "Earplug Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "earplugs": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    280,
+    {
+      "verbatimName": "Enhancer Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "power_prolonger": 2
+      },
+      "icon": "decoration/lv4_color13.png"
+    }
+  ],
+  [
+    283,
+    {
+      "verbatimName": "Footing Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "tremor_resistance": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    296,
+    {
+      "verbatimName": "Hellfire Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "hellfire_cloak": 2
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    298,
+    {
+      "verbatimName": "Fate Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 9,
+      "skills": {
+        "good_luck": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    312,
+    {
+      "verbatimName": "Breath Jewel 3",
+      "slotSize": 3,
+      "rarity": 8,
+      "skills": {
+        "quick_breath": 1
+      },
+      "icon": "decoration/lv3_color8.png"
+    }
+  ],
+  [
+    306,
+    {
+      "verbatimName": "Bladescale Jewel 2",
+      "slotSize": 2,
+      "rarity": 9,
+      "skills": {
+        "bladescale_hone": 1
+      },
+      "icon": "decoration/lv2_color4.png"
+    }
+  ],
+  [
+    309,
+    {
+      "verbatimName": "Redirection Jewel 3",
+      "slotSize": 3,
+      "rarity": 9,
+      "skills": {
+        "redirection": 1
+      },
+      "icon": "decoration/lv3_color8.png"
+    }
+  ],
+  [
+    307,
+    {
+      "verbatimName": "Flywall Jewel 1",
+      "slotSize": 1,
+      "rarity": 9,
+      "skills": {
+        "wall_runner_boost": 1
+      },
+      "icon": "decoration/lv1_color8.png"
+    }
+  ],
+  [
+    314,
+    {
+      "verbatimName": "Mighty Bow Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "bow_charge_plus": 1
+      },
+      "icon": "decoration/lv4_color8.png"
+    }
+  ],
+  [
+    315,
+    {
+      "verbatimName": "Sniper Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 8,
+      "skills": {
+        "steadiness": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    250,
+    {
+      "verbatimName": "Hard Sniper Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "steadiness": 3
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    277,
+    {
+      "verbatimName": "Quickswitch Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "rapid_morph": 2
+      },
+      "icon": "decoration/lv4_color11.png"
+    }
+  ],
+  [
+    282,
+    {
+      "verbatimName": "Magazine Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "load_shells": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    281,
+    {
+      "verbatimName": "Trueshot Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "special_ammo_boost": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    278,
+    {
+      "verbatimName": "Artillery Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "artillery": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    304,
+    {
+      "verbatimName": "Charge Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "charge_master": 1
+      },
+      "icon": "decoration/lv2_color10.png"
+    }
+  ],
+  [
+    249,
+    {
+      "verbatimName": "Sheath Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "quick_sheathe": 2
+      },
+      "icon": "decoration/lv4_color13.png"
+    }
+  ],
+  [
+    288,
+    {
+      "verbatimName": "Crisis Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "resuscitate": 2
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    316,
+    {
+      "verbatimName": "Cornerstone Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skills": {
+        "defiance": 1
+      },
+      "icon": "decoration/lv1_color5.png"
+    }
+  ],
+  [
+    245,
+    {
+      "verbatimName": "Destroyer Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "partbreaker": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    257,
+    {
+      "verbatimName": "Counter Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "counterstrike": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    292,
+    {
+      "verbatimName": "Sharp Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "protective_polish": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    240,
+    {
+      "verbatimName": "Hard Venom Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "poison_attack": 3
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    274,
+    {
+      "verbatimName": "Razor Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "razor_sharp": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    301,
+    {
+      "verbatimName": "Foil Jewel 3",
+      "slotSize": 3,
+      "rarity": 10,
+      "skills": {
+        "tune_up": 1
+      },
+      "icon": "decoration/lv3_color2.png"
+    }
+  ],
+  [
+    206,
+    {
+      "verbatimName": "Hard Antidote Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "poison_resistance": 3
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    207,
+    {
+      "verbatimName": "Hard Antipara Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "paralysis_resistance": 3
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    208,
+    {
+      "verbatimName": "Hard Pep Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "sleep_resistance": 3
+      },
+      "icon": "decoration/lv4_color12.png"
+    }
+  ],
+  [
+    209,
+    {
+      "verbatimName": "Hard Antiblast Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "blast_resistance": 3
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    299,
+    {
+      "verbatimName": "Mastery Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "masters_touch": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    303,
+    {
+      "verbatimName": "Spiribird's Call Jewel 1",
+      "slotSize": 1,
+      "rarity": 8,
+      "skills": {
+        "spiribirds_call": 1
+      },
+      "icon": "decoration/lv1_color1.png"
+    }
+  ],
+  [
+    302,
+    {
+      "verbatimName": "Polisher Pro Jewel 3",
+      "slotSize": 3,
+      "rarity": 10,
+      "skills": {
+        "grinder_s": 1
+      },
+      "icon": "decoration/lv3_color4.png"
+    }
+  ],
+  [
+    305,
+    {
+      "verbatimName": "Phoenix Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "coalescence": 1
+      },
+      "icon": "decoration/lv2_color9.png"
+    }
+  ],
+  [
+    290,
+    {
+      "verbatimName": "Paralyzer Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "paralysis_attack": 2
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    291,
+    {
+      "verbatimName": "Sleep Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "sleep_attack": 2
+      },
+      "icon": "decoration/lv4_color12.png"
+    }
+  ],
+  [
+    284,
+    {
+      "verbatimName": "Blast Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "blast_attack": 2
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    310,
+    {
+      "verbatimName": "Foray Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "foray": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    264,
+    {
+      "verbatimName": "Mighty Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "maximum_might": 2
+      },
+      "icon": "decoration/lv4_color3.png"
+    }
+  ],
+  [
+    308,
+    {
+      "verbatimName": "Chain Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "burst": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    329,
+    {
+      "verbatimName": "Phoenix Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "coalescence": 2
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    330,
+    {
+      "verbatimName": "Haze Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skills": {
+        "chameleos_blessing": 1
+      },
+      "icon": "decoration/lv1_color9.png"
+    }
+  ],
+  [
+    293,
+    {
+      "verbatimName": "Forceshot Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "normal_rapid_up": 2
+      },
+      "icon": "decoration/lv4_color1.png"
+    }
+  ],
+  [
+    294,
+    {
+      "verbatimName": "Pierce Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "pierce_up": 2
+      },
+      "icon": "decoration/lv4_color11.png"
+    }
+  ],
+  [
+    285,
+    {
+      "verbatimName": "Spread Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "spread_up": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    297,
+    {
+      "verbatimName": "Handicraft Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "handicraft": 2
+      },
+      "icon": "decoration/lv4_color10.png"
+    }
+  ],
+  [
+    230,
+    {
+      "verbatimName": "Hard Dragon Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "dragon_attack": 4
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    227,
+    {
+      "verbatimName": "Hard Bolt Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "thunder_attack": 4
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    224,
+    {
+      "verbatimName": "Hard Frost Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "ice_attack": 4
+      },
+      "icon": "decoration/lv4_color12.png"
+    }
+  ],
+  [
+    221,
+    {
+      "verbatimName": "Hard Stream Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "water_attack": 4
+      },
+      "icon": "decoration/lv4_color11.png"
+    }
+  ],
+  [
+    218,
+    {
+      "verbatimName": "Hard Blaze Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "fire_attack": 4
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    337,
+    {
+      "verbatimName": "Redirection Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "redirection": 2
+      },
+      "icon": "decoration/lv4_color8.png"
+    }
+  ],
+  [
+    336,
+    {
+      "verbatimName": "Flamescale Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skills": {
+        "teostra_blessing": 1
+      },
+      "icon": "decoration/lv1_color7.png"
+    }
+  ],
+  [
+    289,
+    {
+      "verbatimName": "Throttle Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "latent_power": 2
+      },
+      "icon": "decoration/lv4_color3.png"
+    }
+  ],
+  [
+    335,
+    {
+      "verbatimName": "Ironshell Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skills": {
+        "kushala_blessing": 1
+      },
+      "icon": "decoration/lv1_color2.png"
+    }
+  ],
+  [
+    300,
+    {
+      "verbatimName": "Flawless Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "peak_performance": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    334,
+    {
+      "verbatimName": "Polisher Pro Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "grinder_s": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    331,
+    {
+      "verbatimName": "Charge Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "charge_master": 2
+      },
+      "icon": "decoration/lv4_color10.png"
+    }
+  ],
+  [
+    317,
+    {
+      "verbatimName": "Element Exploit Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "element_exploit": 1
+      },
+      "icon": "decoration/lv2_color10.png"
+    }
+  ],
+  [
+    319,
+    {
+      "verbatimName": "Backstab Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "sneak_attack": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    318,
+    {
+      "verbatimName": "Counterattack Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "adrenaline_rush": 1
+      },
+      "icon": "decoration/lv2_color7.png"
+    }
+  ],
+  [
+    268,
+    {
+      "verbatimName": "Guardian Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "offensive_guard": 2
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    332,
+    {
+      "verbatimName": "Foil Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "tune_up": 2
+      },
+      "icon": "decoration/lv4_color2.png"
+    }
+  ],
+  [
+    333,
+    {
+      "verbatimName": "Bloodening Jewel 3",
+      "slotSize": 3,
+      "rarity": 10,
+      "skills": {
+        "blood_rite": 1
+      },
+      "icon": "decoration/lv3_color7.png"
+    }
+  ],
+  [
+    322,
+    {
+      "verbatimName": "Embolden Jewel 2",
+      "slotSize": 2,
+      "rarity": 10,
+      "skills": {
+        "embolden": 1
+      },
+      "icon": "decoration/lv2_color5.png"
+    }
+  ],
+  [
+    287,
+    {
+      "verbatimName": "Furor Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "resentment": 2
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    338,
+    {
+      "verbatimName": "Dragon Spirit Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "dragonheart": 1
+      },
+      "icon": "decoration/lv4_color6.png"
+    }
+  ],
+  [
+    339,
+    {
+      "verbatimName": "Element Exploit Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "element_exploit": 2
+      },
+      "icon": "decoration/lv4_color10.png"
+    }
+  ],
+  [
+    323,
+    {
+      "verbatimName": "Intrepid Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skills": {
+        "intrepid_heart": 1
+      },
+      "icon": "decoration/lv1_color1.png"
+    }
+  ],
+  [
+    340,
+    {
+      "verbatimName": "Hard Cornerstone Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "defiance": 3
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    342,
+    {
+      "verbatimName": "Backstab Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "sneak_attack": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    343,
+    {
+      "verbatimName": "Foray Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "foray": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    341,
+    {
+      "verbatimName": "Counterattack Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "adrenaline_rush": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    321,
+    {
+      "verbatimName": "Trigger Jewel 3",
+      "slotSize": 3,
+      "rarity": 10,
+      "skills": {
+        "status_trigger": 1
+      },
+      "icon": "decoration/lv3_color9.png"
+    }
+  ],
+  [
+    273,
+    {
+      "verbatimName": "Potential Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "heroics": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    344,
+    {
+      "verbatimName": "Chain Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "burst": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    350,
+    {
+      "verbatimName": "Shockproof Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skills": {
+        "shock_absorber": 1
+      },
+      "icon": "decoration/lv1_color2.png"
+    }
+  ],
+  [
+    352,
+    {
+      "verbatimName": "Bladescale Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "bladescale_hone": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ],
+  [
+    286,
+    {
+      "verbatimName": "Challenger Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "agitator": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    269,
+    {
+      "verbatimName": "Capacity Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "ammo_up": 2
+      },
+      "icon": "decoration/lv4_color8.png"
+    }
+  ],
+  [
+    345,
+    {
+      "verbatimName": "Bloodlust Jewel 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "bloodlust": 1
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    346,
+    {
+      "verbatimName": "Embolden Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "embolden": 2
+      },
+      "icon": "decoration/lv4_color5.png"
+    }
+  ],
+  [
+    347,
+    {
+      "verbatimName": "Intrepid Jewel+ 3",
+      "slotSize": 3,
+      "rarity": 10,
+      "skills": {
+        "intrepid_heart": 2
+      },
+      "icon": "decoration/lv3_color1.png"
+    }
+  ],
+  [
+    348,
+    {
+      "verbatimName": "Trigger Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "status_trigger": 2
+      },
+      "icon": "decoration/lv4_color9.png"
+    }
+  ],
+  [
+    259,
+    {
+      "verbatimName": "Expert Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "critical_eye": 2
+      },
+      "icon": "decoration/lv4_color3.png"
+    }
+  ],
+  [
+    258,
+    {
+      "verbatimName": "Attack Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "attack_boost": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    351,
+    {
+      "verbatimName": "Inspiration Jewel 1",
+      "slotSize": 1,
+      "rarity": 10,
+      "skills": {
+        "inspiration": 1
+      },
+      "icon": "decoration/lv1_color1.png"
+    }
+  ],
+  [
+    349,
+    {
+      "verbatimName": "Bloodening Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "blood_rite": 2
+      },
+      "icon": "decoration/lv4_color7.png"
+    }
+  ],
+  [
+    275,
+    {
+      "verbatimName": "Thrift Jewel+ 4",
+      "slotSize": 4,
+      "rarity": 10,
+      "skills": {
+        "spare_shot": 2
+      },
+      "icon": "decoration/lv4_color4.png"
+    }
+  ]
+]

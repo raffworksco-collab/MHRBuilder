@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1a1a1a">
+<title>MHR Equipment Builder</title>
+<style>
+:root{
+  --bg:#ffffff; --ink:#3f4851; --muted:#8a9199; --line:#dde1e5; --line-strong:#9aa3ab;
+  --btn:#8fb0b8; --btn-ink:#5b6670; --head:#4b5560; --hover:#f4f7f8; --sel:#eaf5f6;
+  --gold:#a8842b; --green:#2e9c4a; --bad:#b3261e; --warn:#8a5a00; --on-fill:#ffffff;
+  --s1:#4d9f57; --s2:#b08a2a; --s3:#8b4a9e; --s4:#a8325e; --prim:#2f7f8c; --prim-ink:#fff; --shadow:rgba(0,0,0,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1a1a1a; --ink:#c9cdd1; --muted:#80878e; --line:#2e3236; --line-strong:#5a6168;
+    --btn:#4f7079; --btn-ink:#b5bcc2; --head:#dfe3e6; --hover:#222629; --sel:#1c2c2f;
+    --gold:#d1a940; --green:#5cc97a; --bad:#f2877f; --warn:#e6b450; --on-fill:#161616;
+    --s1:#6cc17a; --s2:#d1a940; --s3:#b97ad0; --s4:#e06b8f; --prim:#4fa3b2; --prim-ink:#10181a; --shadow:rgba(0,0,0,.6);
+  }
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Open Sans","Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+button,input,select{font:inherit;color:inherit}
+
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 20px;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;color:var(--head);letter-spacing:.01em;font-size:15px}
+.brand i{font-style:normal;color:var(--prim)}
+.topbar .sp,.sp{flex:1}
+.topbar a{color:var(--muted);text-decoration:none;font-size:12px}
+.topbar a:hover{color:var(--ink)}
+
+.layout{display:grid;grid-template-columns:290px minmax(0,1fr);height:calc(100vh - 46px);min-height:0;overflow:hidden}
+.side{padding:18px 20px 28px;border-right:1px solid var(--line);overflow:auto;min-height:0}
+.main{padding:18px 20px 18px;min-width:0;min-height:0;height:100%;display:flex;flex-direction:column;overflow:hidden}
+h2{margin:0;font-size:22px;font-weight:700;color:var(--head)}
+h3{margin:0;font-size:13px;font-weight:700;color:var(--head)}
+.h-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+
+.obtn{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--btn);color:var(--btn-ink);border-radius:8px;padding:6px 14px;min-height:34px;cursor:pointer;font-size:13px}
+.obtn:hover{background:var(--hover)}
+.obtn.fill{background:var(--prim);color:var(--prim-ink);border-color:var(--prim);font-weight:600}
+.obtn:disabled{opacity:.45;cursor:default}
+.obtn:focus-visible,input:focus-visible,select:focus-visible,.pick:focus-visible,.slotbtn:focus-visible,.ji:focus-visible{outline:2px solid var(--prim);outline-offset:1px}
+.icon-btn{width:36px;height:30px;padding:0;justify-content:center;font-size:16px}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+
+input[type=text],select{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:5px 8px;min-height:32px;color:var(--ink)}
+input.bad{border-color:var(--bad)}
+.skrow{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:6px;margin-bottom:6px}
+.skrow .x{background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px;line-height:1}
+.skrow .x:hover{color:var(--bad)}
+.opt{margin:4px 0 14px}
+.opt .lbl{display:block;color:var(--green);font-size:12px;margin-bottom:4px}
+.opt label{display:inline-flex;gap:5px;align-items:center;margin-right:12px;font-size:13px;cursor:pointer}
+.help{color:var(--muted);font-size:12px;line-height:1.55;border-top:1px solid var(--line);padding-top:12px;margin-top:6px}
+
+/* hexagon slot */
+.hx{display:inline-grid;place-items:center;width:20px;height:22px;flex:none;font-size:11px;font-weight:700;line-height:1;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--line);color:var(--c,var(--muted))}
+.hx.s1{--c:var(--s1)} .hx.s2{--c:var(--s2)} .hx.s3{--c:var(--s3)} .hx.s4{--c:var(--s4)}
+.hx.on{background:var(--c,var(--line-strong));color:var(--on-fill)}
+.hxs{display:flex;gap:3px;flex-wrap:wrap;margin-top:4px}
+
+#msg{margin:0 0 14px;padding:8px 12px;border:1px solid var(--line);border-radius:8px}
+.empty{color:var(--muted);padding:20px 0}
+
+/* grid */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.grid{display:grid;border-top:1px solid var(--line-strong);border-left:1px solid var(--line-strong)}
+.grid.eq{grid-template-columns:repeat(7,minmax(122px,1fr));min-width:860px}
+.grid.sets{grid-template-columns:150px repeat(5,minmax(132px,1fr));min-width:830px;border-color:var(--line)}
+.gh{padding:8px 10px;color:var(--muted);font-size:12px;text-align:center;border-right:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);background:var(--bg)}
+.sets .gh{border-color:var(--line)}
+.gc{padding:8px 10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0;position:relative}
+.eq .gc{border-right:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);min-height:112px}
+.rh{position:sticky;left:0;z-index:1;background:var(--bg)}
+.pname{font-weight:600;font-size:12.5px;color:var(--head);line-height:1.25;overflow-wrap:anywhere}
+.psub{font-size:11px;color:var(--muted);margin:1px 0 4px}
+.sk{display:flex;gap:6px;justify-content:space-between;font-size:12px;color:var(--muted);line-height:1.5}
+.sk b{color:var(--gold);font-weight:600;flex:none}
+.sk.w{color:var(--ink)} .sk.w span{font-weight:600}
+.none{color:var(--muted);font-size:12px}
+.rm{position:absolute;top:3px;right:4px;background:none;border:0;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:2px 5px}
+.rm:hover{color:var(--bad)}
+.eq .pname{padding-right:16px}
+.slotbtn{display:flex;width:100%;text-align:left;align-items:center;gap:6px;background:none;border:0;border-radius:6px;padding:3px 2px;margin-top:3px;cursor:pointer;font-size:11.5px;color:var(--ink)}
+.slotbtn:hover{background:var(--hover)}
+.slotbtn .jn{min-width:0;overflow-wrap:anywhere;line-height:1.2}
+.slotbtn .jn small{display:block;color:var(--gold);font-size:10.5px}
+.slotbtn em{font-style:normal;color:var(--muted)}
+.wpick{width:100%;min-width:0;font-size:12.5px;min-height:32px;margin-top:8px}
+.wtypes{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.wt{border:1px solid var(--line);background:none;color:var(--ink);border-radius:6px;padding:3px 8px;min-height:28px;font-size:12px;font-weight:600;cursor:pointer}
+.wt:hover:not(:disabled){background:var(--hover)}
+.wt.on{background:var(--prim);color:var(--prim-ink);border-color:var(--prim)}
+.wt:disabled{opacity:.35;cursor:default}
+.wpanel{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+.hx.r{--c:var(--prim)}
+.hxs.rr{align-items:center}
+.hxs.rr small{color:var(--muted);font-size:11px;margin-right:2px}
+.wst{font-size:12.5px;color:var(--muted);margin:4px 0}
+.wst b{color:var(--ink,inherit)}
+.wsel{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.wsel select{min-width:0;width:56px;padding:2px 4px;min-height:28px;font-size:12px}
+.pickbtn{margin-top:8px}
+
+.ico{width:28px;height:28px;flex:none;object-fit:contain}
+.ico.sm{width:20px;height:20px}
+.pn{display:flex;gap:6px;align-items:flex-start}
+.pn .pname{flex:1;min-width:0}
+.wt .ico{vertical-align:middle;margin-right:3px}
+.sdesc{margin:6px 0 10px;line-height:1.5}
+.lv{display:flex;gap:10px;padding:4px 6px;border-bottom:1px solid var(--line);font-size:13px}
+.lv b{color:var(--gold);flex:none;min-width:3.4em}
+.lv.cur{background:var(--sel);box-shadow:inset 3px 0 0 var(--prim)}
+.sh{display:flex;align-items:center;gap:8px}
+.pick{cursor:pointer}
+.pick:hover{background:var(--hover)}
+.pick.eqd{background:var(--sel);box-shadow:inset 3px 0 0 var(--prim)}
+
+.totals{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0 28px;padding:12px 4px 4px}
+.tt{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 10px;padding:5px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px}
+.tt.w{color:var(--ink)} .tt b{color:var(--gold);font-weight:700;text-align:right}
+.tt small{color:var(--muted);font-weight:400}
+.tt.over b{color:var(--bad)}
+.segbar{display:flex;grid-column:1 / -1;gap:3px;margin-top:1px;margin-bottom:3px}
+.seg{height:5px;flex:1;min-width:3px;border-radius:2px;background:var(--line)}
+.seg.on{background:#d7ad36}
+.tt.over .seg.on{background:var(--bad)}
+.tt .skillname{display:flex;align-items:center;gap:5px;min-width:0}
+.skillinfo{border:0;background:none;color:var(--muted);font-size:12px;padding:0;cursor:pointer;line-height:1}
+.skillinfo:hover{color:var(--prim)}
+.tt.ok b{color:var(--green)} .tt.need small{color:var(--bad)}
+.defl{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* jumlah element def (sidebar kiri) */
+.elemdef{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+.elemdef .eh{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.elemdef .eh small{color:var(--muted);font-size:11.5px;font-weight:400}
+.el{display:grid;grid-template-columns:12px minmax(0,1fr) auto;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px}
+.el .dot{width:10px;height:10px;border-radius:50%;background:var(--ec)}
+.el b{font-weight:700;text-align:right;min-width:2.2ch}
+.el b.pos{color:var(--green)} .el b.neg{color:var(--bad)} .el b.zero{color:var(--muted)}
+.el .rs{color:var(--muted);font-size:11.5px}
+.elemdef .enote{color:var(--muted);font-size:11.5px;margin-top:6px}
+
+.listhead{display:flex;align-items:center;gap:12px;margin:16px 0 10px;flex-wrap:wrap;flex:none}
+#equip{flex:none;max-height:44vh;overflow:auto}
+.main>.scroll{flex:1;min-height:100px;overflow:auto}
+#moreBar{flex:none;margin-bottom:0}
+.main footer{flex:none;margin-top:12px;max-height:60px;overflow:auto}
+.listhead input{width:200px}
+.listhead .defl{margin:0}
+
+/* popup */
+#ov{position:fixed;inset:0;z-index:50}
+#ov.center{background:rgba(0,0,0,.4);display:grid;place-items:center}
+#panel{position:fixed;width:330px;max-width:calc(100vw - 16px);max-height:min(72vh,540px);display:flex;flex-direction:column;
+  background:var(--bg);border:1px solid var(--line-strong);border-radius:12px;box-shadow:0 12px 40px var(--shadow);overflow:hidden}
+#ov.center #panel{position:relative}
+#panel.wide{width:420px}
+.ph{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);font-weight:700;color:var(--head)}
+.ph .pclose{margin-left:auto;background:none;border:0;font-size:20px;line-height:1;color:var(--muted);cursor:pointer}
+.pq{padding:8px 12px 4px}
+.pq input{width:100%}
+.pbody{overflow:auto;padding:4px 6px 8px;-webkit-overflow-scrolling:touch}
+.ji{display:flex;width:100%;align-items:center;gap:8px;text-align:left;background:none;border:0;border-radius:8px;padding:6px 8px;cursor:pointer;font-size:13px}
+.ji:hover{background:var(--hover)}
+.ji .jn{flex:1;min-width:0;line-height:1.25;overflow-wrap:anywhere}
+.ji .jn small{display:block;color:var(--muted);font-size:11.5px}
+.ji.want .jn small{color:var(--gold)}
+.ji .tag{font-size:11px;color:var(--bad);flex:none}
+.ji.clear{color:var(--bad)}
+.pf{padding:10px 12px 12px;border-top:1px solid var(--line)}
+.pf h4{margin:0 0 8px;font-size:13px;color:var(--head)}
+.pf .g2{display:grid;grid-template-columns:minmax(0,1fr) 64px;gap:6px;margin-bottom:6px}
+.pf .s3{display:flex;gap:6px;margin-bottom:8px}
+.pf .s3 select{flex:1;min-width:0}
+.ci{display:grid;grid-template-columns:minmax(0,1fr) 28px;align-items:center}
+.ci .x{background:none;border:0;color:var(--muted);cursor:pointer;font-size:17px}
+.ci .x:hover{color:var(--bad)}
+
+footer{color:var(--muted);font-size:12px;margin-top:34px;padding-top:12px;border-top:1px solid var(--line);max-width:760px}
+footer a{color:inherit}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;height:auto;min-height:calc(100vh - 46px);overflow:visible}
+  .side{border-right:0;border-bottom:1px solid var(--line);overflow:visible}
+  .main{padding:16px 12px 40px;height:auto;overflow:visible}
+  #equip{max-height:none;overflow:visible}
+  .main>.scroll{flex:none;overflow-x:auto;overflow-y:visible}
+  .topbar{padding:10px 14px}
+}
+
+/* layout: footer pinned at page bottom, names vertically centred with icons */
+html,body{height:100%}
+body{display:flex;flex-direction:column;height:100vh}
+.layout{flex:1 1 auto;height:auto;min-height:0}
+.pn{align-items:center}
+footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid var(--line);text-align:center;font-size:12px}
+@media (max-width:860px){body{display:block;height:auto}.layout{min-height:calc(100vh - 46px)}footer{padding:12px 14px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">MHR <i>Equipment Builder</i></div>
+  <div class="sp"></div>
+  <a href="https://github.com/wwylele/mhrice">Data source (mhrice)</a>
+</header>
+
+<div class="layout">
+  <aside class="side">
+    <div class="h-row"><h2>Skills</h2><span class="sp"></span>
+      <button class="obtn icon-btn" id="reset" type="button" title="Clear all skills">↻</button></div>
+    <div id="targets"></div>
+    <div class="btns"><button class="obtn" id="addSkill" type="button">＋ Add</button></div>
+
+    <div class="opt">
+      <span class="lbl">Armor rank</span>
+      <span id="tiers">
+        <label><input type="checkbox" data-tier="lr"> LR</label>
+        <label><input type="checkbox" data-tier="hr"> HR</label>
+        <label><input type="checkbox" data-tier="mr"> MR</label>
+      </span>
+    </div>
+
+    <div class="wpanel" id="wpanel"></div>
+
+    <div class="elemdef" id="elemdef"></div>
+  </aside>
+
+  <section class="main">
+    <div class="h-row"><h2>Equipment</h2><span class="sp"></span>
+      <button class="obtn" id="clearEq" type="button">Clear equipment</button></div>
+    <div id="equip"></div>
+
+    <div class="listhead">
+      <h2 style="font-size:18px">Armor</h2>
+      <input type="text" id="q" placeholder="Search set name…" autocomplete="off">
+      <span class="defl" id="info"></span>
+    </div>
+    <div class="scroll"><div class="grid sets" id="sets"></div></div>
+    <div class="btns" id="moreBar" hidden><button class="obtn" id="more" type="button">Show more</button></div>
+  </section>
+</div>
+
+<footer>
+  Armor, skill, decoration and weapon data were extracted from the Monster Hunter Rise game files using
+  <a href="https://github.com/wwylele/mhrice">mhrice</a>. Monster Hunter and all related assets are property of Capcom.
+  Fan project, not an official product.
+</footer>
+
+<div id="ov" hidden><div id="panel" role="dialog" aria-modal="true"></div></div>
+<datalist id="skillList"></datalist>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  "use strict";
+  var DATA = window.MHR;
+  var PARTS = ["head", "chest", "arms", "waist", "legs"];
+  var PART = { head: "Head", chest: "Chest", arms: "Arms", waist: "Waist", legs: "Legs", charm: "Charm", weapon: "Weapon" };
+  var TIER = { lr: "LR", hr: "HR", mr: "MR" };
+  var PAGE = 40;
+  var ICON_BASE = "icons/";  // folder icon, relatif kepada index.html
+  // urutan sama dengan a[6] dalam data.js: [f, w, t, i, d]
+  var WTYPES = [["Great Sword", "GS"], ["Long Sword", "LS"], ["Sword & Shield", "SnS"], ["Dual Blades", "DB"], ["Hammer", "HM"],
+    ["Hunting Horn", "HH"], ["Lance", "LN"], ["Gunlance", "GL"], ["Switch Axe", "SA"], ["Charge Blade", "CB"],
+    ["Insect Glaive", "IG"], ["Light Bowgun", "LBG"], ["Heavy Bowgun", "HBG"], ["Bow", "BW"]];
+  var WKEY = { "Great Sword": "great_sword", "Long Sword": "long_sword", "Sword & Shield": "short_sword", "Dual Blades": "dual_blades",
+    "Hammer": "hammer", "Hunting Horn": "horn", "Lance": "lance", "Gunlance": "gun_lance", "Switch Axe": "slash_axe",
+    "Charge Blade": "charge_axe", "Insect Glaive": "insect_glaive", "Light Bowgun": "light_bowgun", "Heavy Bowgun": "heavy_bowgun", "Bow": "bow" };
+  var ELEM_SK = ["fire_resistance", "water_resistance", "thunder_resistance", "ice_resistance", "dragon_resistance"];
+  var ELEM = [["Fire", "#d9534f"], ["Water", "#3b82c4"], ["Thunder", "#d4a017"], ["Ice", "#4fb3d9"], ["Dragon", "#8e5bd6"]];
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function el(tag, cls) { var e = document.createElement(tag); if (cls) e.className = cls; return e; }
+  // icon: path relatif kepada ICON_BASE. Kalau kosong atau fail tiada, icon disembunyikan.
+  function ico(path, cls) {
+    if (!path) return "";
+    return '<img class="ico' + (cls ? " " + cls : "") + '" src="' + esc(ICON_BASE + path) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
+  }
+
+  // ---------- data ----------
+  var skillById = {}, idByName = {}, armorById = {}, decoByName = {};
+  DATA.skills.forEach(function (s) {
+    skillById[s[0]] = { id: s[0], name: s[1], max: s[2], icon: s[3] || "", desc: s[4] || "", levels: s[5] || [] };
+    idByName[s[1].toLowerCase()] = s[0];
+  });
+  DATA.armor.forEach(function (a) { armorById[a[0]] = a; });
+  var weaponById = {};
+  (DATA.weapons || []).forEach(function (w) { weaponById[w[0]] = w; });
+  function curWeapon() { return weaponById[build.weaponId] || null; }
+  DATA.decos.forEach(function (d) { decoByName[d[0]] = { name: d[0], size: d[1], skill: d[2], level: d[3], icon: d[4] || "" }; });
+  $("skillList").innerHTML = DATA.skills.map(function (s) { return s[1]; }).sort()
+    .map(function (n) { return '<option value="' + esc(n) + '">'; }).join("");
+  function lookup(name) { return idByName[String(name || "").trim().toLowerCase()]; }
+
+  // ---------- state ----------
+  var KEY = "mhrArmorFinder.v3";  // naik versi: ID set/skill/senjata berubah, simpanan lama tak sah
+  function defaults() {
+    return {
+      targets: [{ name: "", lv: 0 }], charms: [], tiers: { lr: true, hr: true, mr: true },
+      build: { weapon: [0, 0, 0], weaponId: 0, weaponType: "", charm: null, pieces: {}, jewels: {} }
+    };
+  }
+  var state = (function () {
+    try {
+      var s = JSON.parse(localStorage.getItem(KEY));
+      if (s && typeof s === "object") {
+        var d = Object.assign(defaults(), s);
+        d.build = Object.assign(defaults().build, s.build || {});
+        return d;
+      }
+    } catch (e) {}
+    return defaults();
+  })();
+  var build = state.build;
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  function wantedMap() {
+    var m = {};
+    state.targets.forEach(function (t) {
+      var id = lookup(t.name);
+      if (id) m[id] = skillById[id].max;
+    });
+    return m;
+  }
+
+  function fillLevels(sel, max, value) {
+    sel.innerHTML = "";
+    if (!max) { var o = el("option"); o.value = "0"; o.textContent = "Lv"; sel.appendChild(o); sel.disabled = true; return 0; }
+    sel.disabled = false;
+    for (var i = 1; i <= max; i++) { var op = el("option"); op.value = String(i); op.textContent = String(i); sel.appendChild(op); }
+    var v = Math.min(Math.max(parseInt(value, 10) || max, 1), max);
+    sel.value = String(v);
+    return v;
+  }
+  function slotOptions(sel, value) {
+    sel.innerHTML = "";
+    [0, 1, 2, 3, 4].forEach(function (n) {
+      var o = el("option"); o.value = String(n); o.textContent = n ? "Slot " + n : "—"; sel.appendChild(o);
+    });
+    sel.value = String(value || 0);
+  }
+
+  // ---------- equipment: model ----------
+  function equipped(part) {
+    var a = armorById[build.pieces[part]];
+    var pc = a && a[5][part];
+    return pc ? { a: a, pc: pc } : null;
+  }
+  function curCharm() {
+    var found = null;
+    state.charms.forEach(function (c) { if (c.id === build.charm) found = c; });
+    return found;
+  }
+  // saiz slot bagi sesuatu kumpulan (weapon/charm/head..legs); indeks stabil, 0 = tiada slot
+  function getSlots(group) {
+    if (group === "weapon") { var wp = curWeapon(); return wp ? wp[8].slice() : build.weapon.slice(); }
+    if (group === "charm") { var c = curCharm(); return c ? c.slots.slice() : []; }
+    var e = equipped(group);
+    return e ? e.pc[1].slice() : [];
+  }
+  function clearJewels(group) {
+    Object.keys(build.jewels).forEach(function (k) { if (k.indexOf(group + ":") === 0) delete build.jewels[k]; });
+  }
+  function validJewel(group, i) {
+    var key = group + ":" + i, nm = build.jewels[key], sz = getSlots(group)[i], d = nm && decoByName[nm];
+    return d && sz && d.size <= sz ? d : null;
+  }
+  function compute() {
+    var tot = {}, def = 0, el = [0, 0, 0, 0, 0], count = 0;
+    function add(sk) { Object.keys(sk).forEach(function (k) { tot[k] = (tot[k] || 0) + sk[k]; }); }
+    PARTS.forEach(function (p) {
+      var e = equipped(p);
+      if (!e) return;
+      add(e.pc[2]); def += e.a[4]; count++;
+      var ed = e.a[6];  // element def set; sama untuk setiap piece dalam set
+      if (ed) for (var k = 0; k < 5; k++) el[k] += ed[k] || 0;
+    });
+    var ch = curCharm(); if (ch) add(ch.skills);
+    ["weapon", "charm"].concat(PARTS).forEach(function (g) {
+      getSlots(g).forEach(function (sz, i) {
+        var d = validJewel(g, i);
+        if (d) { var o = {}; o[d.skill] = d.level; add(o); }
+      });
+    });
+    // skill resistance (fire..dragon): setiap level = +3 element def, ikut jumlah level (armor + jewel + charm), had max level
+    var res = [0, 0, 0, 0, 0];
+    ELEM_SK.forEach(function (id, k) {
+      var lv = Math.min(tot[id] || 0, skillById[id] ? skillById[id].max : 3);
+      res[k] = lv * 3; el[k] += res[k];
+    });
+    return { tot: tot, def: def, el: el, res: res, count: count };
+  }
+
+  // ---------- util paparan ----------
+  function hex(size, on) { return '<span class="hx s' + size + (on ? " on" : "") + '">' + size + "</span>"; }
+  function hexRow(sizes) {
+    sizes = sizes.filter(function (n) { return n > 0; });
+    return sizes.length ? '<div class="hxs">' + sizes.map(function (s) { return hex(s, false); }).join("") + "</div>" : "";
+  }
+  function skillLines(skills, W) {
+    var ids = Object.keys(skills || {}).sort(function (a, b) {
+      return (W[b] ? 1 : 0) - (W[a] ? 1 : 0) || skills[b] - skills[a];
+    });
+    return ids.map(function (id) {
+      return '<div class="sk' + (W[id] ? " w" : "") + '"><span>' + esc(skillById[id].name) + "</span><b>" + skills[id] + "</b></div>";
+    }).join("");
+  }
+  function slotButtons(group, W) {
+    var h = "";
+    getSlots(group).forEach(function (sz, i) {
+      if (!sz) return;
+      var d = validJewel(group, i);
+      h += '<button type="button" class="slotbtn" data-slot="' + group + ":" + i + '" data-size="' + sz + '" title="Choose a jewel for slot ' + sz + '">' +
+        hex(sz, !!d) + (d ? ico(d.icon, "sm") + '<span class="jn">' + esc(d.name) + "<small>" + esc(skillById[d.skill].name) + " +" + d.level + "</small></span>" : "<em>empty</em>") + "</button>";
+    });
+    return h;
+  }
+
+  // ---------- jumlah element def (sidebar kiri) ----------
+  function renderElem(c) {
+    var h = '<div class="eh"><h3>Element Def</h3><small>' +
+      (c.count ? c.count + " piece(s) equipped" : "no pieces equipped") + "</small></div>";
+    ELEM.forEach(function (e, k) {
+      var v = c.el[k], cls = v > 0 ? "pos" : v < 0 ? "neg" : "zero";
+      h += '<div class="el" style="--ec:' + e[1] + '"><span class="dot"></span><span>' + e[0] + (c.res[k] ? ' <small class="rs">(skill +' + c.res[k] + ")</small>" : "") +
+        '</span><b class="' + cls + '" data-elem="' + k + '">' + (v > 0 ? "+" + v : String(v)) + "</b></div>";
+    });
+    if (!c.count) h += '<div class="enote">Click a piece in the Armor list to see totals.</div>';
+    $("elemdef").innerHTML = h;
+  }
+
+  // ---------- pilih senjata (sidebar kiri) ----------
+  function renderWeaponPick() {
+    var wp = curWeapon();
+    if (wp) build.weaponType = wp[1];
+    var all = DATA.weapons || [];
+    var h = '<div class="eh"><h3>Weapon</h3></div><div class="wtypes">';
+    WTYPES.forEach(function (t) {
+      var n = all.filter(function (x) { return x[1] === t[0]; }).length;
+      h += '<button type="button" class="wt' + (build.weaponType === t[0] ? " on" : "") + '" data-wtype="' + esc(t[0]) + '" title="' + esc(t[0]) + (n ? " (" + n + ")" : " (no data)") + '"' + (n ? "" : " disabled") + ">" + ico("weapon/" + WKEY[t[0]] + "_rare5.png", "sm") + "</button>";
+    });
+    h += "</div>";
+    if (build.weaponType) {
+      h += '<select class="wpick" data-wpn aria-label="Select weapon"><option value="0">— Select ' + esc(build.weaponType) + " —</option>";
+      all.forEach(function (x) {
+        if (x[1] === build.weaponType) h += '<option value="' + x[0] + '"' + (x[0] === build.weaponId ? " selected" : "") + ">" + esc(x[2]) + (x[10] ? " (" + esc(x[10]) + ")" : "") + "</option>";
+      });
+      h += "</select>";
+    } else {
+      h += '<div class="enote">Select a weapon type first.</div>';
+    }
+    $("wpanel").innerHTML = h;
+  }
+  function setWeapon(id) {
+    build.weaponId = id; clearJewels("weapon");
+    var wp = curWeapon();
+    if (wp) build.weapon = [wp[8][0] || 0, wp[8][1] || 0, wp[8][2] || 0];
+    save(); renderEquip();
+  }
+  $("wpanel").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-wtype]"); if (!b || b.disabled) return;
+    var t = b.dataset.wtype;
+    if (build.weaponType !== t) {
+      build.weaponType = t;
+      if (curWeapon() && curWeapon()[1] !== t) setWeapon(0); else { save(); renderWeaponPick(); }
+    }
+  });
+  $("wpanel").addEventListener("change", function (e) {
+    var ws = e.target.closest("select[data-wpn]"); if (ws) setWeapon(parseInt(ws.value, 10) || 0);
+  });
+
+  // ---------- panel Equipment ----------
+  function renderEquip() {
+    var W = wantedMap(), c = compute();
+    var h = '<div class="scroll"><div class="grid eq">';
+    ["weapon"].concat(PARTS, ["charm"]).forEach(function (g) { h += '<div class="gh">' + PART[g] + "</div>"; });
+
+    // senjata (pilihan dibuat di sidebar kiri)
+    var wp = curWeapon();
+    h += '<div class="gc">';
+    if (wp) {
+      var ET = { none: "", fire: "Fire", water: "Water", thunder: "Thunder", ice: "Ice", dragon: "Dragon", poison: "Poison", paralysis: "Para", sleep: "Sleep", blast: "Blast" };
+      h += '<button type="button" class="rm" data-rmweapon="1" title="Remove weapon">×</button><div class="pn">' + ico(wp[13]) + '<div class="pname">' + esc(wp[2]) + "</div></div>" +
+        '<div class="psub">' + esc(wp[1]) + " · ★" + wp[3] + '</div><div class="wst">ATK <b>' + wp[4] + "</b> · Aff <b>" + wp[5] + "%</b>" +
+        (wp[6] ? " · " + (ET[wp[7]] || esc(wp[7])) + " <b>" + wp[6] + "</b>" : "") +
+        (wp[11] ? " · " + (ET[wp[12]] || esc(wp[12])) + " <b>" + wp[11] + "</b>" : "") + "</div>";
+      if (wp[9] && wp[9].length) {
+        h += '<div class="hxs rr">' + wp[9].map(function (v) {
+          return '<span class="hx r" title="Rampage slot level ' + v + '">R' + v + "</span>";
+        }).join("") + "</div>";
+      }
+    } else {
+      h += '<div class="none">Select a weapon in the left sidebar</div><div class="psub" style="margin-top:8px">Or set slots manually:</div><div class="wsel">';
+      build.weapon.forEach(function (n, i) {
+        h += '<select data-w="' + i + '" aria-label="Weapon slot ' + (i + 1) + '">' +
+          [0, 1, 2, 3, 4].map(function (v) { return '<option value="' + v + '"' + (v === n ? " selected" : "") + ">" + (v ? v : "—") + "</option>"; }).join("") + "</select>";
+      });
+      h += "</div>";
+    }
+    h += slotButtons("weapon", W) + "</div>";
+
+    // 5 bahagian armor
+    PARTS.forEach(function (p) {
+      var e = equipped(p);
+      h += '<div class="gc">';
+      if (e) {
+        h += '<button type="button" class="rm" data-rm="' + p + '" title="Remove piece">×</button><div class="pn">' + ico(e.pc[3]) + '<div class="pname">' + esc(e.pc[0]) + "</div></div>" +
+          '<div class="psub">' + esc(e.a[1]) + " · " + TIER[e.a[2]] + " · ★" + e.a[3] + "</div>" +
+          skillLines(e.pc[2], W) + slotButtons(p, W);
+      } else {
+        h += '<div class="none">Pick from the armor list below</div>';
+      }
+      h += "</div>";
+    });
+    // charm
+    var ch = curCharm();
+    h += '<div class="gc">';
+    if (ch) {
+      h += '<button type="button" class="rm" data-rmcharm="1" title="Remove charm">×</button><div class="pname">' + esc(ch.name || "Charm") + "</div>" +
+        skillLines(ch.skills, W) + slotButtons("charm", W) +
+        '<button type="button" class="obtn pickbtn" data-charm="1">Change</button>';
+    } else {
+      h += '<div class="none">No charm</div><button type="button" class="obtn pickbtn" data-charm="1">Select charm</button>';
+    }
+    h += "</div>";
+
+    h += "</div></div>";
+
+    // jumlah skill
+    var ids = Object.keys(c.tot);
+    Object.keys(W).forEach(function (id) { if (ids.indexOf(id) < 0) ids.push(id); });
+    ids.sort(function (a, b) {
+      return (W[b] ? 1 : 0) - (W[a] ? 1 : 0) || (c.tot[b] || 0) - (c.tot[a] || 0);
+    });
+    h += '<div class="totals">' + ids.map(function (id) {
+      var s = skillById[id], actual = c.tot[id] || 0, have = Math.min(actual, s.max), over = actual > s.max;
+      var cls = "tt";
+      if (over) cls += " over";
+      if (W[id]) cls += " w";
+      var segments = "";
+      for (var j = 1; j <= s.max; j++) segments += '<span class="seg' + (j <= have ? " on" : "") + '"></span>';
+      var extra = W[id] && actual < W[id] ? " · short " + (W[id] - actual) : "";
+      return '<div class="' + cls + '"><div class="skillname">' + ico(s.icon, "sm") + '<span>' + esc(s.name) + '</span><button type="button" class="skillinfo" data-skillinfo="' + id + '" title="Skill info ' + esc(s.name) + '" aria-label="Skill info ' + esc(s.name) + '">ⓘ</button></div><b>' + actual + ' <small>/ ' + s.max + extra + (over ? " · over" : "") + '</small></b><div class="segbar">' + segments + '</div></div>';
+    }).join("") + "</div>";
+    h += '<div class="defl">Base Def ' + c.def + "</div>";
+    $("equip").innerHTML = h;
+    renderElem(c);
+    renderWeaponPick();
+  }
+
+  // ---------- grid armor ----------
+  var rows = [], shown = 0;
+  function computeRows() {
+    var W = wantedMap(), ids = Object.keys(W), q = $("q").value.trim().toLowerCase(), out = [];
+    DATA.armor.forEach(function (a) {
+      if (state.tiers[a[2]] === false) return;
+      if (q && a[1].toLowerCase().indexOf(q) < 0) return;
+      var cells = {}, score = 0, any = false;
+      PARTS.forEach(function (p) {
+        var pc = a[5][p];
+        if (!pc) return;
+        var m = 0;
+        ids.forEach(function (id) { if (pc[2][id]) m += pc[2][id]; });
+        if (!ids.length || m > 0) { cells[p] = pc; score += m; any = true; }
+      });
+      if (any) out.push({ a: a, cells: cells, score: score });
+    });
+    out.sort(function (x, y) { return y.score - x.score || y.a[3] - x.a[3] || y.a[0] - x.a[0]; });
+    return out;
+  }
+  function rowHtml(r, W) {
+    var a = r.a;
+    var h = '<div class="gc rh"><div class="pname">' + esc(a[1]) + '</div><div class="psub">' + TIER[a[2]] + " · ★" + a[3] + " · Def " + a[4] + "</div></div>";
+    PARTS.forEach(function (p) {
+      var pc = r.cells[p];
+      if (!pc) { h += '<div class="gc"></div>'; return; }
+      h += '<div class="gc pick' + (build.pieces[p] === a[0] ? " eqd" : "") + '" data-set="' + a[0] + '" data-part="' + p + '" tabindex="0" role="button" aria-label="Equip ' + esc(pc[0]) + '">' +
+        '<div class="pn">' + ico(pc[3]) + '<div class="pname">' + esc(pc[0]) + "</div></div>" + skillLines(pc[2], W) + hexRow(pc[1]) + "</div>";
+    });
+    return h;
+  }
+  function renderGrid() {
+    rows = computeRows(); shown = 0;
+    var h = '<div class="gh rh">Set</div>' + PARTS.map(function (p) { return '<div class="gh">' + PART[p] + "</div>"; }).join("");
+    $("sets").innerHTML = h;
+    renderMore();
+  }
+  function renderMore() {
+    var W = wantedMap(), end = Math.min(rows.length, shown + PAGE), h = "";
+    for (var i = shown; i < end; i++) h += rowHtml(rows[i], W);
+    $("sets").insertAdjacentHTML("beforeend", h);
+    shown = end;
+    $("moreBar").hidden = shown >= rows.length;
+    var hasSkill = Object.keys(W).length > 0;
+    $("info").textContent = rows.length
+      ? rows.length + " sets" + (hasSkill ? " with the selected skills (most matches first)" : "")
+      : "No sets with those skills. Try enabling more ranks.";
+  }
+  function markEquipped() {
+    Array.prototype.forEach.call(document.querySelectorAll("#sets .pick"), function (c) {
+      c.classList.toggle("eqd", build.pieces[c.dataset.part] === +c.dataset.set);
+    });
+  }
+  function toggleEquip(setId, part) {
+    if (build.pieces[part] === setId) delete build.pieces[part]; else build.pieces[part] = setId;
+    clearJewels(part);
+    save(); renderEquip(); markEquipped();
+  }
+  $("sets").addEventListener("click", function (e) {
+    var c = e.target.closest(".pick"); if (c) toggleEquip(+c.dataset.set, c.dataset.part);
+  });
+  $("sets").addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    var c = e.target.closest(".pick"); if (!c) return;
+    e.preventDefault(); toggleEquip(+c.dataset.set, c.dataset.part);
+  });
+  $("more").addEventListener("click", renderMore);
+  $("q").addEventListener("input", renderGrid);
+
+  // ---------- skill sasaran ----------
+  function onTargets() { save(); renderEquip(); renderGrid(); }
+  function renderTargets() {
+    var box = $("targets");
+    box.innerHTML = "";
+    state.targets.forEach(function (t, i) {
+      var row = el("div", "skrow");
+      var inp = el("input"); inp.type = "text"; inp.setAttribute("list", "skillList");
+      inp.placeholder = "Skill name…"; inp.autocomplete = "off"; inp.value = t.name;
+      var x = el("button", "x"); x.type = "button"; x.title = "Remove"; x.textContent = "×";
+      inp.addEventListener("input", function () {
+        var id = lookup(inp.value), had = lookup(t.name);
+        t.name = inp.value; t.lv = id ? skillById[id].max : 0;
+        inp.classList.toggle("bad", !!inp.value.trim() && !id);
+        if (id || had) onTargets();
+      });
+      x.addEventListener("click", function () {
+        state.targets.splice(i, 1);
+        if (!state.targets.length) state.targets.push({ name: "", lv: 0 });
+        renderTargets(); onTargets();
+      });
+      inp.classList.toggle("bad", !!inp.value.trim() && !lookup(inp.value));
+      row.appendChild(inp); row.appendChild(x); box.appendChild(row);
+    });
+  }
+  $("addSkill").addEventListener("click", function () {
+    state.targets.push({ name: "", lv: 0 }); save(); renderTargets();
+    var inputs = document.querySelectorAll("#targets input"); inputs[inputs.length - 1].focus();
+  });
+  $("reset").addEventListener("click", function () {
+    state.targets = [{ name: "", lv: 0 }]; renderTargets(); onTargets();
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("#tiers input"), function (cb) {
+    cb.checked = state.tiers[cb.dataset.tier] !== false;
+    cb.addEventListener("change", function () { state.tiers[cb.dataset.tier] = cb.checked; save(); renderGrid(); });
+  });
+  $("clearEq").addEventListener("click", function () {
+    build.charm = null; build.pieces = {}; build.jewels = {}; build.weaponId = 0;
+    save(); renderEquip(); markEquipped();
+  });
+
+  // ---------- popup ----------
+  var ov = $("ov"), panel = $("panel"), ctx = null;
+  function openPanel(html, anchor, wide) {
+    panel.innerHTML = html;
+    panel.classList.toggle("wide", !!wide);
+    ov.hidden = false;
+    var center = !anchor || window.innerWidth <= 700;
+    ov.className = center ? "center" : "";
+    panel.style.left = panel.style.top = "";
+    if (!center) {
+      var r = anchor.getBoundingClientRect(), w = panel.offsetWidth, h = panel.offsetHeight;
+      var left = Math.min(Math.max(8, r.left), window.innerWidth - w - 8);
+      var top = r.bottom + 6;
+      if (top + h > window.innerHeight - 8) top = Math.max(8, r.top - h - 6);
+      panel.style.left = left + "px"; panel.style.top = top + "px";
+    }
+  }
+  function closePanel() { ov.hidden = true; panel.innerHTML = ""; ctx = null; }
+  ov.addEventListener("click", function (e) { if (e.target === ov) closePanel(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !ov.hidden) closePanel(); });
+  panel.addEventListener("click", function (e) {
+    if (e.target.closest(".pclose")) { closePanel(); return; }
+    if (!ctx) return;
+    if (ctx.type === "jewel") {
+      var ji = e.target.closest("[data-deco]");
+      if (ji) {
+        if (ji.dataset.deco) build.jewels[ctx.key] = ji.dataset.deco; else delete build.jewels[ctx.key];
+        save(); closePanel(); renderEquip();
+      }
+    } else if (ctx.type === "charm") {
+      var del = e.target.closest("[data-delcharm]");
+      if (del) {
+        var id = +del.dataset.delcharm;
+        state.charms = state.charms.filter(function (c) { return c.id !== id; });
+        if (build.charm === id) { build.charm = null; clearJewels("charm"); }
+        save(); renderEquip(); openCharm(null); return;
+      }
+      var pick = e.target.closest("[data-charmid]");
+      if (pick) {
+        var cid = pick.dataset.charmid ? +pick.dataset.charmid : null;
+        if (cid !== build.charm) { build.charm = cid; clearJewels("charm"); }
+        save(); closePanel(); renderEquip();
+      }
+    }
+  });
+
+  // --- jewel ---
+  function jewelListHtml() {
+    var W = wantedMap(), tot = compute().tot, q = ctx.q.toLowerCase(), cur = build.jewels[ctx.key];
+    var list = DATA.decos.filter(function (d) {
+      if (d[1] > ctx.size) return false;
+      if (!q) return true;
+      return d[0].toLowerCase().indexOf(q) >= 0 || skillById[d[2]].name.toLowerCase().indexOf(q) >= 0;
+    }).map(function (d) {
+      var need = W[d[2]] ? Math.min(W[d[2]], skillById[d[2]].max) - (tot[d[2]] || 0) : 0;
+      return { d: d, need: need, rel: W[d[2]] ? (need > 0 ? 0 : 1) : 2 };
+    });
+    list.sort(function (a, b) {
+      return a.rel - b.rel || skillById[a.d[2]].name.localeCompare(skillById[b.d[2]].name) || b.d[1] - a.d[1];
+    });
+    var h = "";
+    if (cur) h += '<button type="button" class="ji clear" data-deco="">✕ Clear slot</button>';
+    h += list.map(function (x) {
+      var d = x.d;
+      return '<button type="button" class="ji' + (W[d[2]] ? " want" : "") + '" data-deco="' + esc(d[0]) + '">' + hex(d[1], false) + ico(d[4], "sm") +
+        '<span class="jn">' + esc(d[0]) + "<small>" + esc(skillById[d[2]].name) + " +" + d[3] + "</small></span>" +
+        (x.need > 0 ? '<span class="tag">short ' + x.need + "</span>" : "") + "</button>";
+    }).join("");
+    return h || '<div class="none" style="padding:12px">No matching jewels.</div>';
+  }
+  function openJewel(anchor, key, size) {
+    ctx = { type: "jewel", key: key, size: size, q: "" };
+    openPanel('<div class="ph">Choose jewel ' + hex(size, false) + ' <span style="font-weight:400;color:var(--muted);font-size:12px">slot level ' + size + ' · jewels up to level ' + size + '</span>' +
+      '<button type="button" class="pclose" aria-label="Close">×</button></div>' +
+      '<div class="pq"><input type="text" id="jq" placeholder="Search jewel or skill…" autocomplete="off"></div>' +
+      '<div class="pbody" id="jl">' + jewelListHtml() + "</div>", anchor, false);
+    $("jq").addEventListener("input", function () { ctx.q = $("jq").value; $("jl").innerHTML = jewelListHtml(); });
+    if (window.innerWidth > 700) $("jq").focus();
+  }
+
+  // --- charm ---
+  function charmLabel(c) {
+    var sk = Object.keys(c.skills).map(function (id) { return skillById[id].name + " " + c.skills[id]; }).join(", ");
+    return '<span class="jn">' + esc(c.name || "Charm") + "<small>" + esc(sk || "no skill") + (c.slots.length ? " · [" + c.slots.join("-") + "]" : "") + "</small></span>";
+  }
+  function openCharm(anchor) {
+    ctx = { type: "charm" };
+    var h = '<div class="ph">Charm<button type="button" class="pclose" aria-label="Close">×</button></div><div class="pbody">';
+    h += '<button type="button" class="ji" data-charmid="">' + '<span class="jn">No charm</span></button>';
+    state.charms.forEach(function (c) {
+      h += '<div class="ci"><button type="button" class="ji' + (c.id === build.charm ? " want" : "") + '" data-charmid="' + c.id + '">' + charmLabel(c) +
+        '</button><button type="button" class="x" data-delcharm="' + c.id + '" title="Delete charm">×</button></div>';
+    });
+    h += '</div><div class="pf"><h4>New charm</h4>' +
+      '<div class="g2"><input type="text" id="pcName" placeholder="Name (optional)"><span></span></div>' +
+      '<div class="g2"><input type="text" id="pcS1" list="skillList" placeholder="Skill 1" autocomplete="off"><select id="pcL1"></select></div>' +
+      '<div class="g2"><input type="text" id="pcS2" list="skillList" placeholder="Skill 2 (optional)" autocomplete="off"><select id="pcL2"></select></div>' +
+      '<div class="s3"><select id="pcSl1"></select><select id="pcSl2"></select><select id="pcSl3"></select></div>' +
+      '<button type="button" class="obtn fill" id="pcSave">Save and equip</button> <span id="pcErr" class="none" style="color:var(--bad)"></span></div>';
+    openPanel(h, anchor, true);
+    ["pcSl1", "pcSl2", "pcSl3"].forEach(function (id) { slotOptions($(id), 0); });
+    fillLevels($("pcL1"), 0); fillLevels($("pcL2"), 0);
+    [["pcS1", "pcL1"], ["pcS2", "pcL2"]].forEach(function (p) {
+      $(p[0]).addEventListener("input", function () {
+        var id = lookup($(p[0]).value);
+        fillLevels($(p[1]), id ? skillById[id].max : 0, 1);
+        $(p[0]).classList.toggle("bad", !!$(p[0]).value.trim() && !id);
+      });
+    });
+    $("pcSave").addEventListener("click", function () {
+      var skills = {};
+      [["pcS1", "pcL1"], ["pcS2", "pcL2"]].forEach(function (p) {
+        var id = lookup($(p[0]).value);
+        if (id) skills[id] = Math.min((skills[id] || 0) + (parseInt($(p[1]).value, 10) || 1), skillById[id].max);
+      });
+      var slots = ["pcSl1", "pcSl2", "pcSl3"].map(function (id) { return parseInt($(id).value, 10) || 0; })
+        .filter(function (n) { return n > 0; }).sort(function (a, b) { return b - a; });
+      if (!Object.keys(skills).length && !slots.length) { $("pcErr").textContent = "Pick at least one skill or slot."; return; }
+      var c = { id: Date.now(), name: $("pcName").value.trim(), skills: skills, slots: slots };
+      state.charms.push(c); build.charm = c.id; clearJewels("charm");
+      save(); closePanel(); renderEquip();
+    });
+  }
+
+  // ---------- klik dalam panel Equipment ----------
+  $("equip").addEventListener("click", function (e) {
+    var si = e.target.closest("[data-skillinfo]");
+    if (si) {
+      var skill = skillById[si.dataset.skillinfo];
+      if (skill) {
+        var have = compute().tot[skill.id] || 0, lv = "";
+        for (var li = 0; li < skill.levels.length; li++) {
+          if (skill.levels[li]) lv += '<div class="lv' + (li + 1 === have ? " cur" : "") + '"><b>Lv ' + (li + 1) + "</b><span>" + esc(skill.levels[li]) + "</span></div>";
+        }
+        openPanel('<div class="ph"><span class="sh">' + ico(skill.icon, "sm") + esc(skill.name) + '</span><button type="button" class="pclose" aria-label="Close">×</button></div><div class="pbody">' +
+          (skill.desc ? '<p class="sdesc">' + esc(skill.desc) + "</p>" : "") +
+          (lv || '<p class="none">Level details not available.</p>') +
+          '<p class="none" style="margin:8px 6px 0">Max level: <b>' + skill.max + "</b></p></div>", si, true);
+      }
+      return;
+    }
+    var sb = e.target.closest(".slotbtn");
+    if (sb) { openJewel(sb, sb.dataset.slot, +sb.dataset.size); return; }
+    if (e.target.closest("[data-rmweapon]")) { setWeapon(0); return; }
+    var rm = e.target.closest("[data-rm]");
+    if (rm) { delete build.pieces[rm.dataset.rm]; clearJewels(rm.dataset.rm); save(); renderEquip(); markEquipped(); return; }
+    if (e.target.closest("[data-rmcharm]")) { build.charm = null; clearJewels("charm"); save(); renderEquip(); return; }
+    var cb = e.target.closest("[data-charm]");
+    if (cb) openCharm(cb);
+  });
+  $("equip").addEventListener("change", function (e) {
+    var s = e.target.closest("select[data-w]"); if (!s) return;
+    var i = +s.dataset.w;
+    build.weapon[i] = parseInt(s.value, 10) || 0;
+    delete build.jewels["weapon:" + i];
+    save(); renderEquip();
+  });
+
+  // ---------- mula ----------
+  renderTargets();
+  renderEquip();
+  renderGrid();
+})();
+</script>
+</body>
+</html>
