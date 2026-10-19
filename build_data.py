@@ -3,8 +3,8 @@
 Usage:   python build_data.py [json_folder] [output_file]
 Default: source_data  ->  data.js
 
-Source files: skills.json, armour.json, decorations.json, weapons.json
-(produced by convert_mhrice.py, or edited by hand). armour_naming_schemes.json is only
+Source files: skills.json, armor.json, decorations.json, weapons.json
+(produced by convert_mhrice.py, or edited by hand). armor_naming_schemes.json is only
 needed for armor pieces without an explicit name (legacy format).
 
 Re-run this script after editing any JSON in source_data/.
@@ -28,9 +28,9 @@ def load(name, required=True):
 
 
 skills = load("skills.json")
-armour = load("armour.json")
+armor = load("armor.json")
 decos = load("decorations.json")
-schemes = load("armour_naming_schemes.json", required=False) or {}
+schemes = load("armor_naming_schemes.json", required=False) or {}
 weapons = load("weapons.json", required=False)
 
 PARTS = ["head", "chest", "arms", "waist", "legs"]
@@ -62,7 +62,7 @@ else:
 # armor: [id, setName, tier, rarity, def, {part: [namaPiece, [slot...], {skill: level}, icon]}, [f,w,t,i,d]]
 # [f,w,t,i,d] = element def set (api, air, petir, ais, naga); nilai sama untuk setiap piece dalam set.
 A = []
-for sid, a in armour:
+for sid, a in armor:
     pieces = {}
     for i, part in enumerate(PARTS):
         pd = a["pieces"].get(part)
