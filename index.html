@@ -301,6 +301,9 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   (DATA.weapons || []).forEach(function (w) { weaponById[w[0]] = w; });
   function curWeapon() { return weaponById[build.weaponId] || null; }
   DATA.decos.forEach(function (d) { decoByName[d[0]] = { name: d[0], size: d[1], skill: d[2], level: d[3], icon: d[4] || "" }; });
+  var RAMP = DATA.rampage || { skills: [], decos: [] }, rampSkill = {}, rampByName = {};
+  RAMP.skills.forEach(function (k) { rampSkill[k[0]] = { name: k[1], desc: k[2], icon: k[3] }; });
+  RAMP.decos.forEach(function (d) { rampByName[d[0]] = { name: d[0], size: d[1], skill: d[2], icon: d[3] || "", flags: d[4] || [] }; });
   $("skillList").innerHTML = DATA.skills.map(function (s) { return s[1]; }).sort()
     .map(function (n) { return '<option value="' + esc(n) + '">'; }).join("");
   function lookup(name) { return idByName[String(name || "").trim().toLowerCase()]; }
@@ -310,7 +313,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   function defaults() {
     return {
       targets: [{ name: "", lv: 0 }], charms: [], tiers: { lr: true, hr: true, mr: true },
-      build: { weapon: [0, 0, 0], weaponId: 0, weaponType: "", charm: null, pieces: {}, jewels: {} }
+      build: { weapon: [0, 0, 0], weaponId: 0, weaponType: "", rampage: {}, charm: null, pieces: {}, jewels: {} }
     };
   }
   var state = (function () {
@@ -325,6 +328,8 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     return defaults();
   })();
   var build = state.build;
+  if (!build.rampage) build.rampage = {};
+  function rampDeco(i, size) { var n = build.rampage[i], d = n && rampByName[n]; return d && d.size <= size ? d : null; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
 
   function wantedMap() {
@@ -465,7 +470,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     $("wpanel").innerHTML = h;
   }
   function setWeapon(id) {
-    build.weaponId = id; clearJewels("weapon");
+    build.weaponId = id; clearJewels("weapon"); build.rampage = {};
     var wp = curWeapon();
     if (wp) build.weapon = [wp[8][0] || 0, wp[8][1] || 0, wp[8][2] || 0];
     save(); renderEquip();
@@ -498,9 +503,12 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
         (wp[6] ? " · " + (ET[wp[7]] || esc(wp[7])) + " <b>" + wp[6] + "</b>" : "") +
         (wp[11] ? " · " + (ET[wp[12]] || esc(wp[12])) + " <b>" + wp[11] + "</b>" : "") + "</div>";
       if (wp[9] && wp[9].length) {
-        h += '<div class="hxs rr">' + wp[9].map(function (v) {
-          return '<span class="hx r" title="Rampage slot level ' + v + '">R' + v + "</span>";
-        }).join("") + "</div>";
+        h += wp[9].map(function (v, i) {
+          var d = rampDeco(i, v);
+          return '<button type="button" class="slotbtn" data-ramp="' + i + '" data-size="' + v + '" title="Choose a rampage decoration for slot ' + v + '">' +
+            '<span class="hx r' + (d ? " on" : "") + '">R' + v + "</span>" +
+            (d ? ico(d.icon, "sm") + '<span class="jn">' + esc(d.name) + "<small>" + esc((rampSkill[d.skill] || {}).name || "") + "</small></span>" : "<em>empty</em>") + "</button>";
+        }).join("");
       }
     } else {
       h += '<div class="none">Select a weapon in the left sidebar</div><div class="psub" style="margin-top:8px">Or set slots manually:</div><div class="wsel">';
@@ -667,7 +675,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     cb.addEventListener("change", function () { state.tiers[cb.dataset.tier] = cb.checked; save(); renderGrid(); });
   });
   $("clearEq").addEventListener("click", function () {
-    build.charm = null; build.pieces = {}; build.jewels = {}; build.weaponId = 0;
+    build.charm = null; build.pieces = {}; build.jewels = {}; build.weaponId = 0; build.rampage = {};
     save(); renderEquip(); markEquipped();
   });
 
@@ -698,6 +706,12 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
       var ji = e.target.closest("[data-deco]");
       if (ji) {
         if (ji.dataset.deco) build.jewels[ctx.key] = ji.dataset.deco; else delete build.jewels[ctx.key];
+        save(); closePanel(); renderEquip();
+      }
+    } else if (ctx.type === "ramp") {
+      var ri = e.target.closest("[data-rdeco]");
+      if (ri) {
+        if (ri.dataset.rdeco) build.rampage[ctx.idx] = ri.dataset.rdeco; else delete build.rampage[ctx.idx];
         save(); closePanel(); renderEquip();
       }
     } else if (ctx.type === "charm") {
@@ -749,6 +763,33 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
       '<div class="pbody" id="jl">' + jewelListHtml() + "</div>", anchor, false);
     $("jq").addEventListener("input", function () { ctx.q = $("jq").value; $("jl").innerHTML = jewelListHtml(); });
     if (window.innerWidth > 700) $("jq").focus();
+  }
+
+  // --- rampage decoration ---
+  function rampListHtml() {
+    var q = ctx.q.toLowerCase(), cur = build.rampage[ctx.idx];
+    var list = RAMP.decos.filter(function (d) {
+      if (d[1] > ctx.size) return false;
+      var sk = rampSkill[d[2]] || { name: "" };
+      return !q || d[0].toLowerCase().indexOf(q) >= 0 || sk.name.toLowerCase().indexOf(q) >= 0;
+    });
+    list.sort(function (a, b) { return ((rampSkill[a[2]] || {}).name || "").localeCompare((rampSkill[b[2]] || {}).name || "") || b[1] - a[1]; });
+    var h = cur ? '<button type="button" class="ji clear" data-rdeco="">✕ Clear slot</button>' : "";
+    h += list.map(function (d) {
+      var sk = rampSkill[d[2]] || { name: d[2], desc: "" };
+      return '<button type="button" class="ji" data-rdeco="' + esc(d[0]) + '">' + hex(d[1], false) + ico(d[3], "sm") +
+        '<span class="jn">' + esc(d[0]) + "<small>" + esc(sk.name) + (sk.desc ? " · " + esc(sk.desc) : "") + "</small></span></button>";
+    }).join("");
+    return h || '<div class="none" style="padding:12px">No matching rampage decorations.</div>';
+  }
+  function openRamp(anchor, idx, size) {
+    ctx = { type: "ramp", idx: idx, size: size, q: "" };
+    openPanel('<div class="ph">Rampage decoration ' + hex(size, false) + ' <span style="font-weight:400;color:var(--muted);font-size:12px">slot level ' + size + ' · decorations up to level ' + size + '</span>' +
+      '<button type="button" class="pclose" aria-label="Close">×</button></div>' +
+      '<div class="pq"><input type="text" id="rq" placeholder="Search decoration or skill…" autocomplete="off"></div>' +
+      '<div class="pbody" id="rl">' + rampListHtml() + "</div>", anchor, true);
+    $("rq").addEventListener("input", function () { ctx.q = $("rq").value; $("rl").innerHTML = rampListHtml(); });
+    if (window.innerWidth > 700) $("rq").focus();
   }
 
   // --- charm ---
@@ -812,6 +853,8 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
       }
       return;
     }
+    var rb = e.target.closest("[data-ramp]");
+    if (rb) { openRamp(rb, +rb.dataset.ramp, +rb.dataset.size); return; }
     var sb = e.target.closest(".slotbtn");
     if (sb) { openJewel(sb, sb.dataset.slot, +sb.dataset.size); return; }
     if (e.target.closest("[data-rmweapon]")) { setWeapon(0); return; }

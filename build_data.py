@@ -3,7 +3,7 @@
 Usage:   python build_data.py [json_folder] [output_file]
 Default: source_data  ->  data.js
 
-Source files: skills.json, armor.json, decorations.json, weapons.json
+Source files: skills.json, armor.json, decorations.json, weapons.json, rampage.json
 (produced by convert_mhrice.py, or edited by hand). armor_naming_schemes.json is only
 needed for armor pieces without an explicit name (legacy format).
 
@@ -32,6 +32,7 @@ armor = load("armor.json")
 decos = load("decorations.json")
 schemes = load("armor_naming_schemes.json", required=False) or {}
 weapons = load("weapons.json", required=False)
+ramp = load("rampage.json", required=False)
 
 PARTS = ["head", "chest", "arms", "waist", "legs"]
 
@@ -84,7 +85,18 @@ for sid, a in armor:
     elem = [df["f"], df["w"], df["t"], df["i"], df["d"]]
     A.append([sid, a["setName"], a["tier"], a["rarity"], df["defLvl1"], pieces, elem])
 
-with open(out, "w", encoding="utf-8") as f:
-    f.write("window.MHR=" + json.dumps({"skills": S, "decos": D, "armor": A, "weapons": WP}, separators=(",", ":"), ensure_ascii=False) + ";\n")
+# rampage decorations: skills [id, name, desc, icon], decos [name, slotSize, skillId, icon, weaponFlags]
+R = {"skills": [], "decos": []}
+if ramp is not None:
+    rk = {s["id"] for s in ramp["skills"]}
+    R["skills"] = [[s["id"], s["name"], s.get("description", ""), s.get("icon", "")] for s in ramp["skills"]]
+    for d in ramp["decos"]:
+        assert d["skill"] in rk, "unknown rampage skill: %s (%s)" % (d["skill"], d["name"])
+        R["decos"].append([d["name"], d["slotSize"], d["skill"], d.get("icon", ""), d.get("weaponFlags", [])])
+else:
+    print("WARNING: rampage.json not found in '%s' -> no rampage decorations" % src)
 
-print("OK: %d skills, %d armor sets, %d decorations, %d weapons -> %s" % (len(S), len(A), len(D), len(WP), out))
+with open(out, "w", encoding="utf-8") as f:
+    f.write("window.MHR=" + json.dumps({"skills": S, "decos": D, "armor": A, "weapons": WP, "rampage": R}, separators=(",", ":"), ensure_ascii=False) + ";\n")
+
+print("OK: %d skills, %d armor sets, %d decorations, %d rampage, %d weapons -> %s" % (len(S), len(A), len(D), len(R["decos"]), len(WP), out))
