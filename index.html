@@ -385,7 +385,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   Armor, skill, decoration and weapon data were extracted from the Monster Hunter Rise game files using
   <a href="https://github.com/wwylele/mhrice" rel="noopener">mhrice</a>. Monster Hunter and all related assets are property of Capcom.
   Fan project, not an official product.
-  · <a class="footer-coffee" href="https://buymeacoffee.com/raffworks" target="_blank" rel="noopener">☕ Support this project</a>
+  · <a class="footer-coffee" href="https://buymeacoffee.com/raffworks" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 </footer>
 
 <noscript><p style="padding:20px">MHR Equipment Builder is a Monster Hunter Rise armor set and equipment builder. It needs JavaScript enabled to run.</p></noscript>
@@ -410,6 +410,8 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   var WKEY = { "Great Sword": "great_sword", "Long Sword": "long_sword", "Sword & Shield": "short_sword", "Dual Blades": "dual_blades",
     "Hammer": "hammer", "Hunting Horn": "horn", "Lance": "lance", "Gunlance": "gun_lance", "Switch Axe": "slash_axe",
     "Charge Blade": "charge_axe", "Insect Glaive": "insect_glaive", "Light Bowgun": "light_bowgun", "Heavy Bowgun": "heavy_bowgun", "Bow": "bow" };
+  var RES_BONUS = [0, 6, 12, 20], RES_DEF_LV3 = 10;
+  function defText(c) { return c.def + (c.defSkill ? " (+" + c.defSkill + " from skills)" : ""); }
   var ELEM_SK = ["fire_resistance", "water_resistance", "thunder_resistance", "ice_resistance", "dragon_resistance"];
   var ELEM = [["Fire", "#d9534f"], ["Water", "#3b82c4"], ["Thunder", "#d4a017"], ["Ice", "#4fb3d9"], ["Dragon", "#8e5bd6"]];
 
@@ -536,13 +538,15 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
         if (d) { var o = {}; o[d.skill] = d.level; add(o); }
       });
     });
-    // skill resistance (fire..dragon): setiap level = +3 element def, ikut jumlah level (armor + jewel + charm), had max level
-    var res = [0, 0, 0, 0, 0];
+    // element resistance skills (fire..dragon), same table for all five:
+    // Lv1 +6, Lv2 +12, Lv3 +20 element def, and Lv3 also gives Defense +10 (levels from armor + jewel + charm, capped at max)
+    var res = [0, 0, 0, 0, 0], defSkill = 0;
     ELEM_SK.forEach(function (id, k) {
       var lv = Math.min(tot[id] || 0, skillById[id] ? skillById[id].max : 3);
-      res[k] = lv * 3; el[k] += res[k];
+      res[k] = RES_BONUS[Math.min(lv, 3)]; el[k] += res[k];
+      if (lv >= 3) defSkill += RES_DEF_LV3;
     });
-    return { tot: tot, def: def, el: el, res: res, count: count };
+    return { tot: tot, def: def, defSkill: defSkill, el: el, res: res, count: count };
   }
 
   // ---------- util paparan ----------
@@ -699,14 +703,14 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
       var extra = W[id] && actual < W[id] ? " · short " + (W[id] - actual) : "";
       return '<div class="' + cls + '"><div class="skillname">' + ico(s.icon, "sm") + '<span>' + esc(s.name) + '</span><button type="button" class="skillinfo" data-skillinfo="' + id + '" title="Skill info ' + esc(s.name) + '" aria-label="Skill info ' + esc(s.name) + '">ⓘ</button></div><b>' + actual + ' <small>/ ' + s.max + extra + (over ? " · over" : "") + '</small></b><div class="segbar">' + segments + '</div></div>';
     }).join("") + "</div>";
-    h += '<div class="defl">Base Def ' + c.def + "</div>";
+    h += '<div class="defl">Base Def ' + c.def + (c.defSkill ? ' <small class="rs">+' + c.defSkill + " from skills = " + (c.def + c.defSkill) + "</small>" : "") + "</div>";
     $("equip").innerHTML = h;
     var chips = ids.filter(function (id) { return (c.tot[id] || 0) > 0 || W[id]; }).map(function (id) {
       var s = skillById[id], actual = c.tot[id] || 0;
       var cls = "chip" + (W[id] ? " w" : "") + (actual > s.max ? " over" : "") + (W[id] && actual < W[id] ? " short" : "");
       return '<span class="' + cls + '">' + esc(s.name) + " <b>" + actual + "/" + s.max + "</b></span>";
     }).join("");
-    $("eqStrip").innerHTML = (chips || '<span class="chip">No skills yet</span>') + '<span class="chip">Def <b>' + c.def + "</b></span>";
+    $("eqStrip").innerHTML = (chips || '<span class="chip">No skills yet</span>') + '<span class="chip">Def <b>' + (c.def + c.defSkill) + "</b></span>";
     renderElem(c);
     renderWeaponPick();
   }
@@ -1100,7 +1104,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
       L.push("  " + sk.name + " Lv " + Math.min(a, sk.max) + "/" + sk.max + (a > sk.max ? " (over by " + (a - sk.max) + ")" : "") +
         (W[id] && a < W[id] ? " (short " + (W[id] - a) + ")" : ""));
     });
-    L.push("", "Defense: " + c.def + " | " + elemText(c), "", SITE);
+    L.push("", "Defense: " + defText(c) + " | " + elemText(c), "", SITE);
     return L.join("\n");
   }
 
@@ -1162,7 +1166,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     });
     y += skRows * 36 + 16;
     g.fillStyle = C.ink; g.font = "600 13px " + FONT;
-    g.fillText(fitText(g, "Defense " + c.def + "   |   " + elemText(c), WID - 2 * PAD), PAD, y + 12);
+    g.fillText(fitText(g, "Defense " + defText(c) + "   |   " + elemText(c), WID - 2 * PAD), PAD, y + 12);
     g.fillStyle = C.muted; g.font = "11px " + FONT; g.textAlign = "right";
     g.fillText(SITE.replace(/^https?:\/\//, "").replace(/\/$/, ""), WID - PAD, H - PAD / 2 - 4); g.textAlign = "left";
     return cv2;
