@@ -5,6 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#1a1a1a">
 <title>MHR Equipment Builder</title>
+<meta name="description" content="Free Monster Hunter Rise &amp; Sunbreak equipment builder. Pick the skills you want, then find armor sets, weapons, charms, decorations and rampage decos that reach them. Shows skill totals, slots and elemental resistances.">
+<meta name="keywords" content="Monster Hunter Rise, MHR, Sunbreak, armor set builder, skill calculator, equipment builder, loadout, decorations, charm, rampage decoration">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="MHR Equipment Builder">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MHR Equipment Builder">
+<meta property="og:title" content="MHR Equipment Builder – Monster Hunter Rise Armor Set">
+<meta property="og:description" content="Choose your target skills and instantly find Monster Hunter Rise armor sets, weapons, charms and decorations that fit your build.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MHR Equipment Builder – Monster Hunter Rise Armor Set">
+<meta name="twitter:description" content="Find Monster Hunter Rise armor sets and full loadouts for the skills you want.">
+<link rel="canonical" href="https://raffworksco-collab.github.io/MHRBuilder/">
+<meta property="og:url" content="https://raffworksco-collab.github.io/MHRBuilder/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "MHR Equipment Builder",
+  "url": "https://raffworksco-collab.github.io/MHRBuilder/",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any (web browser)",
+  "description": "Skill-based armor set, weapon, charm and decoration builder for Monster Hunter Rise and Sunbreak.",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 <style>
 :root{
   --bg:#ffffff; --ink:#3f4851; --muted:#8a9199; --line:#dde1e5; --line-strong:#9aa3ab;
@@ -27,7 +55,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Open Sans","
 button,input,select{font:inherit;color:inherit}
 
 .topbar{display:flex;align-items:center;gap:14px;padding:10px 20px;border-bottom:1px solid var(--line)}
-.brand{font-weight:700;color:var(--head);letter-spacing:.01em;font-size:15px}
+.brand{margin:0;font-weight:700;color:var(--head);letter-spacing:.01em;font-size:15px}
 .brand i{font-style:normal;color:var(--prim)}
 .topbar .sp,.sp{flex:1}
 .topbar a{color:var(--muted);text-decoration:none;font-size:12px}
@@ -203,17 +231,100 @@ body{display:flex;flex-direction:column;height:100vh}
 .pn{align-items:center}
 footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid var(--line);text-align:center;font-size:12px}
 @media (max-width:860px){body{display:block;height:auto}.layout{min-height:calc(100vh - 46px)}footer{padding:12px 14px}}
+
+/* keep the scrollbar from covering content on the right */
+#equip,.main>.scroll{padding-right:14px;scrollbar-gutter:stable}
+.side{scrollbar-gutter:stable}
+@media (max-width:860px){#equip,.main>.scroll{padding-right:0;scrollbar-gutter:auto}}
+
+/* collapsible Armor list: Equipment gets the whole screen */
+.listhead .armtoggle{margin-left:auto}
+.main.arc #equip{flex:1 1 auto;max-height:none;min-height:0}
+.main.arc>.scroll,.main.arc>#moreBar,.main.arc .listhead input,.main.arc .listhead .defl{display:none}
+.footer-coffee{white-space:nowrap}
+
+/* collapsible Equipment panel: one-line strip of skill totals when collapsed */
+.strip{flex:1;min-width:0;display:flex;align-items:center;gap:6px;overflow-x:auto;white-space:nowrap;padding:2px 0;scrollbar-width:thin}
+.chip{flex:none;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;line-height:1.5}
+.chip b{color:var(--gold);font-weight:700}
+.chip.w{color:var(--ink);border-color:var(--btn)}
+.chip.over b,.chip.short b{color:var(--bad)}
+.main.eqc>.h-row{flex-wrap:nowrap;margin-bottom:0}
+.main.eqc>.h-row>.sp{display:none}
+.main.eqc>.listhead{margin-top:8px}
+
+/* collapsible sidebar: narrow rail, state remembered like the build */
+.sidetop{display:flex;justify-content:flex-end;margin:0 0 6px}
+.railtxt{display:none}
+.railtxt b{color:var(--prim);font-weight:700}
+.layout.sidec{grid-template-columns:52px minmax(0,1fr)}
+.sidec .side{padding:10px 6px;overflow:hidden}
+.sidec #sideBody{display:none}
+.sidec .sidetop{flex-direction:column;align-items:center;gap:14px;margin:0}
+.sidec .railtxt{display:block;writing-mode:vertical-rl;color:var(--head);font-weight:700;font-size:13px;letter-spacing:.04em}
+@media (max-width:860px){
+  .layout.sidec{grid-template-columns:1fr}
+  .sidec .side{padding:8px 12px}
+  .sidec .sidetop{flex-direction:row-reverse;justify-content:space-between;align-items:center}
+  .sidec .railtxt{writing-mode:horizontal-tb}
+  .strip{flex:1 0 100%;order:3}
+  .main.eqc>.h-row{flex-wrap:wrap}
+}
+
+/* ---------- responsive: fit any screen without zooming out ---------- */
+@media (min-width:861px) and (max-width:1100px){
+  .layout{grid-template-columns:240px minmax(0,1fr)}
+}
+@media (min-width:861px) and (max-width:1200px){
+  .main{padding:14px 14px 12px}
+  .side{padding:14px 14px 24px}
+}
+@media (max-width:1200px){
+  .grid.eq{grid-template-columns:repeat(7,minmax(96px,1fr));min-width:672px}
+  .grid.sets{grid-template-columns:120px repeat(5,minmax(104px,1fr));min-width:640px}
+  .gc,.gh{padding:6px 7px}
+  h2{font-size:20px}
+}
+/* phones / narrow: tables become cards, no sideways scrolling */
+@media (max-width:700px){
+  .grid.eq,.grid.sets{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}
+  .grid .gh{display:none}
+  .eq .gc{min-height:0}
+  .eq .gc:nth-child(14){grid-column:1 / -1}
+  .eq .gc::before,.sets .gc:not(.rh)::before{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+  .eq .gc:nth-child(8)::before{content:"Weapon"}
+  .eq .gc:nth-child(9)::before{content:"Head"}
+  .eq .gc:nth-child(10)::before{content:"Chest"}
+  .eq .gc:nth-child(11)::before{content:"Arms"}
+  .eq .gc:nth-child(12)::before{content:"Waist"}
+  .eq .gc:nth-child(13)::before{content:"Legs"}
+  .eq .gc:nth-child(14)::before{content:"Charm"}
+  .sets .rh{grid-column:1 / -1;position:static;background:var(--sel);border-top:2px solid var(--line-strong)}
+  .sets .gc:empty{display:none}
+  .sets .gc:nth-child(6n+2)::before{content:"Head"}
+  .sets .gc:nth-child(6n+3)::before{content:"Chest"}
+  .sets .gc:nth-child(6n+4)::before{content:"Arms"}
+  .sets .gc:nth-child(6n+5)::before{content:"Waist"}
+  .sets .gc:nth-child(6n)::before{content:"Legs"}
+  .listhead input{flex:1 1 140px;width:auto}
+  .h-row{gap:8px}
+}
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">MHR <i>Equipment Builder</i></div>
+  <h1 class="brand">MHR <i>Equipment Builder</i></h1>
   <div class="sp"></div>
   <a href="https://github.com/wwylele/mhrice">Data source (mhrice)</a>
 </header>
 
-<div class="layout">
-  <aside class="side">
+<div class="layout" id="layout">
+  <aside class="side" id="side">
+    <div class="sidetop">
+      <button class="obtn icon-btn" id="sideToggle" type="button" aria-expanded="true" aria-controls="sideBody" title="Collapse sidebar">«</button>
+      <span class="railtxt">Skills <b id="railCount"></b></span>
+    </div>
+    <div id="sideBody">
     <div class="h-row"><h2>Skills</h2><span class="sp"></span>
       <button class="obtn icon-btn" id="reset" type="button" title="Clear all skills">↻</button></div>
     <div id="targets"></div>
@@ -231,10 +342,13 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     <div class="wpanel" id="wpanel"></div>
 
     <div class="elemdef" id="elemdef"></div>
+    </div>
   </aside>
 
-  <section class="main">
+  <section class="main" id="main">
     <div class="h-row"><h2>Equipment</h2><span class="sp"></span>
+      <div class="strip" id="eqStrip" hidden></div>
+      <button class="obtn" id="eqToggle" type="button" aria-expanded="true" aria-controls="equip">▾ Collapse</button>
       <button class="obtn" id="clearEq" type="button">Clear equipment</button></div>
     <div id="equip"></div>
 
@@ -242,6 +356,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
       <h2 style="font-size:18px">Armor</h2>
       <input type="text" id="q" placeholder="Search set name…" autocomplete="off">
       <span class="defl" id="info"></span>
+      <button class="obtn armtoggle" id="armToggle" type="button" aria-expanded="true" aria-controls="sets">▾ Collapse</button>
     </div>
     <div class="scroll"><div class="grid sets" id="sets"></div></div>
     <div class="btns" id="moreBar" hidden><button class="obtn" id="more" type="button">Show more</button></div>
@@ -250,9 +365,12 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
 
 <footer>
   Armor, skill, decoration and weapon data were extracted from the Monster Hunter Rise game files using
-  <a href="https://github.com/wwylele/mhrice">mhrice</a>. Monster Hunter and all related assets are property of Capcom.
+  <a href="https://github.com/wwylele/mhrice" rel="noopener">mhrice</a>. Monster Hunter and all related assets are property of Capcom.
   Fan project, not an official product.
+  · <a class="footer-coffee" href="https://buymeacoffee.com/raffworks" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 </footer>
+
+<noscript><p style="padding:20px">MHR Equipment Builder is a Monster Hunter Rise armor set and skill calculator. It needs JavaScript enabled to run.</p></noscript>
 
 <div id="ov" hidden><div id="panel" role="dialog" aria-modal="true"></div></div>
 <datalist id="skillList"></datalist>
@@ -565,6 +683,12 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     }).join("") + "</div>";
     h += '<div class="defl">Base Def ' + c.def + "</div>";
     $("equip").innerHTML = h;
+    var chips = ids.filter(function (id) { return (c.tot[id] || 0) > 0 || W[id]; }).map(function (id) {
+      var s = skillById[id], actual = c.tot[id] || 0;
+      var cls = "chip" + (W[id] ? " w" : "") + (actual > s.max ? " over" : "") + (W[id] && actual < W[id] ? " short" : "");
+      return '<span class="' + cls + '">' + esc(s.name) + " <b>" + actual + "/" + s.max + "</b></span>";
+    }).join("");
+    $("eqStrip").innerHTML = (chips || '<span class="chip">No skills yet</span>') + '<span class="chip">Def <b>' + c.def + "</b></span>";
     renderElem(c);
     renderWeaponPick();
   }
@@ -639,7 +763,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   $("q").addEventListener("input", renderGrid);
 
   // ---------- skill sasaran ----------
-  function onTargets() { save(); renderEquip(); renderGrid(); }
+  function onTargets() { save(); updateRail(); renderEquip(); renderGrid(); }
   function renderTargets() {
     var box = $("targets");
     box.innerHTML = "";
@@ -872,7 +996,36 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     save(); renderEquip();
   });
 
+  // ---------- panel collapse (remembered with the build) ----------
+  if (!state.ui || typeof state.ui !== "object") state.ui = {};
+  var ui = state.ui;
+  function applyUi() {
+    $("layout").classList.toggle("sidec", !!ui.side);
+    var sb = $("sideToggle");
+    sb.textContent = ui.side ? "»" : "«";
+    sb.title = ui.side ? "Expand sidebar" : "Collapse sidebar";
+    sb.setAttribute("aria-expanded", ui.side ? "false" : "true");
+    $("main").classList.toggle("eqc", !!ui.eq);
+    $("main").classList.toggle("arc", !!ui.arm);
+    var ab = $("armToggle");
+    ab.textContent = ui.arm ? "▸ Expand" : "▾ Collapse";
+    ab.setAttribute("aria-expanded", ui.arm ? "false" : "true");
+    $("equip").hidden = !!ui.eq;
+    $("eqStrip").hidden = !ui.eq;
+    var eb = $("eqToggle");
+    eb.textContent = ui.eq ? "▸ Expand" : "▾ Collapse";
+    eb.setAttribute("aria-expanded", ui.eq ? "false" : "true");
+  }
+  function updateRail() {
+    var n = state.targets.filter(function (t) { return lookup(t.name); }).length;
+    $("railCount").textContent = n ? "· " + n : "";
+  }
+  $("sideToggle").addEventListener("click", function () { ui.side = !ui.side; save(); applyUi(); });
+  $("armToggle").addEventListener("click", function () { ui.arm = !ui.arm; save(); applyUi(); });
+  $("eqToggle").addEventListener("click", function () { ui.eq = !ui.eq; save(); applyUi(); });
+
   // ---------- mula ----------
+  applyUi(); updateRail();
   renderTargets();
   renderEquip();
   renderGrid();
