@@ -309,6 +309,8 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   .listhead input{flex:1 1 140px;width:auto}
   .h-row{gap:8px}
 }
+.sidec #sideToggle{padding:6px 0;width:36px;justify-content:center}
+@media (max-width:860px){.sidec #sideToggle{padding:6px 14px;width:auto}}
 </style>
 </head>
 <body>
@@ -321,7 +323,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
 <div class="layout" id="layout">
   <aside class="side" id="side">
     <div class="sidetop">
-      <button class="obtn icon-btn" id="sideToggle" type="button" aria-expanded="true" aria-controls="sideBody" title="Collapse sidebar">«</button>
+      <button class="obtn" id="sideToggle" type="button" aria-expanded="true" aria-controls="sideBody" title="Collapse skills">◂ Collapse</button>
       <span class="railtxt">Skills <b id="railCount"></b></span>
     </div>
     <div id="sideBody">
@@ -370,7 +372,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   · <a class="footer-coffee" href="https://buymeacoffee.com/raffworks" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 </footer>
 
-<noscript><p style="padding:20px">MHR Equipment Builder is a Monster Hunter Rise armor set and skill calculator. It needs JavaScript enabled to run.</p></noscript>
+<noscript><p style="padding:20px">MHR Equipment Builder is a Monster Hunter Rise armor set and equipment builder. It needs JavaScript enabled to run.</p></noscript>
 
 <div id="ov" hidden><div id="panel" role="dialog" aria-modal="true"></div></div>
 <datalist id="skillList"></datalist>
@@ -999,11 +1001,17 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   // ---------- panel collapse (remembered with the build) ----------
   if (!state.ui || typeof state.ui !== "object") state.ui = {};
   var ui = state.ui;
+  // wide screens: sidebar folds left/right; stacked (phone) layout: folds up/down like Equipment and Armor
+  var mqStack = window.matchMedia("(max-width:860px)");
+  function sideLabel() {
+    if (mqStack.matches) return ui.side ? "▸ Expand" : "▾ Collapse";
+    return ui.side ? "▸" : "◂ Collapse";
+  }
   function applyUi() {
     $("layout").classList.toggle("sidec", !!ui.side);
     var sb = $("sideToggle");
-    sb.textContent = ui.side ? "»" : "«";
-    sb.title = ui.side ? "Expand sidebar" : "Collapse sidebar";
+    sb.textContent = sideLabel();
+    sb.title = ui.side ? "Expand skills" : "Collapse skills";
     sb.setAttribute("aria-expanded", ui.side ? "false" : "true");
     $("main").classList.toggle("eqc", !!ui.eq);
     $("main").classList.toggle("arc", !!ui.arm);
@@ -1023,6 +1031,8 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   $("sideToggle").addEventListener("click", function () { ui.side = !ui.side; save(); applyUi(); });
   $("armToggle").addEventListener("click", function () { ui.arm = !ui.arm; save(); applyUi(); });
   $("eqToggle").addEventListener("click", function () { ui.eq = !ui.eq; save(); applyUi(); });
+
+  if (mqStack.addEventListener) mqStack.addEventListener("change", applyUi); else if (mqStack.addListener) mqStack.addListener(applyUi);
 
   // ---------- mula ----------
   applyUi(); updateRail();
