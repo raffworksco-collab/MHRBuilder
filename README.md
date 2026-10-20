@@ -6,16 +6,32 @@ MHRBuilder helps players browse equipment, explore armor skills, and plan their 
 
 **Website:** [MHRBuilder](https://raffworksco-collab.github.io/MHRBuilder/)
 
-**Support development:** [Buy Me a Coffee ☕](https://buymeacoffee.com/raffworks)
+**Support development (optional):** [Buy Me a Coffee ☕](https://buymeacoffee.com/raffworks)
 
 ## Features
 
 * Browse armor and equipment.
 * Filter armor by selected skills.
 * View equipment skills and elemental defenses.
-* Browse weapons and decoration slots.
+* Browse weapons, rampage decorations and decoration slots.
 * Manage charms locally in your browser.
+* **Saved builds:** keep up to 30 planned builds in named save slots and load them later.
+* **Export builds:** copy a build as plain text, download it as a PNG image, or back up and restore all saved builds as a JSON file.
+* **Collapsible panels:** fold the Skills sidebar, the Equipment panel and the Armor list so a finished build can be viewed in full without scrolling through the whole armor list.
+* **Responsive layout:** adapts to small laptops and phones without zooming out. On narrow screens the tables turn into stacked cards.
 * Run as a static website without a backend server.
+
+## Using Saved Builds
+
+1. Select skills, armor, a weapon and a charm as usual.
+2. Open **💾 Builds** in the Equipment header, type a name and press **Save**.
+3. Later, open **💾 Builds** again and press **Load** on any slot to restore the build and its target skills.
+4. Use **Copy text** or **PNG** on the current build or on any saved slot to export it.
+5. Use **Backup all (.json)** and **Import (.json)** to move your slots to another browser or device.
+
+Saved builds, charms, panel state and other settings are stored in your browser's local storage on your own device. Nothing is uploaded to a server. Clearing your browser's site data removes them, so use the backup option for builds you want to keep.
+
+Exported text and PNG files contain only the build's names, skill levels and numbers. They do not include game artwork or icons.
 
 ## Getting Started
 
@@ -75,19 +91,29 @@ No independent license or authorization from Capcom is claimed for these extract
 
 For further information, consult [Capcom's official Video Policy](https://www.capcomusa.com/video-policy/). This policy concerns Capcom content in video and related contexts and should not be interpreted as specific authorization to redistribute extracted game assets through this application.
 
+If you are a rights holder and have a concern about any content in this repository, please open an issue in the repository so it can be reviewed promptly.
+
 ### Disclaimer
 
 MHRBuilder is an unofficial fan project. It is not affiliated with, endorsed by, or sponsored by Capcom.
 
 All trademarks and third-party intellectual property remain the property of their respective owners.
 
-## Donations
+## Support the Project ☕
 
-MHRBuilder is free to use.
+If MHRBuilder has helped you plan a build or made comparing equipment a little easier, thank you for giving it a try! If you’d like to support its continued development, you’re welcome to [buy me a coffee](https://buymeacoffee.com/raffworks). Your support is appreciated and helps encourage ongoing maintenance and improvements.
 
-If you find the project useful and would like to support its continued development, voluntary donations are welcome but entirely optional. Donations are not required to access or use the project.
+There’s absolutely no obligation to donate. MHRBuilder is free to use, and all features are available to everyone whether they donate or not.
 
-[**Support RaffWorks on Buy Me a Coffee ☕**](https://buymeacoffee.com/raffworks)
+A few important notes:
+
+* Donations are voluntary and support the developer’s time spent maintaining and improving the software.
+* Donations do not buy, license, or unlock Capcom content, game assets, or game data. Nothing is sold through this project.
+* Donating does not provide special access, features, or rights.
+* The donation page is run by the developer and is not run by, endorsed by, or connected to Capcom. Donations are not payments to Capcom or any other rights holder.
+* The Monster Hunter name and related material are referenced only to describe what this fan-made tool is for.
+
+Thanks for being part of the community—whether you donate, share feedback, report an issue, or simply use the builder. It all helps!
 
 ## Credits
 

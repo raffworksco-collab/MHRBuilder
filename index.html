@@ -311,6 +311,21 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
 }
 .sidec #sideToggle{padding:6px 0;width:36px;justify-content:center}
 @media (max-width:860px){.sidec #sideToggle{padding:6px 14px;width:auto}}
+/* saved builds */
+#panel.builds{width:520px}
+.bsave{display:flex;gap:6px}
+.bsave input{flex:1;min-width:0}
+.brow2{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
+.obtn.sm{min-height:28px;padding:3px 10px;font-size:12px}
+.obtn.danger:hover{color:var(--bad);border-color:var(--bad)}
+.bi{padding:8px;border-bottom:1px solid var(--line)}
+.bi .bn{display:flex;flex-direction:column;min-width:0}
+.bi .bn b{color:var(--head);overflow-wrap:anywhere}
+.bi .bn small{color:var(--muted);font-size:11.5px}
+.bi .ba{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.bi.cur{background:var(--sel);box-shadow:inset 3px 0 0 var(--prim)}
+#bmsg{margin-top:6px;font-size:12px;min-height:1.2em;color:var(--muted)}
+.pf .brow2{margin-top:0}
 </style>
 </head>
 <body>
@@ -351,6 +366,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     <div class="h-row"><h2>Equipment</h2><span class="sp"></span>
       <div class="strip" id="eqStrip" hidden></div>
       <button class="obtn" id="eqToggle" type="button" aria-expanded="true" aria-controls="equip">▾ Collapse</button>
+      <button class="obtn" id="buildsBtn" type="button" aria-haspopup="dialog">💾 Builds</button>
       <button class="obtn" id="clearEq" type="button">Clear equipment</button></div>
     <div id="equip"></div>
 
@@ -369,7 +385,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   Armor, skill, decoration and weapon data were extracted from the Monster Hunter Rise game files using
   <a href="https://github.com/wwylele/mhrice" rel="noopener">mhrice</a>. Monster Hunter and all related assets are property of Capcom.
   Fan project, not an official product.
-  · <a class="footer-coffee" href="https://buymeacoffee.com/raffworks" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+  · <a class="footer-coffee" href="https://buymeacoffee.com/raffworks" target="_blank" rel="noopener">☕ Support this project</a>
 </footer>
 
 <noscript><p style="padding:20px">MHR Equipment Builder is a Monster Hunter Rise armor set and equipment builder. It needs JavaScript enabled to run.</p></noscript>
@@ -809,7 +825,8 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   var ov = $("ov"), panel = $("panel"), ctx = null;
   function openPanel(html, anchor, wide) {
     panel.innerHTML = html;
-    panel.classList.toggle("wide", !!wide);
+    panel.classList.toggle("wide", wide === true);
+    panel.classList.toggle("builds", wide === "builds");
     ov.hidden = false;
     var center = !anchor || window.innerWidth <= 700;
     ov.className = center ? "center" : "";
@@ -998,6 +1015,304 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
     save(); renderEquip();
   });
 
+  // ---------- saved builds (save slots / wishlist) ----------
+  var MAX_SAVES = 30, SITE = "https://raffworksco-collab.github.io/MHRBuilder/";
+  if (!Array.isArray(state.saves)) state.saves = [];
+  function clone(x) { return JSON.parse(JSON.stringify(x)); }
+  function stable(o) {
+    return JSON.stringify(o, function (k, v) {
+      if (v && typeof v === "object" && !Array.isArray(v)) { var r = {}; Object.keys(v).sort().forEach(function (x) { r[x] = v[x]; }); return r; }
+      return v;
+    });
+  }
+  function keyOf(b, ch) { return stable([b.weaponId || 0, b.weapon, b.rampage, b.pieces, b.jewels, ch ? [ch.skills, ch.slots] : null]); }
+  function hasContent() {
+    return !!(build.weaponId || curCharm() || Object.keys(build.pieces).length || Object.keys(build.jewels).length || Object.keys(build.rampage).length);
+  }
+  function nextId() { var id = Date.now(); while (state.saves.some(function (x) { return x.id === id; })) id++; return id; }
+  function findSave(id) { var f = null; state.saves.forEach(function (x) { if (x.id === id) f = x; }); return f; }
+  function snapNow(name) {
+    var ch = curCharm();
+    return {
+      id: nextId(), name: name, ts: Date.now(), build: clone(build), charm: ch ? clone(ch) : null,
+      targets: state.targets.filter(function (t) { return lookup(t.name); }).map(function (t) { return { name: t.name, lv: t.lv }; })
+    };
+  }
+  function loadSnap(sn) {
+    var nb = Object.assign(defaults().build, clone(sn.build));
+    if (sn.charm) {
+      if (!state.charms.some(function (c) { return c.id === sn.charm.id; })) state.charms.push(clone(sn.charm));
+      nb.charm = sn.charm.id;
+    } else nb.charm = null;
+    if (!nb.rampage) nb.rampage = {};
+    state.build = build = nb;
+    state.targets = sn.targets && sn.targets.length ? clone(sn.targets) : [{ name: "", lv: 0 }];
+    renderTargets(); onTargets();
+  }
+  // run fn with a saved build temporarily acting as the current one (used for export)
+  function withSnap(sn, fn) {
+    var pb = build, pc = state.charms, pt = state.targets;
+    build = sn.build; state.charms = sn.charm ? [sn.charm] : []; state.targets = sn.targets || [];
+    try { return fn(); } finally { build = pb; state.charms = pc; state.targets = pt; }
+  }
+
+  function slotLine(group) {
+    var out = [];
+    getSlots(group).forEach(function (sz, i) { if (!sz) return; var d = validJewel(group, i); out.push("[" + sz + "] " + (d ? d.name : "empty")); });
+    return out.join(" · ");
+  }
+  function rampLine() {
+    var wp = curWeapon(); if (!wp || !wp[9] || !wp[9].length) return "";
+    return wp[9].map(function (v, i) { var d = rampDeco(i, v); return "R" + v + " " + (d ? d.name : "empty"); }).join(" · ");
+  }
+  function charmSkillText(ch) {
+    return Object.keys(ch.skills || {}).filter(function (id) { return skillById[id]; }).map(function (id) { return skillById[id].name + " " + ch.skills[id]; }).join(", ");
+  }
+  function skillIds(c, W) {
+    var ids = Object.keys(c.tot);
+    Object.keys(W).forEach(function (id) { if (ids.indexOf(id) < 0) ids.push(id); });
+    ids = ids.filter(function (id) { return skillById[id] && ((c.tot[id] || 0) > 0 || W[id]); });
+    ids.sort(function (a, b) { return (W[b] ? 1 : 0) - (W[a] ? 1 : 0) || (c.tot[b] || 0) - (c.tot[a] || 0); });
+    return ids;
+  }
+  function elemText(c) {
+    return ELEM.map(function (e, i) { return e[0] + " " + (c.el[i] > 0 ? "+" : "") + c.el[i]; }).join("  ");
+  }
+  function buildText(name) {
+    var c = compute(), W = wantedMap(), L = [], wp = curWeapon();
+    L.push("MHR Equipment Builder" + (name ? " - " + name : ""), "");
+    L.push("Weapon: " + (wp ? wp[2] + " (" + wp[1] + ", ★" + wp[3] + ")" : "-"));
+    var ws = slotLine("weapon"); if (ws) L.push("  Slots: " + ws);
+    var rl = rampLine(); if (rl) L.push("  Rampage: " + rl);
+    PARTS.forEach(function (p) {
+      var e = equipped(p);
+      L.push(PART[p] + ": " + (e ? e.pc[0] + " (" + e.a[1] + ", " + TIER[e.a[2]] + " ★" + e.a[3] + ")" : "-"));
+      var sl = e ? slotLine(p) : ""; if (sl) L.push("  Slots: " + sl);
+    });
+    var ch = curCharm();
+    L.push("Charm: " + (ch ? (ch.name || "Charm") + (charmSkillText(ch) ? " (" + charmSkillText(ch) + ")" : "") : "-"));
+    var cs = ch ? slotLine("charm") : ""; if (cs) L.push("  Slots: " + cs);
+    var ids = skillIds(c, W);
+    L.push("", "Skills:");
+    if (!ids.length) L.push("  -");
+    ids.forEach(function (id) {
+      var sk = skillById[id], a = c.tot[id] || 0;
+      L.push("  " + sk.name + " Lv " + Math.min(a, sk.max) + "/" + sk.max + (a > sk.max ? " (over by " + (a - sk.max) + ")" : "") +
+        (W[id] && a < W[id] ? " (short " + (W[id] - a) + ")" : ""));
+    });
+    L.push("", "Defense: " + c.def + " | " + elemText(c), "", SITE);
+    return L.join("\n");
+  }
+
+  function fitText(g, t, w) {
+    if (g.measureText(t).width <= w) return t;
+    while (t.length > 1 && g.measureText(t + "…").width > w) t = t.slice(0, -1);
+    return t + "…";
+  }
+  function buildPng(name) {
+    var cs = getComputedStyle(document.documentElement);
+    function cv(n, f) { return (cs.getPropertyValue(n) || "").trim() || f; }
+    var C = { bg: cv("--bg", "#fff"), ink: cv("--ink", "#333"), muted: cv("--muted", "#888"), line: cv("--line", "#ddd"), head: cv("--head", "#444"),
+      gold: cv("--gold", "#a8842b"), prim: cv("--prim", "#2f7f8c"), bad: cv("--bad", "#b3261e"), seg: "#d7ad36" };
+    var FONT = 'system-ui,-apple-system,"Segoe UI",Roboto,sans-serif', WID = 780, PAD = 28, LABW = 80, SC = 2;
+    var MAINW = WID - 2 * PAD - LABW, c = compute(), W = wantedMap(), wp = curWeapon(), rows = [];
+    function row(label, main, sub, slots) { rows.push({ label: label, main: main, sub: sub, slots: slots, h: 22 + (sub ? 17 : 0) + (slots ? 16 : 0) + 12 }); }
+    var wx = [slotLine("weapon"), rampLine()].filter(Boolean).join("  |  ");
+    row("Weapon", wp ? wp[2] : "—", wp ? wp[1] + " · ★" + wp[3] + " · ATK " + wp[4] + " · Aff " + wp[5] + "%" : "", wx);
+    PARTS.forEach(function (p) {
+      var e = equipped(p);
+      row(PART[p], e ? e.pc[0] : "—", e ? e.a[1] + " · " + TIER[e.a[2]] + " · ★" + e.a[3] : "", e ? slotLine(p) : "");
+    });
+    var ch = curCharm();
+    row("Charm", ch ? (ch.name || "Charm") : "—", ch ? charmSkillText(ch) : "", ch ? slotLine("charm") : "");
+    var ids = skillIds(c, W), rowsH = 0;
+    rows.forEach(function (r) { rowsH += r.h; });
+    var skRows = Math.ceil(ids.length / 2), H = PAD + 58 + rowsH + 44 + skRows * 36 + 16 + 24 + 34 + PAD / 2;
+    var cv2 = document.createElement("canvas"); cv2.width = WID * SC; cv2.height = Math.round(H * SC);
+    var g = cv2.getContext("2d"); g.scale(SC, SC);
+    g.fillStyle = C.bg; g.fillRect(0, 0, WID, H);
+    var y = PAD;
+    g.fillStyle = C.prim; g.font = "600 12px " + FONT; g.fillText("MHR EQUIPMENT BUILDER", PAD, y + 10);
+    g.fillStyle = C.head; g.font = "700 24px " + FONT; g.fillText(fitText(g, name || "My build", WID - 2 * PAD), PAD, y + 40);
+    y += 58;
+    rows.forEach(function (r) {
+      g.fillStyle = C.line; g.fillRect(PAD, y, WID - 2 * PAD, 1);
+      var ty = y + 22;
+      g.fillStyle = C.muted; g.font = "600 11px " + FONT; g.fillText(r.label.toUpperCase(), PAD, ty);
+      g.fillStyle = C.head; g.font = "700 15px " + FONT; g.fillText(fitText(g, r.main, MAINW), PAD + LABW, ty);
+      if (r.sub) { ty += 17; g.fillStyle = C.muted; g.font = "12px " + FONT; g.fillText(fitText(g, r.sub, MAINW), PAD + LABW, ty); }
+      if (r.slots) { ty += 16; g.fillStyle = C.gold; g.font = "12px " + FONT; g.fillText(fitText(g, r.slots, MAINW), PAD + LABW, ty); }
+      y += r.h;
+    });
+    g.fillStyle = C.line; g.fillRect(PAD, y, WID - 2 * PAD, 1);
+    g.fillStyle = C.muted; g.font = "600 11px " + FONT; g.fillText("SKILLS", PAD, y + 24);
+    y += 44;
+    var colW = (WID - 2 * PAD - 30) / 2;
+    ids.forEach(function (id, i) {
+      var sk = skillById[id], a = c.tot[id] || 0, have = Math.min(a, sk.max), over = a > sk.max, short = W[id] && a < W[id];
+      var x = PAD + (i % 2) * (colW + 30), yy = y + Math.floor(i / 2) * 36;
+      g.fillStyle = over ? C.bad : C.ink; g.font = (W[id] ? "700" : "400") + " 13px " + FONT;
+      g.fillText(fitText(g, sk.name, colW - 56), x, yy + 12);
+      g.textAlign = "right"; g.fillStyle = (over || short) ? C.bad : C.gold; g.font = "700 13px " + FONT;
+      g.fillText(a + "/" + sk.max, x + colW, yy + 12); g.textAlign = "left";
+      for (var j = 0; j < sk.max; j++) {
+        g.fillStyle = j < have ? (over ? C.bad : C.seg) : C.line;
+        g.fillRect(x + j * 13, yy + 19, 10, 5);
+      }
+    });
+    y += skRows * 36 + 16;
+    g.fillStyle = C.ink; g.font = "600 13px " + FONT;
+    g.fillText(fitText(g, "Defense " + c.def + "   |   " + elemText(c), WID - 2 * PAD), PAD, y + 12);
+    g.fillStyle = C.muted; g.font = "11px " + FONT; g.textAlign = "right";
+    g.fillText(SITE.replace(/^https?:\/\//, "").replace(/\/$/, ""), WID - PAD, H - PAD / 2 - 4); g.textAlign = "left";
+    return cv2;
+  }
+
+  function download(blob, fname) {
+    var a = document.createElement("a"), u = URL.createObjectURL(blob);
+    a.href = u; a.download = fname; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(u); }, 2000);
+  }
+  function slug(n) { return String(n || "build").replace(/[^\w\-]+/g, "_").replace(/^_+|_+$/g, "") || "build"; }
+  function fallbackCopy(t) {
+    var ta = document.createElement("textarea"), ok = false;
+    ta.value = t; ta.style.cssText = "position:fixed;opacity:0;top:0;left:0"; document.body.appendChild(ta); ta.select();
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta); return ok;
+  }
+  function copyOut(text, name) {
+    function done(ok) {
+      if (ok) setMsg("Text copied to clipboard.");
+      else { download(new Blob([text], { type: "text/plain" }), slug(name) + ".txt"); setMsg("Copy was blocked, so a .txt file was downloaded instead."); }
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+    else done(fallbackCopy(text));
+  }
+  function pngOut(canvas, name) {
+    canvas.toBlob(function (b) {
+      if (!b) { setMsg("Could not create the image."); return; }
+      download(b, slug(name) + ".png"); setMsg("PNG downloaded.");
+    }, "image/png");
+  }
+  function setMsg(t) { var m = $("bmsg"); if (m) m.textContent = t; }
+
+  // clean data coming from an imported file so it can never break the page
+  function cleanSnap(x) {
+    if (!x || typeof x !== "object" || !x.build || typeof x.build !== "object") return null;
+    var b = defaults().build, xb = x.build, pcs = xb.pieces || {}, jw = xb.jewels || {}, rp = xb.rampage || {}, ch = null;
+    if (weaponById[xb.weaponId]) b.weaponId = +xb.weaponId;
+    b.weaponType = typeof xb.weaponType === "string" ? xb.weaponType.slice(0, 30) : "";
+    if (Array.isArray(xb.weapon)) b.weapon = [0, 1, 2].map(function (i) { return Math.min(4, Math.max(0, parseInt(xb.weapon[i], 10) || 0)); });
+    PARTS.forEach(function (p) { var a = armorById[pcs[p]]; if (a && a[5][p]) b.pieces[p] = a[0]; });
+    Object.keys(jw).forEach(function (k) { if (/^(weapon|charm|head|chest|arms|waist|legs):\d$/.test(k) && decoByName[jw[k]]) b.jewels[k] = jw[k]; });
+    Object.keys(rp).forEach(function (k) { if (/^\d$/.test(k) && rampByName[rp[k]]) b.rampage[k] = rp[k]; });
+    var xc = x.charm;
+    if (xc && typeof xc === "object") {
+      var sk = {}, sl = [];
+      Object.keys(xc.skills || {}).forEach(function (id) {
+        var lv = parseInt(xc.skills[id], 10) || 0;
+        if (skillById[id] && lv > 0) sk[id] = Math.min(lv, skillById[id].max);
+      });
+      if (Array.isArray(xc.slots)) sl = xc.slots.map(function (n) { return parseInt(n, 10) || 0; }).filter(function (n) { return n > 0 && n <= 4; }).slice(0, 3);
+      if (Object.keys(sk).length || sl.length) {
+        ch = { id: Math.floor(+xc.id) || Date.now(), name: String(xc.name || "").slice(0, 40), skills: sk, slots: sl };
+        b.charm = ch.id;
+      }
+    }
+    var tg = (Array.isArray(x.targets) ? x.targets : []).filter(function (t) { return t && lookup(t.name); })
+      .map(function (t) { return { name: String(t.name).slice(0, 60), lv: skillById[lookup(t.name)].max }; });
+    return { id: 0, name: String(x.name || "Imported build").slice(0, 40), ts: +x.ts || Date.now(), build: b, charm: ch, targets: tg };
+  }
+
+  function updateBuildsBtn() {
+    var n = state.saves.length;
+    $("buildsBtn").textContent = "💾 Builds" + (n ? " (" + n + ")" : "");
+  }
+  function buildsHtml() {
+    var cur = keyOf(build, curCharm());
+    var h = '<div class="ph">Saved builds<button type="button" class="pclose" aria-label="Close">×</button></div>' +
+      '<div class="pq"><div class="bsave"><input type="text" id="bName" maxlength="40" placeholder="Name this build…" autocomplete="off">' +
+      '<button type="button" class="obtn fill" data-bact="save">Save</button></div>' +
+      '<div class="brow2"><span class="none">Current build:</span><button type="button" class="obtn sm" data-bact="ctext">Copy text</button>' +
+      '<button type="button" class="obtn sm" data-bact="cpng">PNG</button></div><div id="bmsg" role="status" aria-live="polite"></div></div>' +
+      '<div class="pbody">';
+    if (!state.saves.length) h += '<div class="none" style="padding:12px">No saved builds yet. Equip something, name it and press Save.</div>';
+    state.saves.forEach(function (sn) {
+      var wp = weaponById[sn.build.weaponId], np = Object.keys(sn.build.pieces || {}).length;
+      var meta = new Date(sn.ts).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) + " · " + np + "/5 armor" + (wp ? " · " + wp[2] : "");
+      h += '<div class="bi' + (keyOf(sn.build, sn.charm) === cur ? " cur" : "") + '" data-bid="' + sn.id + '"><div class="bn"><b>' + esc(sn.name) + "</b><small>" + esc(meta) + "</small></div>" +
+        '<div class="ba"><button type="button" class="obtn sm fill" data-bact="load">Load</button>' +
+        '<button type="button" class="obtn sm" data-bact="text">Copy text</button><button type="button" class="obtn sm" data-bact="png">PNG</button>' +
+        '<button type="button" class="obtn sm" data-bact="update" title="Overwrite this slot with the current build">Update</button>' +
+        '<button type="button" class="obtn sm danger" data-bact="del">Delete</button></div></div>';
+    });
+    h += '</div><div class="pf"><div class="brow2"><button type="button" class="obtn sm" data-bact="expall">Backup all (.json)</button>' +
+      '<button type="button" class="obtn sm" data-bact="impall">Import (.json)</button><input type="file" id="bImp" accept="application/json,.json" hidden></div></div>';
+    return h;
+  }
+  function renderBuilds() { if (ctx && ctx.type === "builds") panel.innerHTML = buildsHtml(); }
+  function openBuilds(anchor) {
+    ctx = { type: "builds" };
+    openPanel(buildsHtml(), anchor, "builds");
+    if (window.innerWidth > 700) $("bName").focus();
+  }
+  $("buildsBtn").addEventListener("click", function () { openBuilds(this); });
+
+  panel.addEventListener("click", function (e) {
+    if (!ctx || ctx.type !== "builds") return;
+    var b = e.target.closest("[data-bact]"); if (!b) return;
+    var act = b.dataset.bact, row = b.closest("[data-bid]"), sn = row ? findSave(+row.dataset.bid) : null;
+    if (act === "save") {
+      var nm = ($("bName").value || "").trim().slice(0, 40) || "Build " + (state.saves.length + 1);
+      if (!hasContent()) { setMsg("Equip a weapon, armor or charm first."); return; }
+      if (state.saves.length >= MAX_SAVES) { setMsg("All " + MAX_SAVES + " slots are used. Delete one first."); return; }
+      state.saves.unshift(snapNow(nm)); save(); updateBuildsBtn(); renderBuilds(); setMsg('Saved "' + nm + '".');
+    } else if (act === "ctext") copyOut(buildText(""), "build");
+    else if (act === "cpng") pngOut(buildPng(""), "build");
+    else if (act === "expall") {
+      if (!state.saves.length) { setMsg("Nothing to back up yet."); return; }
+      download(new Blob([JSON.stringify({ app: "mhr-equipment-builder", version: 1, saves: state.saves }, null, 1)], { type: "application/json" }), "mhr-builds.json");
+      setMsg("Backup downloaded.");
+    } else if (act === "impall") $("bImp").click();
+    else if (sn) {
+      if (act === "load") {
+        var saved = state.saves.some(function (x) { return keyOf(x.build, x.charm) === keyOf(build, curCharm()); });
+        if (hasContent() && !saved && !confirm("Replace your current build? It is not saved in any slot.")) return;
+        loadSnap(sn); closePanel();
+      } else if (act === "text") copyOut(withSnap(sn, function () { return buildText(sn.name); }), sn.name);
+      else if (act === "png") pngOut(withSnap(sn, function () { return buildPng(sn.name); }), sn.name);
+      else if (act === "update") {
+        if (!hasContent()) { setMsg("Nothing equipped to save."); return; }
+        if (!confirm('Overwrite "' + sn.name + '" with your current build?')) return;
+        var ns = snapNow(sn.name); ns.id = sn.id; state.saves[state.saves.indexOf(sn)] = ns;
+        save(); renderBuilds(); setMsg('Updated "' + sn.name + '".');
+      } else if (act === "del") {
+        if (!confirm('Delete "' + sn.name + '"?')) return;
+        state.saves = state.saves.filter(function (x) { return x !== sn; });
+        save(); updateBuildsBtn(); renderBuilds(); setMsg("Deleted.");
+      }
+    }
+  });
+  panel.addEventListener("change", function (e) {
+    var inp = e.target.closest("#bImp");
+    if (!ctx || ctx.type !== "builds" || !inp || !inp.files || !inp.files[0]) return;
+    var f = inp.files[0], fr = new FileReader();
+    if (f.size > 2000000) { setMsg("That file is too large."); return; }
+    fr.onload = function () {
+      var n = 0;
+      try {
+        var data = JSON.parse(fr.result), arr = Array.isArray(data) ? data : data && data.saves;
+        (Array.isArray(arr) ? arr : []).forEach(function (x) {
+          if (state.saves.length >= MAX_SAVES) return;
+          var sn = cleanSnap(x); if (sn) { sn.id = nextId(); state.saves.push(sn); n++; }
+        });
+      } catch (err) {}
+      save(); updateBuildsBtn(); renderBuilds();
+      setMsg(n ? "Imported " + n + " build" + (n > 1 ? "s" : "") + "." : "Nothing imported. That is not a valid builds file.");
+    };
+    fr.readAsText(f);
+  });
+
   // ---------- panel collapse (remembered with the build) ----------
   if (!state.ui || typeof state.ui !== "object") state.ui = {};
   var ui = state.ui;
@@ -1035,7 +1350,7 @@ footer{flex:none;margin:0;max-width:none;padding:8px 20px;border-top:1px solid v
   if (mqStack.addEventListener) mqStack.addEventListener("change", applyUi); else if (mqStack.addListener) mqStack.addListener(applyUi);
 
   // ---------- mula ----------
-  applyUi(); updateRail();
+  applyUi(); updateRail(); updateBuildsBtn();
   renderTargets();
   renderEquip();
   renderGrid();
